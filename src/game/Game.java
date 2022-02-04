@@ -33,14 +33,31 @@ public class Game {
         // make a suspended platform
         Shape platformShape = new BoxShape(3, 0.5f);
         StaticBody platform1 = new StaticBody(world, platformShape);
-        platform1.setPosition(new Vec2(-8, -4f));
+        platform1.setPosition(new Vec2(-8, -1f));
+
+        //make the second suspended platform
+        StaticBody platform2 = new StaticBody(world, platformShape);
+        platform2.setPosition(new Vec2(8, 0.5f));
+        platform2.setAngleDegrees(30);
+
+        //make the wall1 (left wall)
+        Shape wallShape = new BoxShape(0.5f,10);
+        StaticBody wall1= new StaticBody(world,wallShape);
+        wall1.setPosition(new Vec2(-10,-1));
+
+
+        //make the wall2( right wall2)
+        StaticBody wall2 = new StaticBody(world,wallShape);
+        wall2.setPosition(new Vec2(10,-1));
+
 
         //make a character (with an overlaid image)
         Shape studentShape = new BoxShape(1,2);
         DynamicBody student = new DynamicBody(world, studentShape);
         student.setPosition(new Vec2(4,-5));
-        student.addImage(new BodyImage("data/student.png", 4));
-
+        student.addImage(new BodyImage("data/student.png", 5));
+        student.setAlwaysOutline(true);
+;
 
         //3. make a view to look into the game world
         UserView view = new UserView(world, 500, 500);
@@ -67,7 +84,7 @@ public class Game {
         frame.setVisible(true);
 
         //optional: uncomment this to make a debugging view
-         JFrame debugView = new DebugViewer(world, 500, 500);
+     //    JFrame debugView = new DebugViewer(world, 500, 500);
 
         // start our game world simulation!
         world.start();
