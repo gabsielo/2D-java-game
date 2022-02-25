@@ -1,15 +1,20 @@
 package game;
 //imports
 import city.cs.engine.*;
-
+import city.cs.engine.Shape;
 import org.jbox2d.common.Vec2;
 import javax.swing.JFrame;
 
 
 //class
 public class GameWorld extends World {
+
+    Soldier soldier;
     public GameWorld() {
         super();
+
+        BodyImage spikeBallImage;
+        spikeBallImage = new BodyImage("data/spikeBall.png", 3f);
 
         // make the ground
         Shape shape = new BoxShape(11, 0.5f);
@@ -17,11 +22,11 @@ public class GameWorld extends World {
         ground.setPosition(new Vec2(0f, -11.5f));
 
         // make the character
-        Student student = new Student(this);
-        student.setPosition(new Vec2(7, -9));
-        student.setAlwaysOutline(true);
-        student.setLinearVelocity(new Vec2(0, 9));
-        student.increaseCredits(15);
+         soldier = new Soldier(this);
+        soldier.setPosition(new Vec2(7, -9));
+        soldier.setAlwaysOutline(true);
+        soldier.setLinearVelocity(new Vec2(0, 9));
+        soldier.increaseCredits(15);
 
 
         //**move** here the rest of the code from Gave.java that
@@ -38,9 +43,15 @@ public class GameWorld extends World {
         platform2.setAngleDegrees(30);
 
         //make the ball
+        //experiment adding image for ball
+
+
+
         CircleShape ballShape = new CircleShape(1.5f);
         DynamicBody ball = new DynamicBody(this, ballShape);
         ball.setPosition(new Vec2(8, 0.9f));
+        ball.addImage(spikeBallImage);
+
 
         //make the wall1 (left wall)
         Shape wallShape = new BoxShape(0.5f, 10);
@@ -52,5 +63,11 @@ public class GameWorld extends World {
         StaticBody wall2 = new StaticBody(this, wallShape);
         wall2.setPosition(new Vec2(10, -1));
 
-    }}
+    }
+//accessor soldier
+
+    public Soldier getSoldier() {
+        return soldier;
+    }
+}
 

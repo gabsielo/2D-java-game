@@ -16,7 +16,8 @@ import javax.swing.text.View;
  * Your main game entry point
  */
 public class Game {
-/*Mason Greenwood */
+/* Gabriel Maharaj gabriel.maharaj@city.ac.uk
+    adck757 */
 
     /** Initialise a new Game. */
     public Game() {
@@ -33,6 +34,10 @@ public class Game {
         GameView view = new GameView(world, 500, 500);
         //optional: draw a 1-metre grid over the view
         // view.setGridResolution(1);
+        //add controller
+        SoldierController controller = new SoldierController(world.getSoldier());
+        view.addKeyListener(controller);
+        view.addMouseListener(new GiveFocus(view));
 
 
         //4. create a Java window (frame) and add the game
