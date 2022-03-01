@@ -8,7 +8,7 @@ import java.awt.event.KeyListener;
 
 public class SoldierController implements KeyListener {
 
-    private static final float WALKING_SPEED = 4;
+    private static final float WALKING_SPEED = 7;
     private Soldier soldier;
 
     public SoldierController(Soldier soldier) {
@@ -21,8 +21,14 @@ public class SoldierController implements KeyListener {
         // other key commands omitted
         if (code == KeyEvent.VK_LEFT) {
             soldier.startWalking(-WALKING_SPEED);
+
+            soldier.flipSoldierImageLeft();
+
         } else if (code == KeyEvent.VK_RIGHT) {
             soldier.startWalking(WALKING_SPEED);
+           // soldier.removeAllImages();
+            soldier.flipSoldierImageRight();
+
         } else if (code == KeyEvent.VK_UP){
             soldier.jump(15);
         }

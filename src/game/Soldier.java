@@ -10,13 +10,23 @@ public class Soldier extends Walker {
 
 
     private static final Shape soldierShape = new BoxShape(1,2);
+   // soldier image
+    private static  BodyImage soldierImage =
+            new BodyImage("data/soldierRight.jpeg", 4f);
 
-    private static final BodyImage image =
-            new BodyImage("data/soldier.jpeg", 4f);
+        //soldier image palava
+        //soldier image getter
+
+
+         public static void flipSoldierImageLeft(){ soldierImage =
+              new BodyImage( "data/soldierLeft.jpg",4f);};
+        public static void flipSoldierImageRight(){ soldierImage =
+            new BodyImage( "data/soldierRight.jpeg",4f);}
+
 
     public Soldier(World world) {
         super(world, soldierShape);
-        addImage(image);
+        addImage(soldierImage);
         credits=0;}
 
     // accessor and mutator for methods
