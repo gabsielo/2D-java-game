@@ -9,7 +9,7 @@ public class Soldier extends Walker {
     public static int credits;
 
 
-    private static final Shape soldierShape = new BoxShape(1,2);
+    private static final Shape soldierShape = new PolygonShape(1.5f,-1.86f, -0.53f,-1.87f, -0.79f,0.69f, -0.03f,1.71f, 1.16f,1.3f, 1.56f,-1.84f);
    // soldier image
     private static  BodyImage soldierImage =
             new BodyImage("data/soldierRight.jpeg", 4f);
