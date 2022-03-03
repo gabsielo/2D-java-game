@@ -16,8 +16,9 @@ public class Soldier extends Walker {
 
         //soldier image palava
         //soldier image getter
+        public BodyImage getSoldierImage(){return soldierImage;}
 
-
+            // flip soldier images
          public static void flipSoldierImageLeft(){ soldierImage =
               new BodyImage( "data/soldierLeft.jpg",4f);};
         public static void flipSoldierImageRight(){ soldierImage =

@@ -23,12 +23,13 @@ public class SoldierController implements KeyListener {
             soldier.startWalking(-WALKING_SPEED);
 
             soldier.flipSoldierImageLeft();
-
-        } else if (code == KeyEvent.VK_RIGHT) {
+            soldier.addImage(soldier.getSoldierImage());
+        }
+        else if (code == KeyEvent.VK_RIGHT) {
             soldier.startWalking(WALKING_SPEED);
-           // soldier.removeAllImages();
+            soldier.removeAllImages();
             soldier.flipSoldierImageRight();
-
+            soldier.addImage(soldier.getSoldierImage());
         } else if (code == KeyEvent.VK_UP){
             soldier.jump(15);
         }
