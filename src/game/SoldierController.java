@@ -11,7 +11,7 @@ public class SoldierController implements KeyListener {
     private static final float WALKING_SPEED = 7;
     private Soldier soldier;
 
-    public SoldierController(Soldier soldier) {
+  public SoldierController(Soldier soldier) {
         this.soldier = soldier;
     }
 
