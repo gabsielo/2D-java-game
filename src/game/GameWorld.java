@@ -16,6 +16,9 @@ public class GameWorld extends World {
         BodyImage spikeBallImage;
         spikeBallImage = new BodyImage("data/spikeBall.png", 3f);
 
+
+
+
         // make the ground
         Shape shape = new BoxShape(11, 0.5f);
         StaticBody ground = new StaticBody(this, shape);
@@ -28,6 +31,9 @@ public class GameWorld extends World {
         soldier.setLinearVelocity(new Vec2(0, 9));
         soldier.increaseCredits(15);
 
+
+        // make an enemy
+        Terrorist Osama = new Terrorist(this);
 
         //**move** here the rest of the code from Gave.java that
         //populates the World - add platforms, Student, etc.
@@ -63,6 +69,9 @@ public class GameWorld extends World {
         StaticBody wall2 = new StaticBody(this, wallShape);
         wall2.setPosition(new Vec2(10, -1));
 
+        //add enemy collsion listner for the soldier
+        EnemyCollisionListener enemyCollision = new EnemyCollisionListener(soldier);
+        soldier.addCollisionListener(enemyCollision);
     }
 //accessor soldier
 
