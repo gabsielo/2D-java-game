@@ -9,7 +9,7 @@ public class Terrorist extends Walker {
     private static final Shape soldierShape = new BoxShape(1,2);
     // soldier image
     private static BodyImage TerroristImage =
-            new BodyImage("data/soldierRight.jpeg", 4f);
+            new BodyImage("data/terroristRight.png", 4f);
 
     //soldier image palava
     //soldier image getter
@@ -19,7 +19,7 @@ public class Terrorist extends Walker {
     public static void flipTerroristImageLeft(){ TerroristImage =
             new BodyImage( "data/TerroristRight.png",4f);};
     public static void flipTerroristImageRight(){ TerroristImage =
-            new BodyImage( "data/TerroristRight.png",4f);}
+            new BodyImage( "data/TerroristLeft.png",4f);}
 
 
     public Terrorist(World world) {
