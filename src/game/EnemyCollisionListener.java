@@ -18,7 +18,7 @@ public class EnemyCollisionListener implements CollisionListener {
     @Override
     public void collide(CollisionEvent e) {
         if (e.getOtherBody() instanceof Terrorist) {
-            soldier.setHealthLevel (soldier.getHealthLevel()-1);
+            soldier.decreaseHealthLevel(1);
             e.getOtherBody().destroy();
         }
     }

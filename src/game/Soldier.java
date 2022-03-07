@@ -28,23 +28,40 @@ public class Soldier extends Walker {
     public Soldier(World world) {
         super(world, soldierShape);
         addImage(soldierImage);
-        credits=0;}
+        credits=0;
+        setHealthLevel(1000);}
 
     // accessor and mutator for credits (PROBABLY REDUNDANT)
     public int getCredits(){return credits;}
     public void increaseCredits(int amount){credits = credits+ amount;}
     public void decreaseCredits(int amount){credits = credits- amount;}
 
-    //collsion methods (work in progress)
+
+ // Health level methods
+
     private int healthLevel;
+
+
+        //set health level
+
         public void setHealthLevel(int healthLevel){
             this.healthLevel = healthLevel;
-        //print message when a new book is read; it'll be useful later
-        System.out.println(" you  got hit " + healthLevel+ "health left");
-         }
+            System.out.println( healthLevel + "health left");}
+
+      // healthLevel getter
         public int getHealthLevel(){
          return healthLevel;
          }
+         //decreaseHealthLevel
+        public void decreaseHealthLevel(int healthAmount){
+            healthLevel= healthLevel-healthAmount;
+            System.out.println(" you  got hit " + healthLevel+ "health left");
+        };
+        // increase healthLevel
+        public void increaseHealthLevel(int healthAmount){
+            healthLevel = healthLevel+healthAmount;
+        }
+
 
 
 }
