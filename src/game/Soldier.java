@@ -24,7 +24,7 @@ public class Soldier extends Walker {
         public static void flipSoldierImageRight(){ soldierImage =
             new BodyImage( "data/soldierRight.jpeg",4f);}
 
-
+  // constructor
     public Soldier(World world) {
         super(world, soldierShape);
         addImage(soldierImage);

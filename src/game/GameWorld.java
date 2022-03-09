@@ -17,6 +17,11 @@ public class GameWorld extends World {
         spikeBallImage = new BodyImage("data/spikeBall.png", 3f);
 
 
+        // testing the new wall constructor 8/3/22 22:40
+
+        Wall wall1= new Wall(this, new Vec2(-11,-1));
+        Wall wall2 = new Wall(this, new Vec2(11,-1));
+
 
 
         // make the ground
@@ -39,14 +44,14 @@ public class GameWorld extends World {
         //populates the World - add platforms, Student, etc.
         //(don't add anything related to the view)
         // make a suspended platform
-        Shape platformShape = new BoxShape(3, 0.5f);
-        StaticBody platform1 = new StaticBody(this, platformShape);
-        platform1.setPosition(new Vec2(-8, -1f));
 
+        //9/3/22 12:00 making the platforms from the newly encapsulated platform class instead
+        Platform platform1 = new Platform(this, new Vec2(-8,-1f),0);
         //make the second suspended platform
-        StaticBody platform2 = new StaticBody(this, platformShape);
-        platform2.setPosition(new Vec2(8, 0.5f));
-        platform2.setAngleDegrees(30);
+        Platform platform2 = new Platform(this, new Vec2(8, 0.5f),30);
+
+
+
 
         //make the ball
         //experiment adding image for ball
@@ -59,23 +64,14 @@ public class GameWorld extends World {
         ball.addImage(spikeBallImage);
 
 
-        //make the wall1 (left wall)
-        Shape wallShape = new BoxShape(0.5f, 10);
-        StaticBody wall1 = new StaticBody(this, wallShape);
-        wall1.setPosition(new Vec2(-10, -1));
 
-
-        //make the wall2( right wall2)
-        StaticBody wall2 = new StaticBody(this, wallShape);
-        wall2.setPosition(new Vec2(10, -1));
-
-        //add enemy collsion listner for the soldier
+        //add enemy collsion listener for the soldier
         EnemyCollisionListener enemyCollision = new EnemyCollisionListener(soldier);
         soldier.addCollisionListener(enemyCollision);
     }
-//accessor soldier
+       //accessor soldier
 
-    public Soldier getSoldier() {
+       public Soldier getSoldier() {
         return soldier;
     }
 }
