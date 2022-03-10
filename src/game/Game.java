@@ -28,15 +28,22 @@ public class Game {
         return TheGameWorld;
     }
           */
+
+
     /** Initialise a new Game. */
 
+    /* erronous 10/3/22 tryna make world in field
+    private GameWorld  world1;
 
-
+    public GameWorld getWorld1() {
+        return world1;
+    }
+*/
     public Game() {
 
         //1. make an empty game world
-         GameWorld world = new GameWorld();
-
+          GameWorld world = new GameWorld();
+          // erronous 10/3/22 world1 = world;
 
 
 
@@ -51,9 +58,10 @@ public class Game {
         //add controller
         SoldierController controller = new SoldierController(world.getSoldier());
         view.addKeyListener(controller);
+        //add mouse buisiness
         view.addMouseListener(new GiveFocus(view));
-
-
+        MouseHandler mouseHandler = new MouseHandler(world, view);
+        view.addMouseListener(mouseHandler);
         //4. create a Java window (frame) and add the game
         //   view to it
         final JFrame frame = new JFrame("City Game");

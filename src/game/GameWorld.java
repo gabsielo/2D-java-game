@@ -34,8 +34,9 @@ public class GameWorld extends World {
         Shape shape = new BoxShape(11, 0.5f);
         StaticBody ground = new StaticBody(this, shape);
 
-       // BodyImage groundImage = new BodyImage("ground.JPG",2f);
+        BodyImage groundImage = new BodyImage("data/ground.JPG",2f);
         ground.setPosition(new Vec2(0f, -11.5f));
+        ground.addImage(groundImage);
 
         // make the character
         soldier = new Soldier(this);
@@ -66,13 +67,14 @@ public class GameWorld extends World {
         //make the ball
         //experiment adding image for ball
 
+       SpikeBall spikeball1 = new SpikeBall(this, new Vec2(5,5));
+        spikeball1.startWalking(spikeball1.getSpikeBallWalkingSpeed());
 
-
-        CircleShape ballShape = new CircleShape(1.5f);
+      /*   OLD SPIKEBALL  CODE REDUNDANT  CircleShape ballShape = new CircleShape(1.5f);
         DynamicBody ball = new DynamicBody(this, ballShape);
         ball.setPosition(new Vec2(8, 0.9f));
         ball.addImage(spikeBallImage);
-
+       */
 
 
         //add enemy collision listener for the soldier
@@ -87,6 +89,9 @@ public class GameWorld extends World {
        public Soldier getSoldier() {
         return soldier;
     }
-       public Terrorist getTerrorist(){return osama;}
+       public Terrorist getOsama(){return osama;}
+
+
+
 }
 

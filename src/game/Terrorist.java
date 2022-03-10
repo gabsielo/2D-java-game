@@ -54,7 +54,7 @@ public class Terrorist extends Walker {
     }
     //decreaseHealthLevel
     public void decreaseHealthLevel(int healthAmount){
-        healthLevel= healthLevel-healthAmount;
+        healthLevel = healthLevel-healthAmount;
     };
 
     // increase healthLevel

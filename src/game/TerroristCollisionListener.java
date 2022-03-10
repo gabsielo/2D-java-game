@@ -24,10 +24,15 @@ public class TerroristCollisionListener implements CollisionListener {
 
     @Override
     public void collide(CollisionEvent e) {
-       // if (e.getOtherBody() instanceof Wall)
+        if (e.getOtherBody() instanceof Walker)
         {
             osama.startWalking(osama.getTerroristWalkingSpeed()*-1);
         }
+        /*else if (e.getOtherBody() instanceof )
+        {
+            osama.startWalking(osama.getTerroristWalkingSpeed()*-1);
+        }
+           */
     }
 
 
