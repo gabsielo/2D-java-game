@@ -21,7 +21,7 @@ public class Platform {
         platform.setAngleDegrees(degrees);
     }
 
-   /*  trying to make rotation method for platform
+   /* REDUNDANT trying to make rotation method for platform
    public void setAngleDegrees(){ platform.bodyDef.angle = 0.25f * b2_pi;}
    // the body's angle in radians.
 

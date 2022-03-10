@@ -11,6 +11,8 @@ import java.awt.*;
 
 public class GameView extends UserView {
 
+
+
     private Image background;
     public GameView(GameWorld world, int width, int height) {
         super(world, width, height);
@@ -26,6 +28,15 @@ public class GameView extends UserView {
         g.drawImage(background, 0, 0, this);
     }
 
+    @Override
+    protected void paintForeground(Graphics2D g) {
+        Font font = new Font("Arial",Font.BOLD,25);
 
+                g.setFont(font);
+               g.drawString("health:",10,90);
+
+
+
+        ;}
     }
 

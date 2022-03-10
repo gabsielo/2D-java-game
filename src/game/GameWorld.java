@@ -9,7 +9,13 @@ import javax.swing.JFrame;
 //class
 public class GameWorld extends World {
 
-    Soldier soldier;
+
+    private Terrorist osama;
+    private Soldier soldier;
+
+
+
+
     public GameWorld() {
         super();
 
@@ -30,15 +36,17 @@ public class GameWorld extends World {
         ground.setPosition(new Vec2(0f, -11.5f));
 
         // make the character
-         soldier = new Soldier(this);
+        soldier = new Soldier(this);
+
         soldier.setPosition(new Vec2(7, -9));
         soldier.setAlwaysOutline(true);
         soldier.setLinearVelocity(new Vec2(0, 9));
         soldier.increaseCredits(15);
 
 
-        // make an enemy
-        Terrorist Osama = new Terrorist(this);
+        // make a Terrorist
+         osama = new Terrorist(this);
+         osama.startWalking(osama.getTerroristWalkingSpeed()-1);
 
         //**move** here the rest of the code from Gave.java that
         //populates the World - add platforms, Student, etc.
@@ -65,14 +73,18 @@ public class GameWorld extends World {
 
 
 
-        //add enemy collsion listener for the soldier
-        EnemyCollisionListener enemyCollision = new EnemyCollisionListener(soldier);
-        soldier.addCollisionListener(enemyCollision);
+        //add enemy collision listener for the soldier
+        SoldierCollisionListener EnemyCollision = new SoldierCollisionListener(soldier);
+        soldier.addCollisionListener(EnemyCollision);
+        // add wall collision listener for Enemy
+       TerroristCollisionListener WallCollision = new TerroristCollisionListener(osama);
+       osama.addCollisionListener(WallCollision);
     }
        //accessor soldier
 
        public Soldier getSoldier() {
         return soldier;
     }
+       public Terrorist getTerrorist(){return osama;}
 }
 

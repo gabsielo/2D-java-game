@@ -19,11 +19,25 @@ public class Game {
 /* Gabriel Maharaj gabriel.maharaj@city.ac.uk
     adck757 */
 
+
+      /*doesnt work
+    //try to getsoldier healthlevel into foreground in  game view 10/3/22 17:00
+     private GameWorld
+    TheGameWorld;
+    public GameWorld getTheGameWorld() {
+        return TheGameWorld;
+    }
+          */
     /** Initialise a new Game. */
+
+
+
     public Game() {
 
         //1. make an empty game world
-        GameWorld world = new GameWorld();
+         GameWorld world = new GameWorld();
+
+
 
 
 

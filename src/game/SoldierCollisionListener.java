@@ -7,11 +7,11 @@ import javax.swing.JFrame;
 
 
 
-public class EnemyCollisionListener implements CollisionListener {
+public class SoldierCollisionListener implements CollisionListener {
 
     private Soldier soldier;
 
-    public EnemyCollisionListener(Soldier soldier){
+    public SoldierCollisionListener(Soldier soldier){
         this.soldier = soldier;
     }
 
