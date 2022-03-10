@@ -33,6 +33,8 @@ public class GameWorld extends World {
         // make the ground
         Shape shape = new BoxShape(11, 0.5f);
         StaticBody ground = new StaticBody(this, shape);
+
+       // BodyImage groundImage = new BodyImage("ground.JPG",2f);
         ground.setPosition(new Vec2(0f, -11.5f));
 
         // make the character
