@@ -28,7 +28,7 @@ public class TerroristCollisionListener implements CollisionListener {
         {
             osama.startWalking(osama.getTerroristWalkingSpeed()*-1);
         }
-        /*else if (e.getOtherBody() instanceof )
+        /*else if (e.getOtherBody() instanceof ball )
         {
             osama.startWalking(osama.getTerroristWalkingSpeed()*-1);
         }
