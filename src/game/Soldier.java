@@ -12,7 +12,7 @@ public class Soldier extends Walker {
     private static final Shape soldierShape = new PolygonShape(1.5f,-1.86f, -0.53f,-1.87f, -0.79f,0.69f, -0.03f,1.71f, 1.16f,1.3f, 1.56f,-1.84f);
    // soldier image
     private static  BodyImage soldierImage =
-            new BodyImage("data/soldierRight.jpeg", 4f);
+            new BodyImage("data/soldierRight.png", 4f);
 
         //soldier image palava
         //soldier image getter
@@ -22,7 +22,7 @@ public class Soldier extends Walker {
          public static void flipSoldierImageLeft(){ soldierImage =
               new BodyImage( "data/soldierLeft.jpg",4f);};
         public static void flipSoldierImageRight(){ soldierImage =
-            new BodyImage( "data/soldierRight.jpeg",4f);}
+            new BodyImage( "data/soldierRight.png",4f);}
 
   // constructor
     public Soldier(World world) {

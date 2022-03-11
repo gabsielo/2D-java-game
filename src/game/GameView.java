@@ -6,7 +6,7 @@ import org.jbox2d.common.Vec2;
 
 import javax.swing.*;
 import java.awt.*;
-
+import java.awt.Color;
 
 
 public class GameView extends UserView {
@@ -30,9 +30,10 @@ private Soldier soldier;
 
     @Override
     protected void paintForeground(Graphics2D g) {
-        Font font = new Font("Arial",Font.BOLD,25);
+        Font font = new Font("Arial",Font.BOLD,200);
 
                 g.setFont(font);
+        g.setColor(Color.orange);
               g.drawString("health: "+soldier.getHealthLevel()+" credits: " + soldier.getCredits(),10,90);
 
 

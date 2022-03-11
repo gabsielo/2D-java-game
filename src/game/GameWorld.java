@@ -19,9 +19,11 @@ public class GameWorld extends World {
     public GameWorld() {
         super();
 
+        /*  Probably  redundant
         BodyImage spikeBallImage;
         spikeBallImage = new BodyImage("data/spikeBall.png", 3f);
 
+        */
 
 
 
@@ -70,7 +72,7 @@ public class GameWorld extends World {
 
         //make the ball
         //experiment adding image for ball
-
+        //make spikeBall
        SpikeBall spikeball1 = new SpikeBall(this, new Vec2(5,5));
         spikeball1.startWalking(spikeball1.getSpikeBallWalkingSpeed());
 
@@ -87,6 +89,9 @@ public class GameWorld extends World {
         // add wall collision listener for Enemy
        TerroristCollisionListener WallCollision = new TerroristCollisionListener(osama);
        osama.addCollisionListener(WallCollision);
+       //and spikeball collsion listener
+       SpikeBallCollisionListener spikeBallCollision = new SpikeBallCollisionListener(spikeball1);
+        spikeball1.addCollisionListener(spikeBallCollision);
     }
        //accessor soldier
 

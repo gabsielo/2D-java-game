@@ -6,6 +6,8 @@ import org.jbox2d.common.Vec2;
 
 public class SpikeBall extends Walker {
 
+    int spikeBallWalkingSpeed =3;
+
 
     // enemy health level declaration and methods
     private int enemyHealthLevel;
@@ -76,10 +78,10 @@ public class SpikeBall extends Walker {
     public int getSpikeBallWalkingSpeed() {
         return SpikeBallWalkingSpeed;
     }
-    public void setSpikeBallWalkingSpeed(int terroristWalkingSpeed) {
-        SpikeBallWalkingSpeed  = terroristWalkingSpeed;
+    public void setSpikeBallWalkingSpeed(int spikeBallWalkingSpeed) {
+        SpikeBallWalkingSpeed  = spikeBallWalkingSpeed;
     }
-
+    public void reverseSpikeBallWalkingSpeed(){SpikeBallWalkingSpeed = SpikeBallWalkingSpeed*-1;}
 
 
 }
