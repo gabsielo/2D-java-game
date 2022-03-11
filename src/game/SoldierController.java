@@ -33,7 +33,7 @@ public class SoldierController implements KeyListener {
             soldier.removeAllImages();
             soldier.flipSoldierImageRight();
             soldier.addImage(soldier.getSoldierImage());
-          //  getWorld.getOsama.startWalking(getWorld1().Osama.getTerroristWalkingSpeed()*-1);
+          // getWorld.getOsama.startWalking(getWorld1().Osama.getTerroristWalkingSpeed()*-1);
         //jump
         } else if (code == KeyEvent.VK_UP||code == KeyEvent.VK_W){
             soldier.jump(15);

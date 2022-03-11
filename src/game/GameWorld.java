@@ -23,10 +23,7 @@ public class GameWorld extends World {
         spikeBallImage = new BodyImage("data/spikeBall.png", 3f);
 
 
-        // testing the new wall constructor 8/3/22 22:40
 
-        Wall wall1= new Wall(this, new Vec2(-11,-1));
-        Wall wall2 = new Wall(this, new Vec2(11,-1));
 
 
 
@@ -50,6 +47,13 @@ public class GameWorld extends World {
         // make a Terrorist
          osama = new Terrorist(this);
          osama.startWalking(osama.getTerroristWalkingSpeed()-1);
+
+        // testing the new wall constructor 8/3/22 22:40
+
+        Wall wall1= new Wall(this, new Vec2(-11,-1));
+        wall1.addCollisionListener(new TerroristCollisionListener(osama));
+        Wall wall2 = new Wall(this, new Vec2(11,-1));
+
 
         //**move** here the rest of the code from Gave.java that
         //populates the World - add platforms, Student, etc.

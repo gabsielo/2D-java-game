@@ -72,7 +72,7 @@ public class Terrorist extends Walker {
     public void setTerroristWalkingSpeed(int terroristWalkingSpeed) {
         TerroristWalkingSpeed = terroristWalkingSpeed;
     }
-
+    public void reverseTerroristWalkingSpeed(){TerroristWalkingSpeed= TerroristWalkingSpeed*-1;}
 
 
 }

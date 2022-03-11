@@ -9,30 +9,24 @@ import javax.swing.JFrame;
 public class TerroristCollisionListener implements CollisionListener {
 
     private Terrorist osama;
-
-
-
-
-
-
-
-
     public TerroristCollisionListener(Terrorist osama) {
         this.osama = osama;
     }
 
 
+
     @Override
     public void collide(CollisionEvent e) {
-        if (e.getOtherBody() instanceof Walker)
+        if (e.getOtherBody() instanceof Wall)
         {
-            osama.startWalking(osama.getTerroristWalkingSpeed()*-1);
+            osama.reverseTerroristWalkingSpeed();
+            osama.startWalking(osama.getTerroristWalkingSpeed());
         }
-        /*else if (e.getOtherBody() instanceof ball )
+        //else if (e.getOtherBody() instanceof ball )
         {
-            osama.startWalking(osama.getTerroristWalkingSpeed()*-1);
+       //     osama.startWalking(osama.getTerroristWalkingSpeed()*-1);
         }
-           */
+
     }
 
 
