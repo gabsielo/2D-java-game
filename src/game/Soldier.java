@@ -20,7 +20,7 @@ public class Soldier extends Walker {
 
             // flip soldier images
          public static void flipSoldierImageLeft(){ soldierImage =
-              new BodyImage( "data/soldierLeft.jpg",4f);};
+              new BodyImage( "data/soldierLeft.png",4f);};
         public static void flipSoldierImageRight(){ soldierImage =
             new BodyImage( "data/soldierRight.png",4f);}
 

@@ -30,7 +30,7 @@ private Soldier soldier;
 
     @Override
     protected void paintForeground(Graphics2D g) {
-        Font font = new Font("Arial",Font.BOLD,200);
+        Font font = new Font("Arial",Font.BOLD,20);
 
                 g.setFont(font);
         g.setColor(Color.orange);

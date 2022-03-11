@@ -16,6 +16,7 @@ public class GameWorld extends World {
 
 
 
+
     public GameWorld() {
         super();
 
@@ -48,6 +49,7 @@ public class GameWorld extends World {
 
         // make a Terrorist
          osama = new Terrorist(this);
+         osama = osama;
          osama.startWalking(osama.getTerroristWalkingSpeed()-1);
 
         // testing the new wall constructor 8/3/22 22:40
@@ -55,7 +57,8 @@ public class GameWorld extends World {
         Wall wall1= new Wall(this, new Vec2(-11,-1));
         wall1.addCollisionListener(new TerroristCollisionListener(osama));
         Wall wall2 = new Wall(this, new Vec2(11,-1));
-
+       //adding collisionlistener to wall2 in progress
+         wall2.addCollisionListener(new TerroristCollisionListener(osama));
 
         //**move** here the rest of the code from Gave.java that
         //populates the World - add platforms, Student, etc.
@@ -92,6 +95,7 @@ public class GameWorld extends World {
        //and spikeball collsion listener
        SpikeBallCollisionListener spikeBallCollision = new SpikeBallCollisionListener(spikeball1);
         spikeball1.addCollisionListener(spikeBallCollision);
+
     }
        //accessor soldier
 

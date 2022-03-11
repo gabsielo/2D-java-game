@@ -11,7 +11,7 @@ public class SoldierController implements KeyListener {
 
     private static final float WALKING_SPEED = 7;
     private Soldier soldier;
-
+    // broken 11/3/22 private Terorist osama = world.getOsama();
   public SoldierController(Soldier soldier) {
         this.soldier = soldier;
     }
@@ -23,7 +23,7 @@ public class SoldierController implements KeyListener {
         //key pressed left and a
         if (code == KeyEvent.VK_LEFT||code == KeyEvent.VK_A) {
             soldier.startWalking(-WALKING_SPEED);
-
+            soldier.removeAllImages();
             soldier.flipSoldierImageLeft();
             soldier.addImage(soldier.getSoldierImage());
         }
@@ -33,7 +33,7 @@ public class SoldierController implements KeyListener {
             soldier.removeAllImages();
             soldier.flipSoldierImageRight();
             soldier.addImage(soldier.getSoldierImage());
-          // getWorld.getOsama.startWalking(getWorld1().Osama.getTerroristWalkingSpeed()*-1);
+        //   osama.startwalking()
         //jump
         } else if (code == KeyEvent.VK_UP||code == KeyEvent.VK_W){
             soldier.jump(15);
