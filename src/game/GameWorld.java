@@ -52,13 +52,19 @@ public class GameWorld extends World {
          osama = osama;
          osama.startWalking(osama.getTerroristWalkingSpeed()-1);
 
+        // trying to make 2nd terrorrist
+        Terrorist abu = new Terrorist(this);
+        abu.startWalking(2);
+
+
+
         // testing the new wall constructor 8/3/22 22:40
 
         Wall wall1= new Wall(this, new Vec2(-11,-1));
-        wall1.addCollisionListener(new TerroristCollisionListener(osama));
+      //   NOT NEEDED OR GOOD FOR GAME wall1.addCollisionListener(new TerroristCollisionListener(osama));
         Wall wall2 = new Wall(this, new Vec2(11,-1));
-       //adding collisionlistener to wall2 in progress
-         wall2.addCollisionListener(new TerroristCollisionListener(osama));
+       //adding collisionlistener to wall2 in progress-NOT NEEDED OR GOOD FOR THE GAME
+      //   wall2.addCollisionListener(new TerroristCollisionListener(osama));
 
         //**move** here the rest of the code from Gave.java that
         //populates the World - add platforms, Student, etc.
@@ -73,11 +79,12 @@ public class GameWorld extends World {
 
 
 
+
         //make the ball
         //experiment adding image for ball
         //make spikeBall
        SpikeBall spikeball1 = new SpikeBall(this, new Vec2(5,5));
-        spikeball1.startWalking(spikeball1.getSpikeBallWalkingSpeed());
+        spikeball1.startWalking(spikeball1.getSpikeBallWalkingSpeed()+1);
 
       /*   OLD SPIKEBALL  CODE REDUNDANT  CircleShape ballShape = new CircleShape(1.5f);
         DynamicBody ball = new DynamicBody(this, ballShape);
@@ -95,6 +102,8 @@ public class GameWorld extends World {
        //and spikeball collsion listener
        SpikeBallCollisionListener spikeBallCollision = new SpikeBallCollisionListener(spikeball1);
         spikeball1.addCollisionListener(spikeBallCollision);
+        // abu collision listener
+        abu.addCollisionListener(WallCollision);
 
     }
        //accessor soldier
