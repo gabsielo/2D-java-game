@@ -101,7 +101,7 @@ public class Soldier extends Walker {
         }
 
         // making shoot method
-       public void shoot() {
+       /*   public void shoot() {
 
            DynamicBody projectile = new DynamicBody(this.getWorld(), new CircleShape(0.2f));
            if (direction.equals("left")) {
@@ -113,6 +113,18 @@ public class Soldier extends Walker {
                projectile.setLinearVelocity(new Vec2(25, 3));
 
            }
+
+       } */
+
+       public void shoot (Vec2 t){
+           DynamicBody projectile = new DynamicBody(this.getWorld(), new CircleShape(0.2f));
+           Vec2 dir = t.sub(this.getPosition());
+           projectile.setPosition(this.getPosition().add(dir.mul(0.1f)));
+           dir.normalize();
+
+           projectile.setLinearVelocity(dir.mul(40));
+
+
 
        }
 }

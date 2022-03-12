@@ -6,8 +6,9 @@ import city.cs.engine.*;
 import city.cs.engine.Shape;
 import org.jbox2d.common.Vec2;
 import java.awt.*;
-
+/*
 public class MouseHandler implements MouseListener {
+
 
     private GameWorld world;
     private GameView view;
@@ -47,4 +48,7 @@ public class MouseHandler implements MouseListener {
     @Override
     public void mouseExited(MouseEvent e) {
     }
-}
+
+    }
+ */
+

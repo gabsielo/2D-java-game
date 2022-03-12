@@ -1,5 +1,5 @@
 package game;
-
+//line 63 and 64 temporarily redundant
 import city.cs.engine.*;
 import city.cs.engine.Shape;
 import org.jbox2d.common.Vec2;
@@ -60,8 +60,9 @@ public class Game {
         view.addKeyListener(controller);
         //add mouse buisiness
         view.addMouseListener(new GiveFocus(view));
-        MouseHandler mouseHandler = new MouseHandler(world, view);
-        view.addMouseListener(mouseHandler);
+        view.addMouseListener(new DirectionalShooting(world.getSoldier(),view));
+        //MouseHandler mouseHandler = new MouseHandler(world, view);
+     //   view.addMouseListener(mouseHandler);
         //4. create a Java window (frame) and add the game
         //   view to it
         final JFrame frame = new JFrame("City Game");
