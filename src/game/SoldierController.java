@@ -22,22 +22,20 @@ public class SoldierController implements KeyListener {
         // other key commands omitted
         //key pressed left and a
         if (code == KeyEvent.VK_LEFT||code == KeyEvent.VK_A) {
-            soldier.startWalking(-WALKING_SPEED);
+            soldier.walkLeft(-WALKING_SPEED);
             soldier.removeAllImages();
-            soldier.flipSoldierImageLeft();
-            soldier.addImage(soldier.getSoldierImage());
+            soldier.addImage(new BodyImage("data/soldierLeft.PNG",4f));
+
         }
         //key pressed right and d
         else if (code == KeyEvent.VK_RIGHT||code == KeyEvent.VK_D) {
             soldier.startWalking(WALKING_SPEED);
-            soldier.removeAllImages();
-            soldier.flipSoldierImageRight();
-            soldier.addImage(soldier.getSoldierImage());
-        //   osama.startwalking()
+
         //jump
         } else if (code == KeyEvent.VK_UP||code == KeyEvent.VK_W){
             soldier.jump(15);
         }
+        else if (code== KeyEvent.VK_Q){soldier.shoot();}
     }
 
     @Override
@@ -55,6 +53,7 @@ public class SoldierController implements KeyListener {
 
     @Override
     public void keyTyped(KeyEvent e) {
+
     }
 
 }
