@@ -41,7 +41,7 @@ public class GameWorld extends World {
         // make the character
         soldier = new Soldier(this);
 
-        soldier.setPosition(new Vec2(7, -9));
+        soldier.setPosition(new Vec2(-9, 9));
         soldier.setAlwaysOutline(true);
         soldier.setLinearVelocity(new Vec2(0, 9));
         soldier.increaseCredits(15);
@@ -53,8 +53,10 @@ public class GameWorld extends World {
          osama.startWalking(osama.getTerroristWalkingSpeed()-1);
 
         // trying to make 2nd terrorrist
-        Terrorist abu = new Terrorist(this);
-        abu.startWalking(2);
+        Terrorist a = new Terrorist(this);
+        a.setPosition(new Vec2(2,-11));
+        a.startWalking(2);
+
 
 
 
@@ -97,13 +99,16 @@ public class GameWorld extends World {
         SoldierCollisionListener EnemyCollision = new SoldierCollisionListener(soldier);
         soldier.addCollisionListener(EnemyCollision);
         // add wall collision listener for Enemy
-       TerroristCollisionListener WallCollision = new TerroristCollisionListener(osama);
-       osama.addCollisionListener(WallCollision);
+       TerroristCollisionListener osamaWallCollision = new TerroristCollisionListener(osama);
+       osama.addCollisionListener(osamaWallCollision);
        //and spikeball collsion listener
        SpikeBallCollisionListener spikeBallCollision = new SpikeBallCollisionListener(spikeball1);
         spikeball1.addCollisionListener(spikeBallCollision);
         // abu collision listener
-        abu.addCollisionListener(WallCollision);
+        TerroristCollisionListener abuWallCollision = new TerroristCollisionListener(a);
+        a.addCollisionListener(abuWallCollision);
+        soldier.getBackpack().addItem(new Pistol());
+        soldier.getBackpack().addItem(new Jetpack());
 
     }
        //accessor soldier

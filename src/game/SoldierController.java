@@ -35,7 +35,8 @@ public class SoldierController implements KeyListener {
         } else if (code == KeyEvent.VK_UP||code == KeyEvent.VK_W){
             soldier.jump(15);
         }
-       // else if (code== KeyEvent.VK_Q){soldier.shoot();}
+       else if (code== KeyEvent.VK_Q){soldier.getBackpack().toggle();}
+       else if (code== KeyEvent.VK_E){soldier.getBackpack().getCurrentItem().operate();}
     }
 
     @Override

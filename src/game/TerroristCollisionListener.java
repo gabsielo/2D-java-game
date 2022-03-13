@@ -22,11 +22,11 @@ public class TerroristCollisionListener implements CollisionListener {
             osama.reverseTerroristWalkingSpeed();
             osama.startWalking(osama.getTerroristWalkingSpeed());
         }
-        else if (e.getOtherBody() instanceof SpikeBall )
-        {
-            osama.reverseTerroristWalkingSpeed();
-            osama.startWalking(osama.getTerroristWalkingSpeed());
-        }
+       // else if (e.getOtherBody() instanceof SpikeBall )
+      //  {
+      //      osama.reverseTerroristWalkingSpeed();
+      //      osama.startWalking(osama.getTerroristWalkingSpeed());
+      //  }
         else if (e.getOtherBody() instanceof Walker )
         {
             osama.reverseTerroristWalkingSpeed();

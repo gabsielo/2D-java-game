@@ -8,6 +8,7 @@ import javax.swing.JFrame;
 public class Soldier extends Walker {
     public static int credits;
     private String direction;
+    private Backpack backpack;
 
 
 
@@ -65,6 +66,7 @@ public class Soldier extends Walker {
         credits=0;
         setHealthLevel(1000);
         direction="left";
+        backpack = new Backpack();
 
     }
     // CONSTRUCTOR CONSTRUCTOR CONSTRUCTOR CONSTRUCTOR CONSTRUCTOR CONSTRUCTOR CONSTRUCTOR CONSTRUCTOR CONSTRUCTOR
@@ -123,8 +125,10 @@ public class Soldier extends Walker {
            dir.normalize();
 
            projectile.setLinearVelocity(dir.mul(40));
-
-
-
        }
+
+       //backpack accessor
+    public Backpack getBackpack(){
+     return backpack;
+    }
 }
