@@ -22,9 +22,10 @@ public class SoldierController implements KeyListener {
         // other key commands omitted
         //key pressed left and a
         if (code == KeyEvent.VK_LEFT||code == KeyEvent.VK_A) {
-            soldier.walkLeft(-WALKING_SPEED);
-            soldier.removeAllImages();
-            soldier.addImage(new BodyImage("data/soldierLeft.PNG",4f));
+            soldier.startWalking(-WALKING_SPEED);
+        //    soldier.walkLeft(-WALKING_SPEED);
+         //   soldier.removeAllImages();
+          //  soldier.addImage(new BodyImage("data/soldierLeft.PNG",4f));
 
         }
         //key pressed right and d
