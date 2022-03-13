@@ -11,6 +11,7 @@ public class Soldier extends Walker {
     private String direction;
     private Backpack backpack;
     private AttachedImage aImage;
+    BodyImage projectileImage = new BodyImage("data/unexplodedBomb.png",0.9f);
 
 
     private static final Shape soldierShape = new PolygonShape(1.5f, -1.86f, -0.53f, -1.87f, -0.79f, 0.69f, -0.03f, 1.71f, 1.16f, 1.3f, 1.56f, -1.84f);
@@ -122,6 +123,7 @@ public class Soldier extends Walker {
         public void shoot () {
 
             DynamicBody projectile = new DynamicBody(this.getWorld(), new CircleShape(0.2f));
+            projectile.addImage(projectileImage);
             if (direction.equals("left")) {
                 projectile.setPosition(new Vec2(this.getPosition().x - 1, this.getPosition().y));
                 projectile.setLinearVelocity(new Vec2(-25, 3));
@@ -136,6 +138,7 @@ public class Soldier extends Walker {
 
         public void shoot (Vec2 t){
             DynamicBody projectile = new DynamicBody(this.getWorld(), new CircleShape(0.2f));
+            projectile.addImage(projectileImage);
             Vec2 dir = t.sub(this.getPosition());
             projectile.setPosition(this.getPosition().add(dir.mul(0.1f)));
             dir.normalize();
