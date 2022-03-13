@@ -1,6 +1,12 @@
 package game;
 
+import org.jbox2d.common.Vec2;
+
 public class Pistol extends BackpackItem{
+
+    public Pistol(Soldier soldier) {
+        super(soldier);
+    }
 
     @Override
     public String getType() {
@@ -10,5 +16,7 @@ public class Pistol extends BackpackItem{
     @Override
     public void operate() {
         System.out.println("OHhh Shots fired");
+        soldier.shoot();
+
     }
 }

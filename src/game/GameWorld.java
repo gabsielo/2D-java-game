@@ -107,8 +107,8 @@ public class GameWorld extends World {
         // abu collision listener
         TerroristCollisionListener abuWallCollision = new TerroristCollisionListener(a);
         a.addCollisionListener(abuWallCollision);
-        soldier.getBackpack().addItem(new Pistol());
-        soldier.getBackpack().addItem(new Jetpack());
+        soldier.getBackpack().addItem(new Pistol(soldier));
+        soldier.getBackpack().addItem(new Jetpack(soldier));
 
     }
        //accessor soldier
