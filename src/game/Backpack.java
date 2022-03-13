@@ -20,11 +20,12 @@ public class Backpack {
     }
 
     public void toggle(){
+        getCurrentItem().takeOff();
          currentItem++;
         if (currentItem==items.size())
         currentItem = 0;
-
-        System.out.println("Current item"+ currentItem);
+        getCurrentItem().putOn();
+        System.out.println("Current item"+ getCurrentItem().getType());
     }
 
 }
