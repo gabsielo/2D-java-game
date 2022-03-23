@@ -6,6 +6,7 @@ import org.jbox2d.common.Vec2;
 
 import javax.swing.JFrame;
 
+
 import java.awt.*;
 import java.io.IOException;
 import javax.sound.sampled.LineUnavailableException;
@@ -39,7 +40,21 @@ public class Game {
         return world1;
     }
 */
+    // make soundClip field
+    private SoundClip gameMusic;
+
+
+
     public Game() {
+
+
+
+        //maeke a soundclip object before the world is created gonna
+        // try put this in game world to see if it fixes the glitch
+        /*
+        this has been moved into the game world constructor and now it actually works there bc placing the music code
+        here just leads to the song playing for a split second and then pausing straight after
+         */
 
         //1. make an empty game world
           GameWorld world = new GameWorld();
@@ -53,6 +68,9 @@ public class Game {
         //3. make a view to look into the game world
         //UserView view = new UserView(world, 500, 500);
         GameView view = new GameView(world, 500, 500);
+
+
+
         //optional: draw a 1-metre grid over the view
         // view.setGridResolution(1);
         //add controller
