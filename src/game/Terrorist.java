@@ -2,7 +2,25 @@ package game;
 
 import city.cs.engine.*;
 
+import javax.sound.sampled.LineUnavailableException;
+import javax.sound.sampled.UnsupportedAudioFileException;
+import java.io.IOException;
+
 public class Terrorist extends Walker {
+private static SoundClip Boom;
+
+
+    // boom static
+    static {
+        try {
+             Boom = new SoundClip("data/shaqBoom.mp3");   // Open an audio input stream
+            //  boom.play();                              // Set it to  play
+        } catch (UnsupportedAudioFileException | IOException | LineUnavailableException e) {
+            //code in here will deal with any errors
+            //that might occur while loading/playing sound
+            System.out.println(e);
+        }
+    }
 
 
     // enemy health level declaration and methods
@@ -74,5 +92,10 @@ public class Terrorist extends Walker {
     }
     public void reverseTerroristWalkingSpeed(){TerroristWalkingSpeed= TerroristWalkingSpeed*-1;}
 
+    @Override
+    public void destroy(){
+        Boom.play();
+        super.destroy();
+    }
 
 }

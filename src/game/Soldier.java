@@ -3,6 +3,10 @@ import city.cs.engine.*;
 import city.cs.engine.Shape;
 import org.jbox2d.common.Vec2;
 
+import java.io.IOException;
+import javax.sound.sampled.LineUnavailableException;
+import javax.sound.sampled.UnsupportedAudioFileException;
+
 import javax.swing.JFrame;
 import java.util.List;
 
@@ -11,6 +15,23 @@ public class Soldier extends Walker {
     private String direction;
     private Backpack backpack;
     private AttachedImage aImage;
+    private static SoundClip skra;
+    private static SoundClip boom;
+    //skra static experiment 23/3/21 edit: its working
+    static {
+        try {
+            skra = new SoundClip("data/shaqSkra.mp3");   // Open an audio input stream
+          //  skra.play();                              // Set it to  play
+        } catch (UnsupportedAudioFileException | IOException | LineUnavailableException e) {
+            //code in here will deal with any errors
+            //that might occur while loading/playing sound
+            System.out.println(e);
+        }
+    }
+
+
+
+
     BodyImage projectileImage = new BodyImage("data/unexplodedBomb.png",0.9f);
 
 
@@ -122,6 +143,9 @@ public class Soldier extends Walker {
         // making shoot method
         public void shoot () {
 
+            skra.play();
+
+
             DynamicBody projectile = new DynamicBody(this.getWorld(), new CircleShape(0.2f));
             projectile.addImage(projectileImage);
             if (direction.equals("left")) {
@@ -137,6 +161,7 @@ public class Soldier extends Walker {
         }
 
         public void shoot (Vec2 t){
+            skra.play();
             DynamicBody projectile = new DynamicBody(this.getWorld(), new CircleShape(0.2f));
             projectile.addImage(projectileImage);
             Vec2 dir = t.sub(this.getPosition());
