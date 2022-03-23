@@ -21,7 +21,7 @@ public class Soldier extends Walker {
     static {
         try {
             skra = new SoundClip("data/shaqSkra.mp3");   // Open an audio input stream
-          //  skra.play();                              // Set it to  play
+            //  skra.play();                              // Set it to  play
         } catch (UnsupportedAudioFileException | IOException | LineUnavailableException e) {
             //code in here will deal with any errors
             //that might occur while loading/playing sound
@@ -69,15 +69,15 @@ public class Soldier extends Walker {
 */
 
 
-        public void walkLeft ( float Speed){
-            this.startWalking(Speed);
-            this.removeAllImages();
-            this.addImage(new BodyImage("data/soldierLeft.png", 4));
-        }
+    public void walkLeft ( float Speed){
+        this.startWalking(Speed);
+        this.removeAllImages();
+        this.addImage(new BodyImage("data/soldierLeft.png", 4));
+    }
 
 
-        //soldier image palava
-        //soldier image getter
+    //soldier image palava
+    //soldier image getter
       /*
 
       CURRENTLY REDUNDANT
@@ -89,93 +89,93 @@ public class Soldier extends Walker {
         public static void flipSoldierImageRight(){ soldierImage =
             new BodyImage( "data/soldierRight.png",4f);}
 */
-        // constructor CONSTRUCTOR CONSTRUCTOR CONSTRUCTOR CONSTRUCTOR CONSTRUCTOR CONSTRUCTOR CONSTRUCTOR CONTSTRUCTOR
+    // constructor CONSTRUCTOR CONSTRUCTOR CONSTRUCTOR CONSTRUCTOR CONSTRUCTOR CONSTRUCTOR CONSTRUCTOR CONTSTRUCTOR
     public Soldier(World world) {
-            super(world, soldierShape);
-            aImage = addImage(leftSoldierImage);
+        super(world, soldierShape);
+        aImage = addImage(leftSoldierImage);
 
-            credits = 0;
-            setHealthLevel(1000);
-            direction = "left";
-            backpack = new Backpack();
+        credits = 0;
+        setHealthLevel(1000);
+        direction = "left";
+        backpack = new Backpack();
 
-        }
-        // CONSTRUCTOR CONSTRUCTOR CONSTRUCTOR CONSTRUCTOR CONSTRUCTOR CONSTRUCTOR CONSTRUCTOR CONSTRUCTOR CONSTRUCTOR
-
-        // accessor and mutator for credits (PROBABLY REDUNDANT)
-        public int getCredits () {
-            return credits;
-        }
-        public void increaseCredits ( int amount){
-            credits = credits + amount;
-        }
-        public void decreaseCredits ( int amount){
-            credits = credits - amount;
-        }
-
-
-        // Health level methods
-
-        private int healthLevel;
-
-
-        //set health level
-
-        public void setHealthLevel ( int healthLevel){
-            this.healthLevel = healthLevel;
-            System.out.println(healthLevel + "health left");
-        }
-
-        // healthLevel getter
-        public int getHealthLevel () {
-            return healthLevel;
-        }
-        //decreaseHealthLevel
-        public void decreaseHealthLevel ( int healthAmount){
-            healthLevel = healthLevel - healthAmount;
-            System.out.println(" you  got hit " + healthLevel + "health left");
-        }
-        // increase healthLevel
-        public void increaseHealthLevel ( int healthAmount){
-            healthLevel = healthLevel + healthAmount;
-        }
-
-        // making shoot method
-        public void shoot () {
-
-            skra.play();
-
-
-            DynamicBody projectile = new DynamicBody(this.getWorld(), new CircleShape(0.2f));
-            projectile.addImage(projectileImage);
-            if (direction.equals("left")) {
-                projectile.setPosition(new Vec2(this.getPosition().x - 1, this.getPosition().y));
-                projectile.setLinearVelocity(new Vec2(-25, 3));
-
-            } else if (direction.equals("right")) {
-                projectile.setPosition(new Vec2(this.getPosition().x + 1, this.getPosition().y));
-                projectile.setLinearVelocity(new Vec2(25, 3));
-
-            }
-
-        }
-
-        public void shoot (Vec2 t){
-            skra.play();
-            DynamicBody projectile = new DynamicBody(this.getWorld(), new CircleShape(0.2f));
-            projectile.addImage(projectileImage);
-            Vec2 dir = t.sub(this.getPosition());
-            projectile.setPosition(this.getPosition().add(dir.mul(0.1f)));
-            dir.normalize();
-
-            projectile.setLinearVelocity(dir.mul(40));
-        }
-
-        //backpack accessor
-        public Backpack getBackpack () {
-            return backpack;
-        }
-        public String getDirection () {
-            return direction;
-        }
     }
+    // CONSTRUCTOR CONSTRUCTOR CONSTRUCTOR CONSTRUCTOR CONSTRUCTOR CONSTRUCTOR CONSTRUCTOR CONSTRUCTOR CONSTRUCTOR
+
+    // accessor and mutator for credits (PROBABLY REDUNDANT)
+    public int getCredits () {
+        return credits;
+    }
+    public void increaseCredits ( int amount){
+        credits = credits + amount;
+    }
+    public void decreaseCredits ( int amount){
+        credits = credits - amount;
+    }
+
+
+    // Health level methods
+
+    private int healthLevel;
+
+
+    //set health level
+
+    public void setHealthLevel ( int healthLevel){
+        this.healthLevel = healthLevel;
+        System.out.println(healthLevel + "health left");
+    }
+
+    // healthLevel getter
+    public int getHealthLevel () {
+        return healthLevel;
+    }
+    //decreaseHealthLevel
+    public void decreaseHealthLevel ( int healthAmount){
+        healthLevel = healthLevel - healthAmount;
+        System.out.println(" you  got hit " + healthLevel + "health left");
+    }
+    // increase healthLevel
+    public void increaseHealthLevel ( int healthAmount){
+        healthLevel = healthLevel + healthAmount;
+    }
+
+    // making shoot method
+    public void shoot () {
+
+        skra.play();
+
+
+        DynamicBody projectile = new DynamicBody(this.getWorld(), new CircleShape(0.2f));
+        projectile.addImage(projectileImage);
+        if (direction.equals("left")) {
+            projectile.setPosition(new Vec2(this.getPosition().x - 1, this.getPosition().y));
+            projectile.setLinearVelocity(new Vec2(-25, 3));
+
+        } else if (direction.equals("right")) {
+            projectile.setPosition(new Vec2(this.getPosition().x + 1, this.getPosition().y));
+            projectile.setLinearVelocity(new Vec2(25, 3));
+
+        }
+
+    }
+
+    public void shoot (Vec2 t){
+        skra.play();
+        DynamicBody projectile = new DynamicBody(this.getWorld(), new CircleShape(0.2f));
+        projectile.addImage(projectileImage);
+        Vec2 dir = t.sub(this.getPosition());
+        projectile.setPosition(this.getPosition().add(dir.mul(0.1f)));
+        dir.normalize();
+
+        projectile.setLinearVelocity(dir.mul(40));
+    }
+
+    //backpack accessor
+    public Backpack getBackpack () {
+        return backpack;
+    }
+    public String getDirection () {
+        return direction;
+    }
+}
