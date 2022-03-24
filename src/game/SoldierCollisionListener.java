@@ -11,20 +11,21 @@ public class SoldierCollisionListener implements CollisionListener {
 
     private Soldier soldier;
 
-    public SoldierCollisionListener(Soldier soldier){
+    public SoldierCollisionListener(Soldier soldier) {
         this.soldier = soldier;
     }
 
     @Override
     public void collide(CollisionEvent e) {
-        if (e.getOtherBody() instanceof Terrorist){
+        if (e.getOtherBody() instanceof Terrorist) {
             soldier.decreaseHealthLevel(1);
-            e.getOtherBody().destroy();}
-            else if (e.getOtherBody() instanceof SpikeBall){
+            e.getOtherBody().destroy();
+        } else if (e.getOtherBody() instanceof SpikeBall) {
             soldier.decreaseHealthLevel(2);
-        e.getOtherBody().destroy();
-
-
+            e.getOtherBody().destroy();
+        } else if (e.getOtherBody() instanceof Food) {
+            soldier.increaseHealthLevel(2);
+            e.getOtherBody().destroy();
         }
     }
 }
