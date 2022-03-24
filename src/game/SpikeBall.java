@@ -103,6 +103,7 @@ public class SpikeBall extends Walker {
     public void destroy(){
         super.destroy();
      yo.play();
+     Soldier.increaseCredits(150);
 }
 
 }

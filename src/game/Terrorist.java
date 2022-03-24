@@ -96,6 +96,7 @@ private static SoundClip Boom;
     public void destroy(){
         Boom.play();
         super.destroy();
+        Soldier.increaseCredits(100);
     }
 
 }

@@ -103,13 +103,13 @@ public class Soldier extends Walker {
         // CONSTRUCTOR CONSTRUCTOR CONSTRUCTOR CONSTRUCTOR CONSTRUCTOR CONSTRUCTOR CONSTRUCTOR CONSTRUCTOR CONSTRUCTOR
 
         // accessor and mutator for credits (PROBABLY REDUNDANT)
-        public int getCredits () {
+        public static int getCredits () {
             return credits;
         }
-        public void increaseCredits ( int amount){
+        public static void increaseCredits(int amount){
             credits = credits + amount;
         }
-        public void decreaseCredits ( int amount){
+        public static void decreaseCredits ( int amount){
             credits = credits - amount;
         }
 
