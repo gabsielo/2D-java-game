@@ -27,7 +27,7 @@ public class GameWorld extends World {
         */
         try {
             gameMusic = new SoundClip("data/LetsLurk.mp3");   // Open an audio input stream
-            gameMusic.loop();                              // Set it to continous playback (looping)
+            gameMusic.loop();                              // Set it to continuous playback (looping)
         } catch (UnsupportedAudioFileException | IOException | LineUnavailableException e) {
             //code in here will deal with any errors
             //that might occur while loading/playing sound
