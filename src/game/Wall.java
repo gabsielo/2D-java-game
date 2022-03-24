@@ -22,8 +22,7 @@ public class Wall extends StaticBody{
       setPosition(position);
       addImage(wallImage);
 
-
-       }
+    }
 
 
 
