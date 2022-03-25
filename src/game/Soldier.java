@@ -171,6 +171,11 @@ public class Soldier extends Walker {
             projectile.setLinearVelocity(dir.mul(40));
         }
 
+        public void dropBomb(){
+
+            new Bomb(this.getWorld(),this.getPosition(),3000);
+        }
+
         //backpack accessor
         public Backpack getBackpack () {
             return backpack;

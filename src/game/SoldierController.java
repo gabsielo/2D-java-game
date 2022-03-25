@@ -6,12 +6,20 @@ import java.math.*;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
+/*    CONTROLLER
+
+soldier movement   WASD and arrow keys
+Item change - Q, Item use E,
+Bomb Drop B
+
+
+ */
 
 public class SoldierController implements KeyListener {
 
     private static final float WALKING_SPEED = 7;
     private Soldier soldier;
-    // broken 11/3/22 private Terorist osama = world.getOsama();
+    // broken 11/3/22 private Terrorist osama = world.getOsama();
   public SoldierController(Soldier soldier) {
         this.soldier = soldier;
     }
@@ -38,6 +46,7 @@ public class SoldierController implements KeyListener {
         }
        else if (code== KeyEvent.VK_Q){soldier.getBackpack().toggle();}
        else if (code== KeyEvent.VK_E){soldier.getBackpack().getCurrentItem().operate();}
+        else if (code== KeyEvent.VK_B){soldier.dropBomb();}
     }
 
     @Override
