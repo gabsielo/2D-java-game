@@ -3,7 +3,7 @@ import city.cs.engine.*;
 import org.jbox2d.common.Vec2;
 
 
-public class chicken extends Food{
+public class Chicken extends Food{
 
 
     //make platform Image here
@@ -16,7 +16,7 @@ public class chicken extends Food{
 
 
     // constructor
-    public chicken (World world, Vec2 position) {
+    public Chicken (World world, Vec2 position) {
         super(world,position);
 
         // "world here is an object of the GameWorld class"

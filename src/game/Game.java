@@ -3,8 +3,9 @@ package game;
 import city.cs.engine.*;
 import city.cs.engine.Shape;
 import org.jbox2d.common.Vec2;
-
-import javax.swing.JFrame;
+import org.jbox2d.pooling.IWorldPool;
+import city.cs.engine.World;
+import javax.swing.*;
 
 
 import java.awt.*;
@@ -48,7 +49,6 @@ public class Game {
     public Game() {
 
 
-
         //maeke a soundclip object before the world is created gonna
         // try put this in game world to see if it fixes the glitch
         /*
@@ -60,6 +60,9 @@ public class Game {
           GameWorld world = new GameWorld();
           // erronous 10/3/22 world1 = world;
 
+        TestTimerActionListener actionListener = new TestTimerActionListener(world);
+        Timer t= new Timer(1000,actionListener);
+        t.start();
 
 
 

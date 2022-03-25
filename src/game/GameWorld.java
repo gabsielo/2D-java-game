@@ -62,7 +62,7 @@ public class GameWorld extends World {
             a.startWalking(2);
 
             //try to make chickenbucket
-            new chicken(this, new Vec2(5,5));
+            new Chicken(this, new Vec2(5,5));
 
 
             // testing the new wall constructor 8/3/22 22:40
