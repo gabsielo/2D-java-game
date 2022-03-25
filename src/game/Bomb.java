@@ -19,6 +19,7 @@ public class Bomb implements ActionListener {
 
       private static SoundClip wickSound;
       private static SoundClip explosionSound;
+      private static SoundClip shaqBoomSound;
  static {
   try {
    wickSound = new SoundClip("data/fuse3Secs.mp3");
@@ -28,6 +29,12 @@ public class Bomb implements ActionListener {
   }
   try {
    explosionSound = new SoundClip("data/thermalImploder.mp3");
+
+  } catch (UnsupportedAudioFileException | IOException | LineUnavailableException e) {
+   System.out.println(e);
+  }
+  try {
+   shaqBoomSound = new SoundClip("data/shaqBoom.mp3");
 
   } catch (UnsupportedAudioFileException | IOException | LineUnavailableException e) {
    System.out.println(e);
@@ -68,9 +75,13 @@ wickSound.play();
    Timer t2 = new Timer(800, this);
    t2.setRepeats(false);
    t2.start();
+   explosion.addCollisionListener(new ExplosionCollision());
+
+
   }
   else if (counter ==1){
-   explosionSound.play();
+ //  explosionSound.play();
+   shaqBoomSound.play();
    explosion.destroy();
    wickSound.stop();
 

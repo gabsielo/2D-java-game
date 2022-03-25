@@ -6,14 +6,15 @@ import javax.sound.sampled.LineUnavailableException;
 import javax.sound.sampled.UnsupportedAudioFileException;
 import java.io.IOException;
 
-public class Terrorist extends Walker {
+public class Terrorist extends Walker
+implements Destroyable{
 private static SoundClip Boom;
-
+private static SoundClip yo;
 
     // boom static
     static {
         try {
-             Boom = new SoundClip("data/shaqBoom.mp3");   // Open an audio input stream
+            yo = new SoundClip("data/shaqYo.mp3");   // Open an audio input stream
             //  boom.play();                              // Set it to  play
         } catch (UnsupportedAudioFileException | IOException | LineUnavailableException e) {
             //code in here will deal with any errors
@@ -94,7 +95,7 @@ private static SoundClip Boom;
 
     @Override
     public void destroy(){
-        Boom.play();
+        yo.play();
         super.destroy();
         Soldier.increaseCredits(100);
     }
