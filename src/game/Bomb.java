@@ -3,9 +3,12 @@ package game;
 import city.cs.engine.*;
 import org.jbox2d.common.Vec2;
 
+import javax.sound.sampled.LineUnavailableException;
+import javax.sound.sampled.UnsupportedAudioFileException;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
 
 public class Bomb implements ActionListener {
  private static final BodyImage bombImage =
@@ -13,6 +16,18 @@ public class Bomb implements ActionListener {
 
  private static final BodyImage explosionImage =
          new BodyImage("data/explosion.png", 6f);
+
+      private static SoundClip wickSound;
+      private static SoundClip explosionSound;
+ static {
+  try {
+   wickSound = new SoundClip("data/fuse10secs");
+   System.out.println("Loading books sound");
+  } catch (UnsupportedAudioFileException | IOException | LineUnavailableException e) {
+   System.out.println(e);
+  }
+ }
+
 
  private DynamicBody bomb;
  private DynamicBody explosion;
