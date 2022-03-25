@@ -8,7 +8,8 @@ import java.io.IOException;
 
 
 
-public class Food extends StaticBody {
+public class Food extends StaticBody
+implements Destroyable{
 
     private static SoundClip eatSound;
 
