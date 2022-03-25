@@ -21,8 +21,14 @@ public class Bomb implements ActionListener {
       private static SoundClip explosionSound;
  static {
   try {
-   wickSound = new SoundClip("data/fuse10secs");
-   System.out.println("Loading books sound");
+   wickSound = new SoundClip("data/fuse3Secs.mp3");
+
+  } catch (UnsupportedAudioFileException | IOException | LineUnavailableException e) {
+   System.out.println(e);
+  }
+  try {
+   explosionSound = new SoundClip("data/thermalImploder.mp3");
+
   } catch (UnsupportedAudioFileException | IOException | LineUnavailableException e) {
    System.out.println(e);
   }
@@ -39,6 +45,7 @@ public class Bomb implements ActionListener {
   bomb.addImage(bombImage);
   bomb.setPosition(pos);
   counter=0;
+wickSound.play();
 
   Timer t = new Timer(detonationTime, this);
   t.setRepeats(false);
@@ -57,12 +64,18 @@ public class Bomb implements ActionListener {
    explosion = new DynamicBody(bomb.getWorld(), new CircleShape(3));
    explosion.addImage(explosionImage);
    explosion.setPosition(bomb.getPosition());
+   wickSound.stop();
    Timer t2 = new Timer(800, this);
    t2.setRepeats(false);
    t2.start();
   }
   else if (counter ==1){
+   explosionSound.play();
    explosion.destroy();
+   wickSound.stop();
+
+
+
   }
   counter++;
  }
