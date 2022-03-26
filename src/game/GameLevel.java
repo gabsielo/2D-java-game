@@ -9,15 +9,17 @@ import javax.sound.sampled.LineUnavailableException;
 import javax.sound.sampled.UnsupportedAudioFileException;
 
 //class
-public class GameWorld extends World {
+public class GameLevel extends World {
+
 
 
     private Terrorist osama;
     private Soldier soldier;
     private SoundClip gameMusic;
+    private SpikeBall Boss;
 
 
-    public GameWorld() {
+    public GameLevel() {
         super();
 
         /*  Probably  redundant
@@ -53,6 +55,10 @@ public class GameWorld extends World {
             soldier.increaseCredits(15);
 
 
+
+
+
+
             // make a Terrorist
             osama = new Terrorist(this);
             osama = osama;
@@ -63,9 +69,19 @@ public class GameWorld extends World {
             a.setPosition(new Vec2(2, -11));
             a.startWalking(2);
 
-            //try to make chickenbucket
-            new Chicken(this, new Vec2(5,5));
+            //try to make chicken bucket
+        new Chicken(this, new Vec2(5,5));
+        for (int i=0; i<5; i++){
 
+
+            Chicken KFC1 =new Chicken(this, new Vec2(i*3f,7));
+        }
+           /*REDUNDANT 26/3/22 WHEN IMPLEMENTING GAME LEVELS new Chicken(this, new Vec2(5,5));
+        for (int i=0; i<5; i++){
+
+            Chicken KFC1 =new Chicken(this, new Vec2(i*3f,5));
+        }
+                */
 
             // testing the new wall constructor 8/3/22 22:40
 
@@ -80,11 +96,12 @@ public class GameWorld extends World {
             //(don't add anything related to the view)
             // make a suspended platform
 
-            //9/3/22 12:00 making the platforms from the newly encapsulated platform class instead
-            Platform platform1 = new Platform(this, new Vec2(-8, -1f), 0);
-            //make the second suspended platform
-            Platform platform2 = new Platform(this, new Vec2(8, 0.5f), 30);
-
+        /*  REDUNDANT when implementing multiple levels 26/3/22
+        //9/3/22 12:00 making the platforms from the newly encapsulated platform class instead
+        Platform platform1 = new Platform(this, new Vec2(-8, -1f), 0);
+        //make the second suspended platform
+        Platform platform2 = new Platform(this, new Vec2(8, 0.5f), 30);
+           */
 
             //make the ball
             //experiment adding image for ball

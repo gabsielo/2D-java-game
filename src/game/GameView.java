@@ -2,7 +2,6 @@ package game;
 
 //imports
 import city.cs.engine.*;
-import org.jbox2d.common.Vec2;
 
 import javax.swing.*;
 import java.awt.*;
@@ -14,7 +13,7 @@ public class GameView extends UserView {
 private Soldier soldier;
 
     private Image background;
-    public GameView(GameWorld world, int width, int height) {
+    public GameView(GameLevel world, int width, int height) {
         super(world, width, height);
         this.background = new ImageIcon("data/blueBackground.JPG").getImage();
         soldier = world.getSoldier();

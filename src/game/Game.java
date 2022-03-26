@@ -1,18 +1,8 @@
 package game;
 //line 63 and 64 temporarily redundant
 import city.cs.engine.*;
-import city.cs.engine.Shape;
-import org.jbox2d.common.Vec2;
-import org.jbox2d.pooling.IWorldPool;
-import city.cs.engine.World;
+
 import javax.swing.*;
-
-
-import java.awt.*;
-import java.io.IOException;
-import javax.sound.sampled.LineUnavailableException;
-import javax.sound.sampled.UnsupportedAudioFileException;
-import javax.swing.text.View;
 
 /**
  * Your main game entry point
@@ -57,8 +47,9 @@ public class Game {
          */
 
         //1. make an empty game world
-          GameWorld world = new GameWorld();
+          GameLevel world = new GameLevel();
           // erronous 10/3/22 world1 = world;
+
 
         TestTimerActionListener actionListener = new TestTimerActionListener(world);
         Timer t= new Timer(1000,actionListener);
