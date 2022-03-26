@@ -87,7 +87,7 @@ wickSound.play();
    shaqBoomSound.play();
    explosion.destroy();
    wickSound.stop();
-
+   Soldier.increaseCredits(10);
 
 
   }

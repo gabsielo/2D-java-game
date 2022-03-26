@@ -9,17 +9,17 @@ import javax.sound.sampled.LineUnavailableException;
 import javax.sound.sampled.UnsupportedAudioFileException;
 
 //class
-public class GameLevel extends World {
+public abstract class GameLevel extends World {
 
 
 
     private Terrorist osama;
     private Soldier soldier;
     private SoundClip gameMusic;
-    private SpikeBall Boss;
+    private SpikeBall spikeBall;
 
 
-    public GameLevel() {
+    public GameLevel(Game game) {
         super();
 
         /*  Probably  redundant
@@ -30,7 +30,7 @@ public class GameLevel extends World {
         try {
             gameMusic = new SoundClip("data/LetsLurk.mp3");   // Open an audio input stream
             gameMusic.setVolume(0.3);
-            gameMusic.loop();                              // Set it to continuous playback (looping)
+            gameMusic.loop();                            // Set it to continuous playback (looping)
 
         } catch (UnsupportedAudioFileException | IOException | LineUnavailableException e) {
             //code in here will deal with any errors
@@ -46,10 +46,10 @@ public class GameLevel extends World {
             ground.setPosition(new Vec2(0f, -11.5f));
             ground.addImage(groundImage);
 
+            //soldier creation stays in GameLevel
             // make the character
             soldier = new Soldier(this);
-
-            soldier.setPosition(new Vec2(-9, 9));
+            soldier.setPosition(new Vec2(-9,10));
             soldier.setAlwaysOutline(true);
             soldier.setLinearVelocity(new Vec2(0, 9));
             soldier.increaseCredits(15);
@@ -103,11 +103,14 @@ public class GameLevel extends World {
         Platform platform2 = new Platform(this, new Vec2(8, 0.5f), 30);
            */
 
+
+            // 26/3/22 SPIKEBALL WILL BE NEXT LEVEL CONDUIT SO STAYS IN BASE LEVEL CLASS
             //make the ball
             //experiment adding image for ball
             //make spikeBall
-            SpikeBall spikeball1 = new SpikeBall(this, new Vec2(5, 5));
-            spikeball1.startWalking(spikeball1.getSpikeBallWalkingSpeed() + 1);
+            spikeBall = new SpikeBall(this, new Vec2(5, 5));
+
+            spikeBall.startWalking(spikeBall.getSpikeBallWalkingSpeed() + 1);
 
       /*   OLD SPIKEBALL  CODE REDUNDANT  CircleShape ballShape = new CircleShape(1.5f);
         DynamicBody ball = new DynamicBody(this, ballShape);
@@ -119,12 +122,15 @@ public class GameLevel extends World {
             //add enemy collision listener for the soldier
             SoldierCollisionListener EnemyCollision = new SoldierCollisionListener(soldier);
             soldier.addCollisionListener(EnemyCollision);
+            LevelCompleteListener LevelComplete = new LevelCompleteListener(this,game);
+            soldier.addCollisionListener(LevelComplete);
+
             // add wall collision listener for Enemy
             TerroristCollisionListener osamaWallCollision = new TerroristCollisionListener(osama);
             osama.addCollisionListener(osamaWallCollision);
             //and spikeball collsion listener
-            SpikeBallCollisionListener spikeBallCollision = new SpikeBallCollisionListener(spikeball1);
-            spikeball1.addCollisionListener(spikeBallCollision);
+            SpikeBallCollisionListener spikeBallCollision = new SpikeBallCollisionListener(spikeBall);
+            spikeBall.addCollisionListener(spikeBallCollision);
             // abu collision listener
             TerroristCollisionListener abuWallCollision = new TerroristCollisionListener(a);
             a.addCollisionListener(abuWallCollision);
@@ -140,7 +146,11 @@ public class GameLevel extends World {
         public Terrorist getOsama () {
             return osama;
         }
-
-
+        public SpikeBall getSpikeBall () {
+        return spikeBall;
     }
+
+    public abstract boolean isComplete();
+
+}
 

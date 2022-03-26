@@ -8,33 +8,21 @@ import javax.swing.*;
  * Your main game entry point
  */
 public class Game {
+    private static Game game;
 /* Gabriel Maharaj gabriel.maharaj@city.ac.uk
     adck757 */
 
 
-      /*doesnt work
-    //try to getsoldier healthlevel into foreground in  game view 10/3/22 17:00
-     private GameWorld
-    TheGameWorld;
-    public GameWorld getTheGameWorld() {
-        return TheGameWorld;
-    }
-          */
+
+
 
 
     /** Initialise a new Game. */
 
-    /* erronous 10/3/22 tryna make world in field
-    private GameWorld  world1;
 
-    public GameWorld getWorld1() {
-        return world1;
-    }
-*/
     // make soundClip field
     private SoundClip gameMusic;
-
-
+    private GameLevel currentLevel;
 
     public Game() {
 
@@ -47,11 +35,14 @@ public class Game {
          */
 
         //1. make an empty game world
-          GameLevel world = new GameLevel();
+
+           currentLevel = new Level1(this);
+
+
           // erronous 10/3/22 world1 = world;
 
 
-        TestTimerActionListener actionListener = new TestTimerActionListener(world);
+        TestTimerActionListener actionListener = new TestTimerActionListener(currentLevel);
         Timer t= new Timer(1000,actionListener);
         t.start();
 
@@ -61,18 +52,18 @@ public class Game {
 
         //3. make a view to look into the game world
         //UserView view = new UserView(world, 500, 500);
-        GameView view = new GameView(world, 500, 500);
+        GameView view = new GameView(currentLevel, 500, 500);
 
 
 
         //optional: draw a 1-metre grid over the view
         // view.setGridResolution(1);
         //add controller
-        SoldierController controller = new SoldierController(world.getSoldier());
+        SoldierController controller = new SoldierController(currentLevel.getSoldier());
         view.addKeyListener(controller);
         //add mouse buisiness
         view.addMouseListener(new GiveFocus(view));
-        view.addMouseListener(new DirectionalShooting(world.getSoldier(),view));
+        view.addMouseListener(new DirectionalShooting(currentLevel.getSoldier(),view));
         //MouseHandler mouseHandler = new MouseHandler(world, view);
      //   view.addMouseListener(mouseHandler);
         //4. create a Java window (frame) and add the game
@@ -95,12 +86,19 @@ public class Game {
        //  JFrame debugView = new DebugViewer(world, 500, 500);
 
         // start our game world simulation!
-        world.start();
+        currentLevel.start();
     }
+
 
     /** Run the game. */
     public static void main(String[] args) {
 
-        new Game();
+       new Game();
+
     }
+public void goToNextLevel(){
+        System.out.println("transition to next level");
+}
+
+
 }

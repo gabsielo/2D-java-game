@@ -9,7 +9,9 @@ import javax.swing.JFrame;
 
 public class SoldierCollisionListener implements CollisionListener {
 
+
     private Soldier soldier;
+
 
     public SoldierCollisionListener(Soldier soldier) {
         this.soldier = soldier;
@@ -26,6 +28,8 @@ public class SoldierCollisionListener implements CollisionListener {
         } else if (e.getOtherBody() instanceof Food) {
             soldier.increaseHealthLevel(2);
             e.getOtherBody().destroy();
+
+
         }
     }
 }
