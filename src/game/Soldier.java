@@ -161,6 +161,7 @@ public class Soldier extends Walker {
         }
 
         public void shoot (Vec2 t){
+          //  skra.setVolume(1.6);
             skra.play();
             DynamicBody projectile = new DynamicBody(this.getWorld(), new CircleShape(0.2f));
             projectile.addImage(projectileImage);

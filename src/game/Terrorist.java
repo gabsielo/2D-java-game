@@ -11,6 +11,7 @@ implements Destroyable{
 private static SoundClip Boom;
 private static SoundClip yo;
 
+
     // boom static
     static {
         try {
@@ -21,6 +22,7 @@ private static SoundClip yo;
             //that might occur while loading/playing sound
             System.out.println(e);
         }
+        yo.setVolume(1.6);
     }
 
 
@@ -95,6 +97,7 @@ private static SoundClip yo;
 
     @Override
     public void destroy(){
+
         yo.play();
         super.destroy();
         Soldier.increaseCredits(100);
