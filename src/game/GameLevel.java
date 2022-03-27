@@ -4,6 +4,7 @@ import city.cs.engine.*;
 import city.cs.engine.Shape;
 import org.jbox2d.common.Vec2;
 import javax.swing.JFrame;
+import java.awt.*;
 import java.io.IOException;
 import javax.sound.sampled.LineUnavailableException;
 import javax.sound.sampled.UnsupportedAudioFileException;
@@ -136,10 +137,12 @@ public abstract class GameLevel extends World {
             a.addCollisionListener(abuWallCollision);
             soldier.getBackpack().addItem(new Pistol(soldier));
             soldier.getBackpack().addItem(new Jetpack(soldier));
+    }
 
-        }
+
+
+
         //accessor soldier
-
         public Soldier getSoldier () {
             return soldier;
         }
@@ -152,5 +155,6 @@ public abstract class GameLevel extends World {
 
     public abstract boolean isComplete();
 
+    public abstract Image getBackground();
 }
 

@@ -3,6 +3,7 @@ package game;
 import city.cs.engine.*;
 
 import javax.swing.*;
+import java.awt.*;
 
 /**
  * Your main game entry point
@@ -100,13 +101,19 @@ public class Game {
     }
 public void goToNextLevel(){
 
+
+
         if (currentLevel instanceof Level1) {
+
             System.out.println("transition to next level");
             currentLevel.stop();
+
             currentLevel = new Level2(this);
+
             view.setWorld(currentLevel);
             currentLevel.start();
           controller.updateSoldier(currentLevel.getSoldier());
+
         }
         else if (currentLevel instanceof Level2){
             System.out.println("Game done");

@@ -11,12 +11,16 @@ import java.awt.Color;
 public class GameView extends UserView {
 
 private Soldier soldier;
+GameLevel currentLevel;
 
-    private Image background;
-    public GameView(GameLevel world, int width, int height) {
-        super(world, width, height);
-        this.background = new ImageIcon("data/blueBackground.JPG").getImage();
-        soldier = world.getSoldier();
+
+
+    public GameView(GameLevel w, int width, int height) {
+        super(w, width, height);
+        currentLevel = w;
+        soldier = w.getSoldier();
+
+
     }
 
 
@@ -25,7 +29,14 @@ private Soldier soldier;
 
     @Override
     protected void paintBackground(Graphics2D g) {
-        g.drawImage(background, 0, 0, this);
+
+        g.drawImage(currentLevel.getBackground(), 0, 0, this);
+
+    }
+
+    @Override
+    public void setWorld(World w)
+    {currentLevel = (GameLevel)w;
     }
 
     @Override
@@ -36,8 +47,6 @@ private Soldier soldier;
         g.setColor(Color.orange);
               g.drawString("health: "+soldier.getHealthLevel()+" credits: " + soldier.getCredits(),10,90);
 
-
-
-        ;}
+              ;}
     }
 

@@ -2,11 +2,17 @@ package game;
 
 import org.jbox2d.common.Vec2;
 
+import javax.swing.*;
+import java.awt.*;
+
 public class Level1 extends GameLevel{
+    Image background;
     int targetCredits = 1500;
 
     public Level1(Game game){
    super(game);
+
+        background = new ImageIcon("data/blueBackground.JPG").getImage();
         //9/3/22 12:00 making the platforms from the newly encapsulated platform class instead
         Platform platform1 = new Platform(this, new Vec2(-8, -1f), 0);
         //make the second suspended platform
@@ -33,5 +39,10 @@ public class Level1 extends GameLevel{
         {return  true;}
         else
         { return false;}
+    }
+
+    @Override
+    public Image getBackground() {
+        return background;
     }
 }
