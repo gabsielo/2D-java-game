@@ -1,18 +1,33 @@
 package game;
 
+import city.cs.engine.SoundClip;
 import org.jbox2d.common.Vec2;
 
+import javax.sound.sampled.LineUnavailableException;
+import javax.sound.sampled.UnsupportedAudioFileException;
 import javax.swing.*;
 import java.awt.*;
+import java.io.IOException;
 
 public class Level2 extends GameLevel{
-
-Image background;
-int targetCredits =3000;
-
+    private SoundClip gameMusic;
+    Image background;
+    int targetCredits =3000;
+    public SoundClip getGameMusic(){return gameMusic;}
     public Level2(Game game) {
      super(game);
         background = new ImageIcon("data/councilEstate.jpeg").getImage();
+
+        try {
+            gameMusic = new SoundClip("data/lightWorkClean.mp3");   // Open an audio input stream
+            gameMusic.setVolume(0.3);
+            gameMusic.loop();                            // Set it to continuous playback (looping)
+
+        } catch (UnsupportedAudioFileException | IOException | LineUnavailableException e) {
+            //code in here will deal with any errors
+            //that might occur while loading/playing sound
+            System.out.println(e);
+        }
 
         //    9/3/22 12:00 making the platforms from the newly encapsulated platform class instead
         Platform platform1 = new Platform(this, new Vec2(-3, -5f), 0);

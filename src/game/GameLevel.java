@@ -16,7 +16,7 @@ public abstract class GameLevel extends World {
 
     private Terrorist osama;
     private Soldier soldier;
-    private SoundClip gameMusic;
+    // redundant 27/3 private SoundClip gameMusic;
     private SpikeBall spikeBall;
 
 
@@ -28,6 +28,7 @@ public abstract class GameLevel extends World {
         spikeBallImage = new BodyImage("data/spikeBall.png", 3f);
 
         */
+        /* REDUNDANT 27/01/22
         try {
             gameMusic = new SoundClip("data/LetsLurk.mp3");   // Open an audio input stream
             gameMusic.setVolume(0.3);
@@ -38,7 +39,7 @@ public abstract class GameLevel extends World {
             //that might occur while loading/playing sound
             System.out.println(e);
         }
-
+         */
             // make the ground
             Shape shape = new BoxShape(11, 0.5f);
             StaticBody ground = new StaticBody(this, shape);
