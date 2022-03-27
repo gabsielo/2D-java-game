@@ -8,7 +8,7 @@ import javax.swing.*;
  * Your main game entry point
  */
 public class Game {
-    private static Game game;
+
 /* Gabriel Maharaj gabriel.maharaj@city.ac.uk
     adck757 */
 
@@ -22,7 +22,10 @@ public class Game {
 
     // make soundClip field
     private SoundClip gameMusic;
-    private GameLevel currentLevel;
+    GameLevel currentLevel;
+    private static Game game;
+    GameView view;
+    SoldierController controller;
 
     public Game() {
 
@@ -36,10 +39,8 @@ public class Game {
 
         //1. make an empty game world
 
-           currentLevel = new Level1(this);
+        currentLevel = new Level1(this);
 
-
-          // erronous 10/3/22 world1 = world;
 
 
         TestTimerActionListener actionListener = new TestTimerActionListener(currentLevel);
@@ -52,14 +53,15 @@ public class Game {
 
         //3. make a view to look into the game world
         //UserView view = new UserView(world, 500, 500);
-        GameView view = new GameView(currentLevel, 500, 500);
+        view = new GameView(currentLevel, 500, 500);
 
 
 
         //optional: draw a 1-metre grid over the view
         // view.setGridResolution(1);
         //add controller
-        SoldierController controller = new SoldierController(currentLevel.getSoldier());
+        controller = new SoldierController(currentLevel.getSoldier());
+        this.controller= controller;
         view.addKeyListener(controller);
         //add mouse buisiness
         view.addMouseListener(new GiveFocus(view));
@@ -97,7 +99,19 @@ public class Game {
 
     }
 public void goToNextLevel(){
-        System.out.println("transition to next level");
+
+        if (currentLevel instanceof Level1) {
+            System.out.println("transition to next level");
+            currentLevel.stop();
+            currentLevel = new Level2(this);
+            view.setWorld(currentLevel);
+            currentLevel.start();
+          controller.updateSoldier(currentLevel.getSoldier());
+        }
+        else if (currentLevel instanceof Level2){
+            System.out.println("Game done");
+            System.exit(0);
+        }
 }
 
 

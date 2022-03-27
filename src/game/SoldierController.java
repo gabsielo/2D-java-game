@@ -67,4 +67,10 @@ public class SoldierController implements KeyListener {
 
     }
 
+    public void updateSoldier(Soldier newSoldier){
+      soldier= newSoldier;
+
+    }
+
+
 }
