@@ -107,17 +107,32 @@ public void goToNextLevel(){
 
             System.out.println("transition to next level");
             currentLevel.stop();
-            //temporarly fixing the music transition bc currentLevel.stop(); doesnt work 26/3
+
             ((Level1) currentLevel).getGameMusic().stop();
 
             currentLevel = new Level2(this);
-           // tried to fix with this line but couldn't 26/3  currentLevel = this.currentLevel;
+
             view.setWorld(currentLevel);
             currentLevel.start();
             controller.updateSoldier(currentLevel.getSoldier());
 
         }
-        else if (currentLevel instanceof Level2){
+    else if (currentLevel instanceof Level2) {
+
+        System.out.println("transition to next level");
+        currentLevel.stop();
+
+        ((Level2) currentLevel).getGameMusic().stop();
+
+        currentLevel = new Level3(this);
+
+        view.setWorld(currentLevel);
+        currentLevel.start();
+        controller.updateSoldier(currentLevel.getSoldier());
+
+    }
+
+    else if (currentLevel instanceof Level3){
             System.out.println("Game done");
             System.exit(0);
         }
