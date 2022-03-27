@@ -111,7 +111,7 @@ public void goToNextLevel(){
             ((Level1) currentLevel).getGameMusic().stop();
 
             currentLevel = new Level2(this);
-           // tried to fix with this line but couldnt 26/3  currentLevel = this.currentLevel;
+           // tried to fix with this line but couldn't 26/3  currentLevel = this.currentLevel;
             view.setWorld(currentLevel);
             currentLevel.start();
             controller.updateSoldier(currentLevel.getSoldier());

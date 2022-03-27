@@ -36,7 +36,10 @@ GameLevel currentLevel;
 
     @Override
     public void setWorld(World w)
-    {currentLevel = (GameLevel)w;
+    {   super.setWorld(w);
+
+        currentLevel = (GameLevel)w;
+
     }
 
     @Override
@@ -45,7 +48,12 @@ GameLevel currentLevel;
 
                 g.setFont(font);
         g.setColor(Color.orange);
-              g.drawString("health: "+soldier.getHealthLevel()+" credits: " + soldier.getCredits(),10,90);
+              g.drawString("health: "+soldier.getHealthLevel()+" credits: " + soldier.getCredits(),10,90
+              );
+        g.setFont(font);
+        g.setColor(Color.red);
+        g.drawString("collect 1500 credits press 'B' ",10,70
+        );
 
               ;}
     }
