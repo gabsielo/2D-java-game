@@ -21,7 +21,7 @@ public class Level3 extends GameLevel{
 
         try {
             gameMusic = new SoundClip("data/nextUp.mp3");   // Open an audio input stream
-            gameMusic.setVolume(0.3);
+            gameMusic.setVolume(0.9);
             gameMusic.loop();                            // Set it to continuous playback (looping)
 
         } catch (UnsupportedAudioFileException | IOException | LineUnavailableException e) {
@@ -36,10 +36,18 @@ public class Level3 extends GameLevel{
         Platform platform2 = new Platform(this, new Vec2(3, 2f), 30);
         new Chicken(this, new Vec2(9,3));
         new Chicken(this, new Vec2(5,5));
-        for (int i=0; i<10; i++){
-            Zoot zoot1= new Zoot(this, new Vec2(i*0.5f,i+4));
-        }
 
+        int j=0;
+        while ( j<10)
+        {
+            for (int i = 0; i < 10; i++) {
+                Zoot zoot1 = new Zoot(this, new Vec2(i*4 * 1f, j));
+                Zoot zoot2 = new Zoot(this, new Vec2(-i*4 * 1f, -j+5));
+                Zoot zoot3 = new Zoot(this, new Vec2(i*4 * 1f, -j+5));
+                Zoot zoot4 = new Zoot(this, new Vec2(-i*4 * 1f, j));
+            }
+            j++;
+        };
 
         //SET POSITIONS
         getSpikeBall().setPosition(new Vec2(1,1));

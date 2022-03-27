@@ -45,9 +45,9 @@ implements Destroyable{
     @Override
     public void destroy() {
 
-            eatSound.play();
+         //   not needed 27/3 eatSound.play();
             super.destroy();
-            Soldier.increaseCredits(100);
+           //not needed 27/3 Soldier.increaseCredits(10);
 
 
 

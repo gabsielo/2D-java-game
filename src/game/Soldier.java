@@ -144,10 +144,12 @@ public class Soldier extends Walker {
         public void shoot () {
 
             skra.play();
-
+            Soldier.increaseCredits(10);
 
             DynamicBody projectile = new DynamicBody(this.getWorld(), new CircleShape(0.2f));
+            projectile.addCollisionListener(new ExplosionCollision());
             projectile.addImage(projectileImage);
+
             if (direction.equals("left")) {
                 projectile.setPosition(new Vec2(this.getPosition().x - 1, this.getPosition().y));
                 projectile.setLinearVelocity(new Vec2(-25, 3));
@@ -157,6 +159,7 @@ public class Soldier extends Walker {
                 projectile.setLinearVelocity(new Vec2(25, 3));
 
             }
+
 
         }
 
@@ -170,6 +173,8 @@ public class Soldier extends Walker {
             dir.normalize();
 
             projectile.setLinearVelocity(dir.mul(40));
+            Soldier.increaseCredits(10);
+            projectile.addCollisionListener(new ExplosionCollision());
         }
 
         public void dropBomb(){
