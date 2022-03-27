@@ -7,6 +7,9 @@ import city.cs.engine.StaticBody;
 
 public class ExplosionCollision implements CollisionListener {
 
+
+
+
     @Override
     public void collide(CollisionEvent collisionEvent) {
 
@@ -18,4 +21,6 @@ public class ExplosionCollision implements CollisionListener {
         else if (collisionEvent.getOtherBody() instanceof Destroyable)
             collisionEvent.getOtherBody().destroy();
     }
+
+
 }

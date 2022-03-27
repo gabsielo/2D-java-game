@@ -13,6 +13,7 @@ public class Zoot extends Food{
     private static SoundClip smokeTreesSound;
 
     static {
+
         try {
             smokeTreesSound = new SoundClip("data/smokeTrees.mp3");   // Open an audio input stream
             //  skra.play();                              // Set it to  play
@@ -50,8 +51,6 @@ public class Zoot extends Food{
         smokeTreesSound.play();
         super.destroy();
         Soldier.increaseCredits(1);
-
-
 
     }
 }

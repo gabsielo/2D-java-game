@@ -66,9 +66,11 @@ public abstract class GameLevel extends World {
             osama = osama;
             osama.startWalking(osama.getTerroristWalkingSpeed() - 1);
 
+
             // trying to make 2nd terrorrist
             Terrorist a = new Terrorist(this);
             a.setPosition(new Vec2(2, -11));
+             osama.setPosition(new Vec2(7,-11));
             a.startWalking(2);
 
             //try to make chicken bucket
@@ -110,15 +112,12 @@ public abstract class GameLevel extends World {
             //make the ball
             //experiment adding image for ball
             //make spikeBall
-            spikeBall = new SpikeBall(this, new Vec2(5, 5));
+            spikeBall = new SpikeBall(this, new Vec2(8, -11));
+            spikeBall.setPosition(new Vec2(8,-11));
 
             spikeBall.startWalking(spikeBall.getSpikeBallWalkingSpeed() + 1);
 
-      /*   OLD SPIKEBALL  CODE REDUNDANT  CircleShape ballShape = new CircleShape(1.5f);
-        DynamicBody ball = new DynamicBody(this, ballShape);
-        ball.setPosition(new Vec2(8, 0.9f));
-        ball.addImage(spikeBallImage);
-       */
+
 
 
             //add enemy collision listener for the soldier

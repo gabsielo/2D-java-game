@@ -42,15 +42,19 @@ public class Level3 extends GameLevel{
         {
             for (int i = 0; i < 10; i++) {
                 Zoot zoot1 = new Zoot(this, new Vec2(i*4 * 1f, j));
+                zoot1.setAngleDegrees(i*j*j*j%40);
                 Zoot zoot2 = new Zoot(this, new Vec2(-i*4 * 1f, -j+5));
+                zoot2.setAngleDegrees(180-(i*j*j*j%40));
                 Zoot zoot3 = new Zoot(this, new Vec2(i*4 * 1f, -j+5));
+                zoot3.setAngleDegrees(i*j*j*j%40);
                 Zoot zoot4 = new Zoot(this, new Vec2(-i*4 * 1f, j));
+                zoot4.setAngleDegrees(180-(i*j*j*j%40));
             }
             j++;
         };
 
         //SET POSITIONS
-        getSpikeBall().setPosition(new Vec2(1,1));
+        getSpikeBall().setPosition(new Vec2(1,-11));
         getSoldier().setPosition(new Vec2(-9, 9));
 
 

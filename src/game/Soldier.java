@@ -175,6 +175,7 @@ public class Soldier extends Walker {
             projectile.setLinearVelocity(dir.mul(40));
             Soldier.increaseCredits(10);
             projectile.addCollisionListener(new ExplosionCollision());
+            projectile.addCollisionListener(new BulletCollision());
         }
 
         public void dropBomb(){

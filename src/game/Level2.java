@@ -43,8 +43,8 @@ public class Level2 extends GameLevel{
 
 
         //SET POSITIONS
-        getSpikeBall().setPosition(new Vec2(1,1));
-        getSoldier().setPosition(new Vec2(-9, 9));
+        getSpikeBall().setPosition(new Vec2(1,-11));
+        getSoldier().setPosition(new Vec2(-9, -11));
 
 
     }
