@@ -126,6 +126,8 @@ public abstract class GameLevel extends World {
             LevelCompleteListener LevelComplete = new LevelCompleteListener(this,game);
             soldier.addCollisionListener(LevelComplete);
 
+
+
             // add wall collision listener for Enemy
             TerroristCollisionListener osamaWallCollision = new TerroristCollisionListener(osama);
             osama.addCollisionListener(osamaWallCollision);
@@ -156,5 +158,6 @@ public abstract class GameLevel extends World {
     public abstract boolean isComplete();
 
     public abstract Image getBackground();
+
 }
 

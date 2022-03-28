@@ -27,6 +27,7 @@ public class Game {
     private static Game game;
     GameView view;
     SoldierController controller;
+    DirectionalShooting directionalShoot;
 
     public Game() {
 
@@ -62,10 +63,13 @@ public class Game {
         // view.setGridResolution(1);
         //add controller
         controller = new SoldierController(currentLevel.getSoldier());
-        this.controller= controller;
+        // 28/3/ tryna add directional shooting to other levels
+        directionalShoot = new DirectionalShooting(currentLevel.getSoldier(),view);
+        //
         view.addKeyListener(controller);
         //add mouse buisiness
         view.addMouseListener(new GiveFocus(view));
+
         view.addMouseListener(new DirectionalShooting(currentLevel.getSoldier(),view));
         //MouseHandler mouseHandler = new MouseHandler(world, view);
      //   view.addMouseListener(mouseHandler);
@@ -106,6 +110,7 @@ public void goToNextLevel(){
         if (currentLevel instanceof Level1) {
 
             System.out.println("transition to next level");
+
             currentLevel.stop();
 
             ((Level1) currentLevel).getGameMusic().stop();
@@ -115,6 +120,10 @@ public void goToNextLevel(){
             view.setWorld(currentLevel);
             currentLevel.start();
             controller.updateSoldier(currentLevel.getSoldier());
+            //tryna fix bullets in multiple levles 26/3
+
+            directionalShoot.updateSoldier(currentLevel.getSoldier());
+            view.addMouseListener(new DirectionalShooting(currentLevel.getSoldier(),view));
 
         }
     else if (currentLevel instanceof Level2) {
@@ -128,8 +137,10 @@ public void goToNextLevel(){
 
         view.setWorld(currentLevel);
         currentLevel.start();
-        controller.updateSoldier(currentLevel.getSoldier());
 
+        controller.updateSoldier(currentLevel.getSoldier());
+      //  directionalShoot.updateSoldier(currentLevel.getSoldier());
+            view.addMouseListener(new DirectionalShooting(currentLevel.getSoldier(),view));
     }
 
     else if (currentLevel instanceof Level3){

@@ -9,10 +9,18 @@ public class DirectionalShooting implements MouseListener {
     private Soldier soldier;
     private GameView view;
 
+
     public DirectionalShooting(Soldier s, GameView v){
+
         soldier = s;
         view = v;
     };
+
+    public void updateSoldier(Soldier newSoldier){
+
+        soldier = newSoldier;
+
+    }
 
     @Override
     public void mouseClicked(MouseEvent e) {
@@ -40,4 +48,5 @@ public class DirectionalShooting implements MouseListener {
     public void mouseExited(MouseEvent e) {
 
     }
+
 }

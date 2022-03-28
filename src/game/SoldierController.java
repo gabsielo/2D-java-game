@@ -19,6 +19,7 @@ public class SoldierController implements KeyListener {
 
     private static final float WALKING_SPEED = 7;
     private Soldier soldier;
+
     // broken 11/3/22 private Terrorist osama = world.getOsama();
   public SoldierController(Soldier soldier) {
         this.soldier = soldier;
@@ -68,6 +69,7 @@ public class SoldierController implements KeyListener {
     }
 
     public void updateSoldier(Soldier newSoldier){
+
       soldier= newSoldier;
 
     }
