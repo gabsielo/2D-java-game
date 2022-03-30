@@ -90,7 +90,7 @@ public class Game {
         frame.setVisible(true);
 
         //optional: uncomment this to make a debugging view
-       //  JFrame debugView = new DebugViewer(world, 500, 500);
+         JFrame debugView = new DebugViewer(currentLevel, 500, 500);
 
         // start our game world simulation!
         currentLevel.start();
@@ -120,7 +120,7 @@ public void goToNextLevel(){
             view.setWorld(currentLevel);
             currentLevel.start();
             controller.updateSoldier(currentLevel.getSoldier());
-            //tryna fix bullets in multiple levles 26/3
+            //tryna fix bullets in multiple levels 26/3
 
             directionalShoot.updateSoldier(currentLevel.getSoldier());
             view.addMouseListener(new DirectionalShooting(currentLevel.getSoldier(),view));
@@ -141,6 +141,7 @@ public void goToNextLevel(){
         controller.updateSoldier(currentLevel.getSoldier());
       //  directionalShoot.updateSoldier(currentLevel.getSoldier());
             view.addMouseListener(new DirectionalShooting(currentLevel.getSoldier(),view));
+            JFrame debugView = new DebugViewer(currentLevel, 500, 500);
     }
 
     else if (currentLevel instanceof Level3){

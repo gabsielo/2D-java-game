@@ -8,10 +8,13 @@ import java.io.IOException;
 
 
 
-public class Food extends StaticBody
+public abstract class Food extends StaticBody
 implements Destroyable{
 
     private static SoundClip eatSound;
+    // DOESNT WORK public abstract Shape foodShape;
+
+     private static final Shape foodShape = new BoxShape(0.5f, 0.5f);
 
     /* temp redundant 24/3/22
         //make platform Image here
@@ -30,7 +33,7 @@ implements Destroyable{
     }
 
     // make  platformShape here
-    private static final Shape foodShape = new BoxShape(0.5f, 0.5f);
+   // private static final Shape foodShape = new BoxShape(0.5f, 0.5f);
 
 
     // constructor

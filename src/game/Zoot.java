@@ -8,9 +8,12 @@ import javax.sound.sampled.UnsupportedAudioFileException;
 import java.io.IOException;
 
 
-public class Zoot extends Food{
+public class Zoot extends StaticBody
+implements Destroyable {
 
     private static SoundClip smokeTreesSound;
+    private static BoxShape zootShape  = new BoxShape(1f,0.125f);
+
 
     static {
 
@@ -25,32 +28,33 @@ public class Zoot extends Food{
     }
 
 
-
     //make platform Image here
 
     BodyImage zootImage = new BodyImage("data/zoot.png", 2f);
 
 
     // make  platformShape here
-    Shape foodShape = new BoxShape(1f, 1f);
+    Shape foodShape = new BoxShape(3f, 1f);
 
 
     // constructor
-    public Zoot (World world, Vec2 position) {
-        super(world,position);
+    public Zoot(World world, Vec2 position) {
+        super(world, zootShape);
 
         // "world here is an object of the GameWorld class"
         setPosition(position);
         addImage(zootImage);
         //setAngleDegrees(degrees);
+        }
+
+
+        @Override
+        public void destroy() {
+
+            smokeTreesSound.play();
+            super.destroy();
+            Soldier.increaseCredits(1);
+
+        }
     }
 
-    @Override
-    public void destroy() {
-
-        smokeTreesSound.play();
-        super.destroy();
-        Soldier.increaseCredits(1);
-
-    }
-}

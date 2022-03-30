@@ -25,10 +25,13 @@ import city.cs.engine.StaticBody;
             else if (collisionEvent.getOtherBody() instanceof SpikeBall)
                 collisionEvent.getOtherBody().destroy();
 
-            else if (collisionEvent.getOtherBody() instanceof Destroyable)
+            else if (collisionEvent.getOtherBody() instanceof Food)
                 collisionEvent.getOtherBody().destroy();
-        }
-              //  this.projectile.destroy();
+
+            else if (collisionEvent.getOtherBody() instanceof Zoot)
+                collisionEvent.getOtherBody().destroy();
+                }
+
 
 
     }

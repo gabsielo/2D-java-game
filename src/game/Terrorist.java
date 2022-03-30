@@ -8,6 +8,7 @@ import java.io.IOException;
 
 public class Terrorist extends Walker
 implements Destroyable{
+
 private static SoundClip Boom;
 private static SoundClip yo;
 

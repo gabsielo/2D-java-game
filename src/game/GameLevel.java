@@ -74,7 +74,7 @@ public abstract class GameLevel extends World {
             a.startWalking(2);
 
             //try to make chicken bucket
-        new Chicken(this, new Vec2(5,5));
+        Chicken chicken1 = new Chicken(this, new Vec2(5,5));
         for (int i=0; i<5; i++){
 
 
@@ -108,7 +108,7 @@ public abstract class GameLevel extends World {
            */
 
 
-            // 26/3/22 SPIKEBALL WILL BE NEXT LEVEL CONDUIT SO STAYS IN BASE LEVEL CLASS
+            //
             //make the ball
             //experiment adding image for ball
             //make spikeBall
@@ -123,6 +123,7 @@ public abstract class GameLevel extends World {
             //add enemy collision listener for the soldier
             SoldierCollisionListener EnemyCollision = new SoldierCollisionListener(soldier);
             soldier.addCollisionListener(EnemyCollision);
+
             LevelCompleteListener LevelComplete = new LevelCompleteListener(this,game);
             soldier.addCollisionListener(LevelComplete);
 

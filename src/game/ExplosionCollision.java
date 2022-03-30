@@ -20,6 +20,12 @@ public class ExplosionCollision implements CollisionListener {
 
         else if (collisionEvent.getOtherBody() instanceof Destroyable)
             collisionEvent.getOtherBody().destroy();
+
+        else if (collisionEvent.getOtherBody() instanceof Food)
+            collisionEvent.getOtherBody().destroy();
+        else if (collisionEvent.getOtherBody() instanceof Zoot)
+            collisionEvent.getOtherBody().destroy();
+
     }
 
 

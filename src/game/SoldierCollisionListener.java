@@ -29,7 +29,11 @@ public class SoldierCollisionListener implements CollisionListener {
             soldier.increaseHealthLevel(2);
             e.getOtherBody().destroy();
 
-
         }
+        else if (e.getOtherBody() instanceof Zoot) {
+            soldier.increaseHealthLevel(2);
+            e.getOtherBody().destroy();
+        }
+
     }
 }
