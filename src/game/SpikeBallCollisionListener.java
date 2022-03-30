@@ -23,7 +23,7 @@ public class SpikeBallCollisionListener implements CollisionListener {
             spikeBall.reverseSpikeBallWalkingSpeed();
             spikeBall.startWalking(spikeBall.getSpikeBallWalkingSpeed());
         }
-        else if (e.getOtherBody() instanceof Terrorist )
+        else if (e.getOtherBody() instanceof Walker )
         {
             spikeBall.reverseSpikeBallWalkingSpeed();
             spikeBall.startWalking(spikeBall.getSpikeBallWalkingSpeed());

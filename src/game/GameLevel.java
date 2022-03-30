@@ -70,8 +70,8 @@ public abstract class GameLevel extends World {
             // trying to make 2nd terrorrist
             Terrorist a = new Terrorist(this);
             a.setPosition(new Vec2(2, -11));
-             osama.setPosition(new Vec2(7,-11));
-            a.startWalking(2);
+             osama.setPosition(new Vec2(7,-7));
+            a.startWalking(1);
 
             //try to make chicken bucket
         Chicken chicken1 = new Chicken(this, new Vec2(5,5));
@@ -113,7 +113,7 @@ public abstract class GameLevel extends World {
             //experiment adding image for ball
             //make spikeBall
             spikeBall = new SpikeBall(this, new Vec2(8, -11));
-            spikeBall.setPosition(new Vec2(8,-11));
+            spikeBall.setPosition(new Vec2(8,-4));
 
             spikeBall.startWalking(spikeBall.getSpikeBallWalkingSpeed() + 1);
 
@@ -137,9 +137,10 @@ public abstract class GameLevel extends World {
             spikeBall.addCollisionListener(spikeBallCollision);
             // abu collision listener
             TerroristCollisionListener abuWallCollision = new TerroristCollisionListener(a);
-            a.addCollisionListener(abuWallCollision);
+          //  a.addCollisionListener(abuWallCollision);
             soldier.getBackpack().addItem(new Pistol(soldier));
             soldier.getBackpack().addItem(new Jetpack(soldier));
+
     }
 
 

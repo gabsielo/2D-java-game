@@ -86,15 +86,15 @@ private static SoundClip yo;
 
         // Walking speed and getter and setter methods
         // Terrorist Walking Speed getter and Setter
-        private static int TerroristWalkingSpeed = 4;
+        private static int TerroristWalkingSpeed = 3;
 
     public int getTerroristWalkingSpeed() {
         return TerroristWalkingSpeed;
     }
-    public void setTerroristWalkingSpeed(int terroristWalkingSpeed) {
+    public void setTerroristWalkingSpeed (int terroristWalkingSpeed) {
         TerroristWalkingSpeed = terroristWalkingSpeed;
     }
-    public void reverseTerroristWalkingSpeed(){TerroristWalkingSpeed= TerroristWalkingSpeed*-1;}
+    public void reverseTerroristWalkingSpeed(){TerroristWalkingSpeed= (TerroristWalkingSpeed*-1);}
 
     @Override
     public void destroy(){
