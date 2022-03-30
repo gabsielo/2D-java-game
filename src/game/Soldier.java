@@ -113,7 +113,28 @@ public class Soldier extends Walker {
             credits = credits - amount;
         }
 
+     //    making new health as static
 
+    public void setHealthLevel ( int healthLevel){
+        this.healthLevel = healthLevel;
+        System.out.println(healthLevel + "health left");
+    }
+    private static int healthLevel;
+    public static int getHealthLevel () {
+        return healthLevel;
+    }
+    public static void increaseHealthLevel(int amount){
+        healthLevel = healthLevel + amount;
+    }
+    public static void decreaseHealthLevel ( int amount){
+        healthLevel = healthLevel - amount;
+    }
+
+
+    /*
+     // becoming redundant 30/3/22
+      as I make healthlevel a static variable
+      keeping just incase i need it non static again ( unlikely)
         // Health level methods
 
         private int healthLevel;
@@ -139,6 +160,8 @@ public class Soldier extends Walker {
         public void increaseHealthLevel ( int healthAmount){
             healthLevel = healthLevel + healthAmount;
         }
+        */
+
 
         // making shoot method
         public void shoot () {
