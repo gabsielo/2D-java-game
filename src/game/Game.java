@@ -4,6 +4,8 @@ import city.cs.engine.*;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 /**
  * Your main game entry point
@@ -28,6 +30,7 @@ public class Game {
     GameView view;
     SoldierController controller;
     DirectionalShooting directionalShoot;
+    GameView wideView;
 
     public Game() {
 
@@ -55,8 +58,11 @@ public class Game {
 
         //3. make a view to look into the game world
         //UserView view = new UserView(world, 500, 500);
-        view = new GameView(currentLevel, 500, 500);
+        view = new GameView(currentLevel, 800, 600);
 
+        // make a second zoomed out view
+        wideView = new GameView(currentLevel,500,100);
+        wideView.setZoom(3);
 
 
         //optional: draw a 1-metre grid over the view
@@ -72,11 +78,14 @@ public class Game {
 
         view.addMouseListener(new DirectionalShooting(currentLevel.getSoldier(),view));
         //MouseHandler mouseHandler = new MouseHandler(world, view);
-     //   view.addMouseListener(mouseHandler);
+         //   view.addMouseListener(mouseHandler);
         //4. create a Java window (frame) and add the game
         //   view to it
         final JFrame frame = new JFrame("City Game");
-        frame.add(view);
+
+        frame.add(view);//add normal view
+        // when I add wide view to south, I can't see anything but when I add it to North, I can see it, ask charles?
+        frame.add(wideView,BorderLayout.NORTH); //add bottom wide view
 
         // enable the frame to quit the application
         // when the x button is pressed
@@ -92,6 +101,20 @@ public class Game {
         //optional: uncomment this to make a debugging view
         // JFrame debugView = new DebugViewer(currentLevel, 500, 500);
 
+       /*    REDUNDANT 31/3/22
+        // make a button
+        JButton button = new JButton("ButtonLabel");
+        frame.add(button,BorderLayout.EAST);
+
+        button.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                frame.remove(view);
+                frame.pack();
+
+            }
+        });
+         */
         // start our game world simulation!
         currentLevel.start();
     }
@@ -118,6 +141,8 @@ public void goToNextLevel(){
             currentLevel = new Level2(this);
 
             view.setWorld(currentLevel);
+            wideView.setWorld(currentLevel);
+            wideView.setZoom(3);
             currentLevel.start();
             controller.updateSoldier(currentLevel.getSoldier());
             //tryna fix bullets in multiple levels 26/3
@@ -137,7 +162,8 @@ public void goToNextLevel(){
 
         view.setWorld(currentLevel);
         currentLevel.start();
-
+            wideView.setWorld(currentLevel);
+            wideView.setZoom(3);
         controller.updateSoldier(currentLevel.getSoldier());
       //  directionalShoot.updateSoldier(currentLevel.getSoldier());
             view.addMouseListener(new DirectionalShooting(currentLevel.getSoldier(),view));
