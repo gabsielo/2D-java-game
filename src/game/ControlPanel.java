@@ -1,6 +1,8 @@
 package game;
 
 import javax.swing.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class ControlPanel {
 
@@ -13,6 +15,31 @@ public class ControlPanel {
 
     public ControlPanel(GameView v){
         view = v;
+
+
+        growButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+
+                view.setZoom((float) (view.getZoom()+0.1));
+
+            }
+        });
+        shrinkButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+                view.setZoom((float) (view.getZoom()-0.1));
+
+            }
+        });
+        quitButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                System.exit(0);
+            }
+        });
     }
 
 
