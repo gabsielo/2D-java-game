@@ -17,7 +17,7 @@ public class Level3 extends GameLevel{
     public SoundClip getGameMusic(){return gameMusic;}
     public Level3(Game game) {
         super(game);
-        background = new ImageIcon("data/councilEstate.jpeg").getImage();
+        background = new ImageIcon("data/fieldFiltered.jpg").getImage();
 
         try {
             gameMusic = new SoundClip("data/nextUp.mp3");   // Open an audio input stream
@@ -37,21 +37,6 @@ public class Level3 extends GameLevel{
         new Chicken(this, new Vec2(9,3));
         new Chicken(this, new Vec2(5,5));
 
-        int j=0;
-        while ( j<10)
-        {
-            for (int i = 0; i < 10; i++) {
-                Zoot zoot1 = new Zoot(this, new Vec2(i*4 * 1f, j));
-                zoot1.setAngleDegrees(i*j*j*j%40);
-                Zoot zoot2 = new Zoot(this, new Vec2(-i*4 * 1f, -j+5));
-                zoot2.setAngleDegrees(180-(i*j*j*j%40));
-                Zoot zoot3 = new Zoot(this, new Vec2(i*4 * 1f, -j+5));
-                zoot3.setAngleDegrees(i*j*j*j%40);
-                Zoot zoot4 = new Zoot(this, new Vec2(-i*4 * 1f, j));
-                zoot4.setAngleDegrees(180-(i*j*j*j%40));
-            }
-            j++;
-        };
 
         //SET POSITIONS
         getSpikeBall().setPosition(new Vec2(1,-11));
