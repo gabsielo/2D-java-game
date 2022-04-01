@@ -97,6 +97,9 @@ public class Game {
         frame.pack();
         // finally, make the frame visible
         frame.setVisible(true);
+        //making control panel for game
+        ControlPanel controlPanel = new ControlPanel(view);
+        frame.add(controlPanel.getMainPanel(),BorderLayout.WEST);
 
         //optional: uncomment this to make a debugging view
         // JFrame debugView = new DebugViewer(currentLevel, 500, 500);
