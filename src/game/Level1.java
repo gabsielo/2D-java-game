@@ -13,6 +13,9 @@ public class Level1 extends GameLevel{
     Image background;
     int targetCredits = 1500;
     private SoundClip gameMusic;
+
+
+
     //temporarily just making sure the music stops when level 2 starts i cant workout how to  fix the rest 26/3
     public SoundClip getGameMusic(){return gameMusic;}
     public Level1(Game game){
@@ -46,6 +49,9 @@ public class Level1 extends GameLevel{
         }
 
 
+        LavaPit lavaPit = new LavaPit(this);
+        lavaPit.setPosition(new Vec2(14,-11));
+
         //SET POSITIONS
         getSpikeBall().setPosition(new Vec2(1,-11));
         getSoldier().setPosition(new Vec2(-9, 9));
@@ -63,4 +69,5 @@ public class Level1 extends GameLevel{
     public Image getBackground() {
         return background;
     }
+
 }

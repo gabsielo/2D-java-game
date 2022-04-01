@@ -34,17 +34,18 @@ public class Level3 extends GameLevel{
         Platform platform1 = new Platform(this, new Vec2(-3, -5f), 0);
         //make the second suspended platform
         Platform platform2 = new Platform(this, new Vec2(3, 2f), 30);
-        new Chicken(this, new Vec2(9,3));
-        new Chicken(this, new Vec2(5,5));
+        new Chicken(this, new Vec2(9, 3));
+        new Chicken(this, new Vec2(5, 5));
 
 
         //SET POSITIONS
-        getSpikeBall().setPosition(new Vec2(1,-11));
+        getSpikeBall().setPosition(new Vec2(1, -11));
         getSoldier().setPosition(new Vec2(-9, 9));
 
-
+          //make lava pit
+        LavaPit lavaPit2 = new LavaPit(this);
+        lavaPit2.setPosition(new Vec2(14, -11));
     }
-
 
     @Override
     public boolean isComplete() {
