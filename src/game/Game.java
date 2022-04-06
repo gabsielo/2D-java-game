@@ -114,10 +114,11 @@ public class Game {
             public void actionPerformed(ActionEvent e) {
                 frame.remove(view);
                 frame.pack();
-
             }
         });
          */
+        Tracker tracker = new Tracker(view,currentLevel.getSoldier());
+        currentLevel.addStepListener(tracker);
         // start our game world simulation!
         currentLevel.start();
     }
@@ -152,7 +153,8 @@ public void goToNextLevel(){
 
             directionalShoot.updateSoldier(currentLevel.getSoldier());
             view.addMouseListener(new DirectionalShooting(currentLevel.getSoldier(),view));
-
+            Tracker trackerLevel1 = new Tracker(view,currentLevel.getSoldier());
+            currentLevel.addStepListener(trackerLevel1);
         }
     else if (currentLevel instanceof Level2) {
 
@@ -171,6 +173,8 @@ public void goToNextLevel(){
       //  directionalShoot.updateSoldier(currentLevel.getSoldier());
             view.addMouseListener(new DirectionalShooting(currentLevel.getSoldier(),view));
         //    JFrame debugView = new DebugViewer(currentLevel, 500, 500);
+            Tracker trackerLevel2 = new Tracker(view,currentLevel.getSoldier());
+            currentLevel.addStepListener(trackerLevel2);
     }
 
     else if (currentLevel instanceof Level3){
