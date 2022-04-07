@@ -101,8 +101,21 @@ public class Game {
         ControlPanel controlPanel = new ControlPanel(view);
         frame.add(controlPanel.getMainPanel(),BorderLayout.WEST);
 
+
+
+
+
+
+
+
+
+
+
+
+        //DEBUGGER DEBUGGER DEBUGGER DEBUGGER
+
         //optional: uncomment this to make a debugging view
-        //   JFrame debugView = new DebugViewer(currentLevel, 500, 500);
+         // JFrame debugView = new DebugViewer(currentLevel, 500, 500);
 
        /*    REDUNDANT 31/3/22
         // make a button
@@ -156,6 +169,7 @@ public void goToNextLevel(){
             Tracker trackerLevel1 = new Tracker(view,currentLevel.getSoldier());
             currentLevel.addStepListener(trackerLevel1);
         }
+
     else if (currentLevel instanceof Level2) {
 
         System.out.println("transition to next level");

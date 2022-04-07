@@ -33,6 +33,7 @@ public class LavaPit extends StaticBody implements SensorListener, StepListener{
 
     @Override
     public void beginContact(SensorEvent sensorEvent) {
+
         inLava= true;
 
     }

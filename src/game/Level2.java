@@ -41,7 +41,8 @@ public class Level2 extends GameLevel{
             Chicken KFC1 =new Chicken(this, new Vec2(i*0.5f,i+4));
         }
 
-
+        //add wall
+        Wall wall2 = new Wall(this, new Vec2(11, -1));
         int j=0;
         while ( j<10)
         {

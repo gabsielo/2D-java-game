@@ -44,7 +44,7 @@ public abstract class GameLevel extends World {
             Shape shape = new BoxShape(11, 0.5f);
             StaticBody ground = new StaticBody(this, shape);
 
-            BodyImage groundImage = new BodyImage("data/ground.JPG", 2f);
+            BodyImage groundImage = new BodyImage("data/groundThin.png", 0.8f);
             ground.setPosition(new Vec2(0f, -11.5f));
             ground.addImage(groundImage);
 
@@ -91,7 +91,7 @@ public abstract class GameLevel extends World {
 
             Wall wall1 = new Wall(this, new Vec2(-11, -1));
             //   NOT NEEDED OR GOOD FOR GAME wall1.addCollisionListener(new TerroristCollisionListener(osama));
-            Wall wall2 = new Wall(this, new Vec2(11, -1));
+          //  Wall wall2 = new Wall(this, new Vec2(11, -1));
             //adding collisionlistener to wall2 in progress-NOT NEEDED OR GOOD FOR THE GAME
             //   wall2.addCollisionListener(new TerroristCollisionListener(osama));
 

@@ -31,13 +31,19 @@ public class Level3 extends GameLevel{
         }
 
         //    9/3/22 12:00 making the platforms from the newly encapsulated platform class instead
-        Platform platform1 = new Platform(this, new Vec2(-3, -5f), 0);
+        Platform platform1 = new Platform(this, new Vec2(-3, 15), 0);
         //make the second suspended platform
-        Platform platform2 = new Platform(this, new Vec2(3, 2f), 30);
+        Platform platform2 = new Platform(this, new Vec2(3, 20f), 30);
+
+        Platform platform3 = new Platform(this, new Vec2(-7, 4), 0);
+
+
         new Chicken(this, new Vec2(9, 3));
         new Chicken(this, new Vec2(5, 5));
 
 
+        BigBoss bigBoss= new BigBoss(this);
+        bigBoss.setPosition(new Vec2(0,-1));
         //SET POSITIONS
         getSpikeBall().setPosition(new Vec2(1, -11));
         getSoldier().setPosition(new Vec2(-9, 9));
@@ -45,6 +51,8 @@ public class Level3 extends GameLevel{
           //make lava pit
         LavaPit lavaPit2 = new LavaPit(this);
         lavaPit2.setPosition(new Vec2(14, -11));
+        HalfWall wall2 = new HalfWall(this, new Vec2(11, -5));
+
     }
 
     @Override

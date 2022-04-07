@@ -22,7 +22,7 @@ public class ControlPanel {
             public void actionPerformed(ActionEvent e) {
 
 
-                view.setZoom((float) (view.getZoom()+0.3));
+                view.setZoom((float) (view.getZoom()+0.5));
 
             }
         });
@@ -30,7 +30,7 @@ public class ControlPanel {
             @Override
             public void actionPerformed(ActionEvent e) {
 
-                view.setZoom((float) (view.getZoom()-0.3));
+                view.setZoom((float) (view.getZoom()-0.5));
 
             }
         });

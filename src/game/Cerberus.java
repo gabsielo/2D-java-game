@@ -52,6 +52,7 @@ public class Cerberus extends Walker implements StepListener, Destroyable{
                 state = State.ROLL_RIGHT;
                 this.startWalking(-3);
                 //setAngularVelocity(-2);
+                this.removeAllImages();
                 this.addImage(cerberusRightImage);
             }
         } else if (inRangeLeft()) {
@@ -59,6 +60,7 @@ public class Cerberus extends Walker implements StepListener, Destroyable{
                 state = State.ROLL_LEFT;
                 this.startWalking(3);
               //  setAngularVelocity(2);
+                this.removeAllImages();
                 this.addImage(cerberusLeftImage);
             }
         } else {

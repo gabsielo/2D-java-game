@@ -36,7 +36,7 @@ public class LevelCompleteListener implements CollisionListener {
                 game.goToNextLevel();
 
         }
-        else if (e.getOtherBody() instanceof Wall)
+        else if (e.getOtherBody() instanceof Wall|| e.getOtherBody() instanceof HalfWall)
         {
             if (currentLevel.isComplete())
                 game.goToNextLevel();

@@ -38,7 +38,7 @@ public class SoldierCollisionListener implements CollisionListener {
         } else if (e.getOtherBody() instanceof BigBoss) {
             soldier.decreaseHealthLevel(2);
             e.getOtherBody().destroy();
-
         }
+
     }
 }
