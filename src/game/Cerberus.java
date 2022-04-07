@@ -3,7 +3,7 @@ package game;
 import city.cs.engine.*;
 import org.jbox2d.common.Vec2;
 
-public class Cerberus extends Walker implements StepListener {
+public class Cerberus extends Walker implements StepListener, Destroyable{
     private static final float radius = 2.0f;
 
   //  private static final Shape ballShape = new CircleShape(radius);
@@ -24,6 +24,7 @@ public class Cerberus extends Walker implements StepListener {
 
     public Cerberus(GameLevel world) {
         super(world, cerberusShape );
+        this.addImage(cerberusLeftImage);
         this.world= world;
        // addImage(ballImage);
         state = State.STAND_STILL;

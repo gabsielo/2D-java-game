@@ -30,9 +30,12 @@ import city.cs.engine.StaticBody;
 
             else if (collisionEvent.getOtherBody() instanceof Zoot)
                 collisionEvent.getOtherBody().destroy();
-                }
-
-
+            else if (collisionEvent.getOtherBody() instanceof Destroyable)
+                collisionEvent.getOtherBody().destroy();
+        }
 
     }
+
+
+
 

@@ -170,7 +170,8 @@ public class Soldier extends Walker {
             Soldier.increaseCredits(10);
 
             DynamicBody projectile = new DynamicBody(this.getWorld(), new CircleShape(0.2f));
-            projectile.addCollisionListener(new ExplosionCollision());
+
+            projectile.addCollisionListener(new BulletCollision());
             projectile.addImage(projectileImage);
 
             if (direction.equals("left")) {
@@ -211,6 +212,7 @@ public class Soldier extends Walker {
             return backpack;
         }
         public String getDirection () {
+
             return direction;
         }
     }
