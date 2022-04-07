@@ -49,7 +49,7 @@ public class Level1 extends GameLevel{
         }
         //ADDING BODIES
 
-        LavaPit lavaPit = new LavaPit(this);
+        LavaPit lavaPit = new LavaPit(this,(new Vec2 (14,-11)));
         lavaPit.setPosition(new Vec2(14,-11));
 
        // BigBoss bigBoss= new BigBoss(this);

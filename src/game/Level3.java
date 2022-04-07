@@ -49,8 +49,8 @@ public class Level3 extends GameLevel{
         getSoldier().setPosition(new Vec2(-9, 9));
 
           //make lava pit
-        LavaPit lavaPit2 = new LavaPit(this);
-        lavaPit2.setPosition(new Vec2(14, -11));
+        LavaPit lavaPit2 = new LavaPit(this,(new Vec2(14,-11)));
+
         HalfWall wall2 = new HalfWall(this, new Vec2(11, -5));
 
     }

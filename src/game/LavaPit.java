@@ -1,6 +1,7 @@
 package game;
 import city.cs.engine.*;
 import city.cs.engine.Shape;
+import org.jbox2d.common.Vec2;
 
 import java.awt.*;
 
@@ -15,10 +16,16 @@ public class LavaPit extends StaticBody implements SensorListener, StepListener{
     private GameLevel world;
     private boolean inLava;
 
+    /* add position to lava pit constructor parameter
+    set po
 
-    public LavaPit(GameLevel w) {
+     */
+
+    public LavaPit(GameLevel w, Vec2 position) {
         super(w);
         pitSensor = new Sensor(this, pitShape);
+        this.setPosition(position);
+
         pitSensor.addSensorListener(this);
 
         this.addImage(lavaPitImage);
@@ -52,9 +59,7 @@ public class LavaPit extends StaticBody implements SensorListener, StepListener{
 
         if (inLava){
 
-            // my soldiers health methods are not this one and are static so ill just keep this in the rare
-            // off chance ill need to make health an instance variable rather than class variable
-            //student.setHealth(student.getHealth()-1)
+
 
             Soldier.decreaseHealthLevel(1);
         }
