@@ -16,7 +16,7 @@ public class LavaPit extends StaticBody implements SensorListener, StepListener{
     private boolean inLava;
 
 
-    public LavaPit(World w) {
+    public LavaPit(GameLevel w) {
         super(w);
         pitSensor = new Sensor(this, pitShape);
         pitSensor.addSensorListener(this);

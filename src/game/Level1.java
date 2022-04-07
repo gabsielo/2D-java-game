@@ -52,6 +52,8 @@ public class Level1 extends GameLevel{
         LavaPit lavaPit = new LavaPit(this);
         lavaPit.setPosition(new Vec2(14,-11));
 
+        Cerberus cerberus = new Cerberus(this);
+        cerberus.setPosition(new Vec2(9,-10));
         //SET POSITIONS
         getSpikeBall().setPosition(new Vec2(1,-11));
         getSoldier().setPosition(new Vec2(-9, 9));

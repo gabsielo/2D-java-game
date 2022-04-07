@@ -102,7 +102,7 @@ public class Game {
         frame.add(controlPanel.getMainPanel(),BorderLayout.WEST);
 
         //optional: uncomment this to make a debugging view
-        // JFrame debugView = new DebugViewer(currentLevel, 500, 500);
+         JFrame debugView = new DebugViewer(currentLevel, 500, 500);
 
        /*    REDUNDANT 31/3/22
         // make a button
