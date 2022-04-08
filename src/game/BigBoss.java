@@ -35,7 +35,7 @@ public class BigBoss extends Walker implements StepListener , Destroyable, Actio
         state = game.BigBoss.State.STAND_STILL;
         getWorld().addStepListener(this);
         this.addImage(bigBossImageLeft);
-        bossHealth = 3;
+        bossHealth = 5;
 
     }
 
@@ -120,7 +120,7 @@ public class BigBoss extends Walker implements StepListener , Destroyable, Actio
 
     @Override
     public void destroy() {
-        if (bossHealth == 3) {
+        if (bossHealth >=3) {
             bossHealth--;
         }
         else if (bossHealth == 2) {
@@ -131,7 +131,9 @@ public class BigBoss extends Walker implements StepListener , Destroyable, Actio
 
             super.destroy();
             Soldier.increaseCredits(10000000);
+
         }
+
     }
 }
 

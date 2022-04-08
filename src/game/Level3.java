@@ -36,7 +36,9 @@ public class Level3 extends GameLevel{
         Platform platform2 = new Platform(this, new Vec2(3, 20f), 30);
 
         Platform platform3 = new Platform(this, new Vec2(-7, 4), 0);
-
+        Platform platform4 = new Platform(this, new Vec2(-4, 2), 0);
+        Platform rightSidePlatform5 = new Platform(this, new Vec2(9, -4), 0);
+        Platform groundForLavaPitPlatform6 = new Platform(this,new Vec2(14,-17.5f),0);
 
         new Chicken(this, new Vec2(9, 3));
         new Chicken(this, new Vec2(5, 5));
@@ -49,7 +51,7 @@ public class Level3 extends GameLevel{
         getSoldier().setPosition(new Vec2(-9, 9));
 
           //make lava pit
-        LavaPit lavaPit2 = new LavaPit(this,(new Vec2(14,-11)));
+        LavaPit lavaPit2 = new LavaPit(this,(new Vec2(14,-13)));
 
         HalfWall wall2 = new HalfWall(this, new Vec2(11, -5));
 

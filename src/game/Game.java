@@ -32,6 +32,7 @@ public class Game {
     DirectionalShooting directionalShoot;
     GameView wideView;
 
+
     public Game() {
 
 
@@ -160,6 +161,7 @@ public void goToNextLevel(){
             view.setWorld(currentLevel);
             wideView.setWorld(currentLevel);
             wideView.setZoom(3);
+
             currentLevel.start();
             controller.updateSoldier(currentLevel.getSoldier());
             //tryna fix bullets in multiple levels 26/3
@@ -189,11 +191,14 @@ public void goToNextLevel(){
         //    JFrame debugView = new DebugViewer(currentLevel, 500, 500);
             Tracker trackerLevel2 = new Tracker(view,currentLevel.getSoldier());
             currentLevel.addStepListener(trackerLevel2);
+
     }
 
     else if (currentLevel instanceof Level3){
             System.out.println("Game done");
+
             System.exit(0);
+
         }
 }
 

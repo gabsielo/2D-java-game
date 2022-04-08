@@ -47,11 +47,12 @@ public class Level1 extends GameLevel{
 
             Chicken KFC1 =new Chicken(this, new Vec2(i*3f,7));
         }
+
         //ADDING BODIES
 
         LavaPit lavaPit = new LavaPit(this,(new Vec2 (14,-11)));
         lavaPit.setPosition(new Vec2(14,-11));
-
+        Platform groundForLavaPitPlatform6 = new Platform(this,new Vec2(14,-18f),0);
        // BigBoss bigBoss= new BigBoss(this);
        // bigBoss.setPosition(new Vec2(0,3));
 
@@ -62,7 +63,8 @@ public class Level1 extends GameLevel{
         getSpikeBall().setPosition(new Vec2(1,-11));
         getSoldier().setPosition(new Vec2(-9, 9));
      //   adding right wall
-        Wall wall2 = new Wall(this, new Vec2(11, -1));
+       // Wall wall2 = new Wall(this, new Vec2(11, -1));
+        HalfWall wall2 = new HalfWall(this, new Vec2(11, -5));
     }
 
     @Override

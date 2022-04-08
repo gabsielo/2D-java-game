@@ -18,11 +18,12 @@ public abstract class GameLevel extends World {
     private Soldier soldier;
     // redundant 27/3 private SoundClip gameMusic;
     private SpikeBall spikeBall;
-
+    GameLevel currentLevel;
+    private boolean gameOver;
 
     public GameLevel(Game game) {
         super();
-
+        gameOver = false;
         /*  Probably  redundant
         BodyImage spikeBallImage;
         spikeBallImage = new BodyImage("data/spikeBall.png", 3f);
@@ -160,6 +161,16 @@ public abstract class GameLevel extends World {
     public abstract boolean isComplete();
 
     public abstract Image getBackground();
+
+
+    public boolean isGameOver(){
+        return gameOver;
+    }
+
+    public void setGameOver(boolean over){
+        gameOver=over;
+    };
+
 
 }
 

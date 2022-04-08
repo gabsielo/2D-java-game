@@ -12,14 +12,14 @@ public class GameView extends UserView {
 
 private Soldier soldier;
 GameLevel currentLevel;
-
+private GameLevel game;
 
 
     public GameView(GameLevel w, int width, int height) {
         super(w, width, height);
         currentLevel = w;
         soldier = w.getSoldier();
-
+    this.game=w;
 
     }
 
@@ -44,6 +44,7 @@ GameLevel currentLevel;
 
     @Override
     protected void paintForeground(Graphics2D g) {
+        super.paintForeground(g);
         Font font = new Font("Arial",Font.BOLD,20);
 
                 g.setFont(font);
@@ -52,9 +53,12 @@ GameLevel currentLevel;
               );
         g.setFont(font);
         g.setColor(Color.red);
-        g.drawString("collect 1500 credits press 'B' ",10,70
+        g.drawString("collect 1500 credits press 'B'&'E' ",10,70
         );
 
+        if (game.isGameOver()){
+            g.drawString("GameOver",this.getWidth()/2,this.getHeight()/2);
+        }
               ;}
     }
 
