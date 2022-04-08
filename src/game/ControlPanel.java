@@ -16,6 +16,7 @@ public class ControlPanel {
     private Game game;
     GameView view;
 
+
     public ControlPanel(GameView v, Game game){
         view = v;
 
