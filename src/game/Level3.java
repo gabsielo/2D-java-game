@@ -14,10 +14,17 @@ public class Level3 extends GameLevel{
     private SoundClip gameMusic;
     Image background;
     int targetCredits =3000;
+
     public SoundClip getGameMusic(){return gameMusic;}
+
+
     public Level3(Game game) {
         super(game);
         background = new ImageIcon("data/fieldFiltered.jpg").getImage();
+
+
+
+
 
         try {
             gameMusic = new SoundClip("data/nextUp.mp3");   // Open an audio input stream
@@ -44,7 +51,7 @@ public class Level3 extends GameLevel{
         new Chicken(this, new Vec2(5, 5));
 
 
-        BigBoss bigBoss= new BigBoss(this);
+        BigBoss bigBoss= new BigBoss(this,game);
         bigBoss.setPosition(new Vec2(0,-1));
         //SET POSITIONS
         getSpikeBall().setPosition(new Vec2(1, -11));
@@ -59,7 +66,7 @@ public class Level3 extends GameLevel{
 
     @Override
     public boolean isComplete() {
-        if (Soldier.getCredits()>=1500)
+        if (Soldier.getCredits()>=15000)
         {return  true;}
         else
         { return false;}

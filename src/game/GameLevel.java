@@ -20,10 +20,12 @@ public abstract class GameLevel extends World {
     private SpikeBall spikeBall;
     GameLevel currentLevel;
     private boolean gameOver;
+    private Game game;
 
     public GameLevel(Game game) {
         super();
-        gameOver = false;
+
+        this.game=game;
         /*  Probably  redundant
         BodyImage spikeBallImage;
         spikeBallImage = new BodyImage("data/spikeBall.png", 3f);
@@ -163,13 +165,7 @@ public abstract class GameLevel extends World {
     public abstract Image getBackground();
 
 
-    public boolean isGameOver(){
-        return gameOver;
-    }
 
-    public void setGameOver(boolean over){
-        gameOver=over;
-    };
 
 
 }

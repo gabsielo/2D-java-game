@@ -31,10 +31,11 @@ public class Game {
     SoldierController controller;
     DirectionalShooting directionalShoot;
     GameView wideView;
-
+    private boolean gameOver;
 
     public Game() {
 
+       gameOver=false;
 
         //maeke a soundclip object before the world is created gonna
         // try put this in game world to see if it fixes the glitch
@@ -59,10 +60,10 @@ public class Game {
 
         //3. make a view to look into the game world
         //UserView view = new UserView(world, 500, 500);
-        view = new GameView(currentLevel, 800, 600);
+        view = new GameView(this,currentLevel, 800, 600);
 
         // make a second zoomed out view
-        wideView = new GameView(currentLevel,500,100);
+        wideView = new GameView(this,currentLevel,500,100);
         wideView.setZoom(3);
 
 
@@ -201,6 +202,14 @@ public void goToNextLevel(){
 
         }
 }
+
+    public boolean isGameOver(){
+        return gameOver;
+    }
+
+    public void setGameOver(boolean over){
+        gameOver=over;
+    };
 
 
 }

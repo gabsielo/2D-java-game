@@ -27,9 +27,12 @@ public class BigBoss extends Walker implements StepListener , Destroyable, Actio
     public static final float RANGE = 10;
     private GameLevel world;
     private game.BigBoss.State state;
+    private Game gamePara;
 
-    public BigBoss(GameLevel world) {
+    public BigBoss(GameLevel world, Game gamePara) {
+
         super(world, bigBossShape);
+        this.gamePara= gamePara;
         this.world = world;
         // addImage(ballImage);
         state = game.BigBoss.State.STAND_STILL;
@@ -132,6 +135,7 @@ public class BigBoss extends Walker implements StepListener , Destroyable, Actio
             super.destroy();
             Soldier.increaseCredits(10000000);
 
+            gamePara.setGameOver(true);
         }
 
     }

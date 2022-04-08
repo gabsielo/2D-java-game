@@ -12,15 +12,16 @@ public class GameView extends UserView {
 
 private Soldier soldier;
 GameLevel currentLevel;
-private GameLevel game;
+private GameLevel gameLevel;
+private Game game;
 
 
-    public GameView(GameLevel w, int width, int height) {
+    public GameView(Game game, GameLevel w, int width, int height) {
         super(w, width, height);
         currentLevel = w;
         soldier = w.getSoldier();
-    this.game=w;
-
+        this.gameLevel=w;
+        this.game =game;
     }
 
 
@@ -45,20 +46,30 @@ private GameLevel game;
     @Override
     protected void paintForeground(Graphics2D g) {
         super.paintForeground(g);
-        Font font = new Font("Arial",Font.BOLD,20);
+        Font font1 = new Font("Arial",Font.BOLD,20);
 
-                g.setFont(font);
+                g.setFont(font1);
         g.setColor(Color.orange);
               g.drawString("health: "+soldier.getHealthLevel()+" credits: " + soldier.getCredits(),10,90
               );
-        g.setFont(font);
+        g.setFont(font1);
         g.setColor(Color.red);
         g.drawString("collect 1500 credits press 'B'&'E' ",10,70
         );
 
+
         if (game.isGameOver()){
-            g.drawString("GameOver",this.getWidth()/2,this.getHeight()/2);
+
+
+            Font font2 = new Font("Arial",Font.BOLD,100);
+
+            g.setFont(font2);
+            g.drawString("GameOver",this.getWidth()/4,this.getHeight()/2);
         }
               ;}
+    public void setGameOver(boolean over){
+      //  gameOver=over;
+    }
+
     }
 
