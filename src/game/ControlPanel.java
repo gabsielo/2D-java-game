@@ -10,10 +10,13 @@ public class ControlPanel {
     private JButton growButton;
     private JButton shrinkButton;
     private JButton quitButton;
-
+    private JButton newGameButton;
+    private JButton settingsButton;
+    private JButton inventoryButton;
+    private Game game;
     GameView view;
 
-    public ControlPanel(GameView v){
+    public ControlPanel(GameView v, Game game){
         view = v;
 
 
@@ -38,6 +41,22 @@ public class ControlPanel {
             @Override
             public void actionPerformed(ActionEvent e) {
                 System.exit(0);
+            }
+        });
+        settingsButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+                //transition to settings menu
+                game.transitionToSettings();
+
+            }
+        });
+        inventoryButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                game.transitionToInventory();
+
             }
         });
     }

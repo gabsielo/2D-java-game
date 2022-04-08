@@ -54,16 +54,17 @@ private Game game;
               );
         g.setFont(font1);
         g.setColor(Color.red);
-        g.drawString("collect 1500 credits press 'B'&'E' ",10,70
+        g.drawString("collect 1500 credits press 'B''E'T' ",10,70
         );
 
 
         if (game.isGameOver()){
 
 
-            Font font2 = new Font("Arial",Font.BOLD,100);
+            Font font2 = new Font("Arial",Font.BOLD,60);
 
             g.setFont(font2);
+            g.setColor(Color.green);
             g.drawString("GameOver",this.getWidth()/4,this.getHeight()/2);
         }
               ;}

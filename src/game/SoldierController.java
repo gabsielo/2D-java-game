@@ -19,10 +19,11 @@ public class SoldierController implements KeyListener {
 
     private static final float WALKING_SPEED = 7;
     private Soldier soldier;
-
+    private Game game;
     // broken 11/3/22 private Terrorist osama = world.getOsama();
-  public SoldierController(Soldier soldier) {
+  public SoldierController(Soldier soldier , Game game) {
         this.soldier = soldier;
+        this.game=game;
     }
 
     @Override
@@ -48,6 +49,9 @@ public class SoldierController implements KeyListener {
        else if (code== KeyEvent.VK_Q){soldier.getBackpack().toggle();}
        else if (code== KeyEvent.VK_E){soldier.getBackpack().getCurrentItem().operate();}
         else if (code== KeyEvent.VK_B){soldier.dropBomb();}
+        else if (code == KeyEvent.VK_T){
+            game.toggleMenu();
+        }
     }
 
     @Override

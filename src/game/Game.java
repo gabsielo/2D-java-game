@@ -32,10 +32,19 @@ public class Game {
     DirectionalShooting directionalShoot;
     GameView wideView;
     private boolean gameOver;
+    private boolean menuVisible;
+    private ControlPanel controlPanel;
+    private SettingsPanel settingsPanel;
+    private JFrame frame;
+    private InventoryManager  inventoryManager;
+
+
 
     public Game() {
 
        gameOver=false;
+       menuVisible= false;
+
 
         //maeke a soundclip object before the world is created gonna
         // try put this in game world to see if it fixes the glitch
@@ -70,7 +79,7 @@ public class Game {
         //optional: draw a 1-metre grid over the view
         // view.setGridResolution(1);
         //add controller
-        controller = new SoldierController(currentLevel.getSoldier());
+        controller = new SoldierController(currentLevel.getSoldier(), this);
         // 28/3/ tryna add directional shooting to other levels
         directionalShoot = new DirectionalShooting(currentLevel.getSoldier(),view);
         //
@@ -83,7 +92,7 @@ public class Game {
          //   view.addMouseListener(mouseHandler);
         //4. create a Java window (frame) and add the game
         //   view to it
-        final JFrame frame = new JFrame("City Game");
+         frame = new JFrame("City Game");
 
         frame.add(view);//add normal view
         // when I add wide view to south, I can't see anything but when I add it to North, I can see it, ask charles?
@@ -99,9 +108,16 @@ public class Game {
         frame.pack();
         // finally, make the frame visible
         frame.setVisible(true);
+
+
+
         //making control panel for game
-        ControlPanel controlPanel = new ControlPanel(view);
-        frame.add(controlPanel.getMainPanel(),BorderLayout.WEST);
+        controlPanel = new ControlPanel(view,this);
+       // frame.add(controlPanel.getMainPanel(),BorderLayout.WEST);
+
+        settingsPanel = new SettingsPanel(view,this);
+
+        inventoryManager = new InventoryManager(view, this);
 
 
 
@@ -210,6 +226,39 @@ public void goToNextLevel(){
     public void setGameOver(boolean over){
         gameOver=over;
     };
+    public void toggleMenu(){
+        System.out.println("menu toggled");
+        if(menuVisible){
+          //hide menu
+            frame.remove(controlPanel.getMainPanel());
+            menuVisible=false;
+            frame.pack();
+           // currentLevel.start();
+        }
+        else {
+            // show menu
+            frame.add(controlPanel.getMainPanel(),BorderLayout.WEST);
+            menuVisible = true;
+            frame.pack();
+          //  currentLevel.stop();
+        }
+    };
 
+
+    public void transitionToSettings(){
+        frame.remove(controlPanel.getMainPanel());
+        frame.add(settingsPanel.mainPanel,BorderLayout.WEST);
+        frame.pack();
+    }
+    public void transitionToMain(){
+        frame.remove(settingsPanel.getMainPanel());
+        frame.add(controlPanel.getMainPanel(),BorderLayout.WEST);
+        frame.pack();
+    }
+    public void transitionToInventory(){
+        frame.remove(settingsPanel.getMainPanel());
+        frame.add(inventoryManager.mainPanel,BorderLayout.WEST);
+        frame.pack();
+    }
 
 }
