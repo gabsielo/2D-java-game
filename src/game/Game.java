@@ -4,8 +4,6 @@ import city.cs.engine.*;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
 /**
  * Your main game entry point
@@ -24,6 +22,7 @@ public class Game {
 
 
     // make soundClip field
+
     private SoundClip gameMusic;
     GameLevel currentLevel;
     private static Game game;
@@ -37,13 +36,14 @@ public class Game {
     private SettingsPanel settingsPanel;
     private JFrame frame;
     private InventoryManager  inventoryManager;
+    public JPanel mainPanel;
 
 
 
     public Game() {
 
-       gameOver=false;
-       menuVisible= true;
+       gameOver = false;
+       menuVisible = false;
 
 
         //maeke a soundclip object before the world is created gonna
@@ -62,8 +62,6 @@ public class Game {
         TestTimerActionListener actionListener = new TestTimerActionListener(currentLevel);
         Timer t= new Timer(1000,actionListener);
         t.start();
-
-
 
 
 
@@ -111,9 +109,11 @@ public class Game {
 
 
 
+        //  CONTROL PANEL CONTROL PANEL CONTROL PANEL CONTROL PANEL CONTROL PANEL CONTROL PANEL
+
         //making control panel for game
-        controlPanel = new ControlPanel(view,this);
-        frame.add(controlPanel.getMainPanel(),BorderLayout.WEST);
+         controlPanel = new ControlPanel(view, this);
+       // frame.add(controlPanel.mainPanel,BorderLayout.WEST);
 
         settingsPanel = new SettingsPanel(view,this);
 
@@ -225,39 +225,42 @@ public void goToNextLevel(){
 
     public void setGameOver(boolean over){
         gameOver=over;
-    };
+    }
+
+
     public void toggleMenu(){
         System.out.println("menu toggled");
         if(menuVisible){
           //hide menu
-            frame.remove(controlPanel.getMainPanel());
-            menuVisible=false;
+            currentLevel.stop();
+            frame.add((controlPanel.mainPanel), BorderLayout.WEST);
             frame.pack();
-           // currentLevel.start();
+            menuVisible= false;
         }
         else {
             // show menu
-            frame.add(controlPanel.getMainPanel(),BorderLayout.WEST);
+            frame.remove(controlPanel.mainPanel);
             menuVisible = true;
             frame.pack();
-          //  currentLevel.stop();
+            currentLevel.start();
+
         }
     };
 
 
     public void transitionToSettings(){
-        frame.remove(controlPanel.getMainPanel());
-        frame.add(settingsPanel.mainPanel,BorderLayout.WEST);
+        frame.remove(controlPanel.mainPanel);
+        frame.add(settingsPanel.settingsMainPanel,BorderLayout.WEST);
         frame.pack();
     }
     public void transitionToMain(){
-        frame.remove(settingsPanel.getMainPanel());
-        frame.add(controlPanel.getMainPanel(),BorderLayout.WEST);
+        frame.remove(settingsPanel.settingsMainPanel);
+        frame.add(controlPanel.mainPanel,BorderLayout.WEST);
         frame.pack();
     }
     public void transitionToInventory(){
-        frame.remove(controlPanel.getMainPanel());
-        frame.add(inventoryManager.mainPanel,BorderLayout.WEST);
+        frame.remove(controlPanel.mainPanel);
+        frame.add(inventoryManager.inventoryMainPanel,BorderLayout.WEST);
         frame.pack();
     }
 

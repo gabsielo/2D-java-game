@@ -15,7 +15,7 @@ public class InventoryManager {
     private JButton buyButton;
     private Game game;
     GameView view;
-   public JPanel mainPanel;
+   public JPanel inventoryMainPanel;
     private JPanel itemsPanel;
 
     private static SoundClip kaching;
@@ -55,7 +55,7 @@ public class InventoryManager {
 
     public JPanel getMainPanel(){
 
-        return mainPanel;
+        return inventoryMainPanel;
 
     }
 

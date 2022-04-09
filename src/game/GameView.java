@@ -66,6 +66,7 @@ private Game game;
             g.setFont(font2);
             g.setColor(Color.green);
             g.drawString("GameOver",this.getWidth()/4,this.getHeight()/2);
+
         }
               ;}
     public void setGameOver(boolean over){

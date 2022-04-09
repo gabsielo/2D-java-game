@@ -5,7 +5,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class SettingsPanel {
-    public JPanel mainPanel;
+    public JPanel settingsMainPanel;
     private JButton volumeUpButton;
     private JButton volumeDownButton;
     private JButton backButton;
@@ -31,7 +31,7 @@ public class SettingsPanel {
 
     public JPanel getMainPanel(){
 
-        return mainPanel;
+        return settingsMainPanel;
 
     }
 }

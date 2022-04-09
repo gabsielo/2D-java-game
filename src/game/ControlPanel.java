@@ -10,12 +10,10 @@ public class ControlPanel {
     public JPanel mainPanel;
     private JButton GrowButton;
     private JButton shrinkButton;
-    private JButton quitButton;
-    private JButton newGameButton;
     private JButton settingsButton;
     private JButton inventoryButton;
     private Game game;
-    GameView view;
+    private  GameView view;
 
 
     public ControlPanel(GameView v, Game game){
@@ -40,12 +38,13 @@ public class ControlPanel {
 
             }
         });
-        quitButton.addActionListener(new ActionListener() {
+      /*  quitButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 System.exit(0);
             }
-        });
+        });*/
+
         settingsButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -55,6 +54,7 @@ public class ControlPanel {
 
             }
         });
+
         inventoryButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -69,13 +69,13 @@ public class ControlPanel {
 
 
 
-    // main panel accessor
+    /*/ main panel accessor
     public JPanel getMainPanel(){
 
         return mainPanel;
 
     }
-
+*/
 
     private void createUIComponents() {
         // TODO: place custom component creation code here
