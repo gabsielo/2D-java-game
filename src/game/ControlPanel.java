@@ -6,7 +6,7 @@ import java.awt.event.ActionListener;
 
 public class ControlPanel {
 
-    private JPanel mainPanel;
+    public JPanel mainPanel;
     private JButton growButton;
     private JButton shrinkButton;
     private JButton quitButton;

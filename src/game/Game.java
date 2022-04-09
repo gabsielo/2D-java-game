@@ -256,7 +256,7 @@ public void goToNextLevel(){
         frame.pack();
     }
     public void transitionToInventory(){
-        frame.remove(settingsPanel.getMainPanel());
+        frame.remove(controlPanel.getMainPanel());
         frame.add(inventoryManager.mainPanel,BorderLayout.WEST);
         frame.pack();
     }
