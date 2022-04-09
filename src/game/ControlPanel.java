@@ -3,11 +3,12 @@ package game;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.*;
 
 public class ControlPanel {
 
     public JPanel mainPanel;
-    private JButton growButton;
+    private JButton GrowButton;
     private JButton shrinkButton;
     private JButton quitButton;
     private JButton newGameButton;
@@ -19,9 +20,9 @@ public class ControlPanel {
 
     public ControlPanel(GameView v, Game game){
         view = v;
+        this.game=game;
 
-
-        growButton.addActionListener(new ActionListener() {
+        GrowButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
 
@@ -30,6 +31,7 @@ public class ControlPanel {
 
             }
         });
+
         shrinkButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -60,6 +62,7 @@ public class ControlPanel {
 
             }
         });
+
     }
 
 
@@ -70,6 +73,12 @@ public class ControlPanel {
     public JPanel getMainPanel(){
 
         return mainPanel;
+
+    }
+
+
+    private void createUIComponents() {
+        // TODO: place custom component creation code here
 
     }
 

@@ -1,14 +1,23 @@
 package game;
 
+import city.cs.engine.SoundClip;
+
+import javax.sound.sampled.LineUnavailableException;
+import javax.sound.sampled.UnsupportedAudioFileException;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.io.IOException;
 
 public class InventoryGUIItem extends JPanel implements MouseListener {
+
+
     private Image icon;
     private String type;
     private boolean selected;
+
+
 
     public InventoryGUIItem(String type, String imagePath){
         this.type = type;
@@ -16,6 +25,8 @@ public class InventoryGUIItem extends JPanel implements MouseListener {
 
         icon = new ImageIcon(imagePath).getImage();
         this.setPreferredSize(new Dimension(50,50));
+
+        this.addMouseListener(this);
 
     }
 
@@ -39,6 +50,7 @@ public class InventoryGUIItem extends JPanel implements MouseListener {
     @Override
     public void mouseClicked(MouseEvent e) {
     selected=!selected;
+    this.repaint();
 
     }
 

@@ -43,7 +43,7 @@ public class Game {
     public Game() {
 
        gameOver=false;
-       menuVisible= false;
+       menuVisible= true;
 
 
         //maeke a soundclip object before the world is created gonna
@@ -113,7 +113,7 @@ public class Game {
 
         //making control panel for game
         controlPanel = new ControlPanel(view,this);
-       // frame.add(controlPanel.getMainPanel(),BorderLayout.WEST);
+        frame.add(controlPanel.getMainPanel(),BorderLayout.WEST);
 
         settingsPanel = new SettingsPanel(view,this);
 
