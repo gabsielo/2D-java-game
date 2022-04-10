@@ -42,7 +42,14 @@ public class Level2 extends GameLevel{
         }
 
         //add wall
-        Wall wall2 = new Wall(this, new Vec2(11, -1));
+       // Wall wall2 = new Wall(this, new Vec2(11, -1));
+        //changing to half wall
+        HalfWall wall2 = new HalfWall(this, new Vec2(11, -11));
+        Platform groundForRegenPitPlatform6 = new Platform(this,new Vec2(14,-15f),0);
+
+
+
+
         int j=0;
         while ( j<10)
         {
@@ -59,6 +66,8 @@ public class Level2 extends GameLevel{
             j++;
         };
 
+        RegenPit regenPit = new RegenPit(this,(new Vec2 (14,-11)));
+        regenPit.setPosition(new Vec2(14,-11));
 
         //SET POSITIONS
         getSpikeBall().setPosition(new Vec2(1,-11));
