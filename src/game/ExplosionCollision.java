@@ -25,6 +25,11 @@ public class ExplosionCollision implements CollisionListener {
             collisionEvent.getOtherBody().destroy();
         else if (collisionEvent.getOtherBody() instanceof Zoot)
             collisionEvent.getOtherBody().destroy();
+        else if (collisionEvent.getOtherBody() instanceof Gangster)
+            collisionEvent.getOtherBody().destroy();
+        else if (collisionEvent.getOtherBody() instanceof BigBoss)
+            collisionEvent.getOtherBody().destroy();
+
 
     }
 
