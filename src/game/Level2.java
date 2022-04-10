@@ -64,6 +64,11 @@ public class Level2 extends GameLevel{
         getSpikeBall().setPosition(new Vec2(1,-11));
         getSoldier().setPosition(new Vec2(-9, -11));
 
+        Gangster bis = new Gangster(this);
+        bis.setPosition(new Vec2(4, -11));
+        Gangster blanco = new Gangster(this);
+        blanco.setPosition(new Vec2(0, -11));
+
 
     }
 
