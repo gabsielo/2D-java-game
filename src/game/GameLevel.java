@@ -15,7 +15,7 @@ public abstract class GameLevel extends World {
 
 
     private Terrorist osama;
-    private Soldier soldier;
+    public Soldier soldier;
     // redundant 27/3 private SoundClip gameMusic;
     private SpikeBall spikeBall;
     GameLevel currentLevel;
@@ -140,9 +140,7 @@ public abstract class GameLevel extends World {
 
 
         //accessor soldier
-        public Soldier getSoldier () {
-            return soldier;
-        }
+        public Soldier getSoldier () {return soldier;}
         public Terrorist getOsama () {
             return osama;
         }
@@ -154,6 +152,7 @@ public abstract class GameLevel extends World {
 
     public abstract Image getBackground();
     public abstract String getName();
+
 
     public void populate(){
  /*  Probably  redundant
@@ -188,7 +187,7 @@ public abstract class GameLevel extends World {
         soldier.setAlwaysOutline(true);
         soldier.setLinearVelocity(new Vec2(0, 9));
         soldier.increaseCredits(15);
-
+        this.soldier= soldier;
 
 
 

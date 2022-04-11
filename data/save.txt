@@ -1,2 +1,5 @@
 Level1
-SpikeBall-5.7208714,-9.495Terrorist5.221275,-8.985002Terrorist7.196981,-5.9678793Soldier-9.0,1.3849993
+SpikeBall-5.7208714,-9.495
+Terrorist5.221275,-8.985002
+Terrorist7.196981,-5.9678793
+Soldier-9.0,1.3849993

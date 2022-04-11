@@ -236,6 +236,8 @@ public void goToNextLevel(){
 
         currentLevel = new Level3(this);
 
+            currentLevel.populate();
+
         view.setWorld(currentLevel);
         currentLevel.start();
             wideView.setWorld(currentLevel);
@@ -246,6 +248,7 @@ public void goToNextLevel(){
         //    JFrame debugView = new DebugViewer(currentLevel, 500, 500);
             Tracker trackerLevel2 = new Tracker(view,currentLevel.getSoldier());
             currentLevel.addStepListener(trackerLevel2);
+
 
     }
 

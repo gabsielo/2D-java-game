@@ -16,6 +16,7 @@ public class Level3 extends GameLevel{
     int targetCredits =3000;
  private Game game;
     public SoundClip getGameMusic(){return gameMusic;}
+    private Soldier soldier;
 
 
     public Level3(Game game) {
@@ -51,11 +52,11 @@ public class Level3 extends GameLevel{
         new Chicken(this, new Vec2(5, 5));
 
 
-        BigBoss bigBoss= new BigBoss(this,game);
-        bigBoss.setPosition(new Vec2(0,-1));
+      //  BigBoss bigBoss= new BigBoss(this,game);
+      // a  bigBoss.setPosition(new Vec2(0,-1));
         //SET POSITIONS
-        getSpikeBall().setPosition(new Vec2(1, -11));
-        getSoldier().setPosition(new Vec2(-9, 9));
+        //getSpikeBall().setPosition(new Vec2(1, -11));
+      //  getSoldier().setPosition(new Vec2(-9, 9));
 
           //make lava pit
         LavaPit lavaPit2 = new LavaPit(this,(new Vec2(14,-13)));
@@ -82,18 +83,12 @@ public class Level3 extends GameLevel{
         return "Level3";
     }
 
+
     @Override
     public void populate(){
         super.populate();
         //    9/3/22 12:00 making the platforms from the newly encapsulated platform class instead
-        Platform platform1 = new Platform(this, new Vec2(-3, 15), 0);
-        //make the second suspended platform
-        Platform platform2 = new Platform(this, new Vec2(3, 20f), 30);
 
-        Platform platform3 = new Platform(this, new Vec2(-7, 4), 0);
-        Platform platform4 = new Platform(this, new Vec2(-4, 2), 0);
-        Platform rightSidePlatform5 = new Platform(this, new Vec2(9, -4), 0);
-        Platform groundForLavaPitPlatform6 = new Platform(this,new Vec2(14,-17.5f),0);
 
         new Chicken(this, new Vec2(9, 3));
         new Chicken(this, new Vec2(5, 5));
@@ -110,7 +105,7 @@ public class Level3 extends GameLevel{
 
         HalfWall wall2 = new HalfWall(this, new Vec2(11, -5));
 
-
+        this.soldier= getSoldier();
     }
 
 }

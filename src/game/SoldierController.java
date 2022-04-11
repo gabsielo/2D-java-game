@@ -76,9 +76,12 @@ public class SoldierController implements KeyListener {
         }
         }
     else if (code == KeyEvent.VK_L){
-
-      //  GameLevel loadedLevel = GameSaverLoader.load("data/save.txt");
-       // game.setLevel(loadedLevel);
+try{
+        GameLevel loadedLevel = GameSaverLoader.load("data/save.txt",game);
+        game.setLevel(loadedLevel);
+}catch (IOException ee){
+    ee.printStackTrace();
+}
 
         }
 

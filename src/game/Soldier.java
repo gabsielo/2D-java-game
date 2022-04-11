@@ -17,6 +17,9 @@ public class Soldier extends Walker {
     private AttachedImage aImage;
     private static SoundClip skra;
     private static SoundClip boom;
+
+
+
     //skra static experiment 23/3/21 edit: its working
     static {
         try {
@@ -112,6 +115,9 @@ public class Soldier extends Walker {
         public static void decreaseCredits ( int amount){
             credits = credits - amount;
         }
+
+        public  void setCredits( int credits){
+        this.credits = credits;}
 
      //    making new health as static
 

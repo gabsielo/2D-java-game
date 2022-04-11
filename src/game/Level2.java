@@ -16,7 +16,12 @@ public class Level2 extends GameLevel{
     public SoundClip getGameMusic(){return gameMusic;}
     public Level2(Game game) {
      super(game);
+
+
         background = new ImageIcon("data/councilEstate.jpeg").getImage();
+
+
+
 
         try {
             gameMusic = new SoundClip("data/lightWorkClean.mp3");   // Open an audio input stream
@@ -70,8 +75,8 @@ public class Level2 extends GameLevel{
         regenPit.setPosition(new Vec2(14,-11));
 
         //SET POSITIONS
-        getSpikeBall().setPosition(new Vec2(1,-11));
-        getSoldier().setPosition(new Vec2(-9, -11));
+      //  getSpikeBall().setPosition(new Vec2(1,-11));
+      //  getSoldier().setPosition(new Vec2(-9, -11));
 
         Gangster bis = new Gangster(this);
         bis.setPosition(new Vec2(4, -11));

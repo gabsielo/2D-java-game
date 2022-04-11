@@ -2,7 +2,10 @@ package game;
 
 import city.cs.engine.*;
 import city.cs.engine.DynamicBody;
+import org.jbox2d.common.Vec2;
 
+import java.io.BufferedReader;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 
@@ -73,10 +76,69 @@ public class GameSaverLoader {
     }
 
 
-   // public static GameLevel load(String filename){
+    public static GameLevel load(String fileName, Game game)throws IOException{
+        FileReader fr = null;
+        BufferedReader reader = null;
+
+        try {
+
+            fr = new FileReader(fileName);
+            reader = new BufferedReader(fr);
 
 
-   // }
+            String line = reader.readLine();
+            GameLevel level = null;
+
+            if(line.equals("Level1")){
+                level = new Level1(game);
+            }
+            else if(line.equals("Level2")){
+                level = new Level2(game);
+            }
+            else if(line.equals("Level3")){
+                level = new Level3(game);
+            }
+
+                line = reader.readLine();
+
+
+            while (line != null) {
+
+                String[] tokens = line.split(",");
+
+                if (tokens[0].equals("Chicken")){
+                   // Chicken chicken = new Chicken(level, new Vec2(Float.parseFloat(tokens[1]),
+                     //       (Float.parseFloat(tokens[2])));
+
+                 //   chicken.setPosition(new Vec2((Float.parseFloat(tokens[1]),
+                 //           Float.parseFloat(tokens[2])));
+                }
+               else if (tokens[0].equals("Soldier")){
+                    Soldier soldier = new Soldier(level);
+                    soldier.setPosition(new Vec2(Float.parseFloat(tokens[1]),Float.parseFloat(tokens[2])));
+                  //  Soldier.setCredits(Integer.parseInt(tokens[3]));
+                    level.soldier= soldier;
+
+                }
+                else if (tokens[0].equals("Terrorist")){
+                   Terrorist terrorist = new Terrorist(level);
+                    terrorist.setPosition(new Vec2(Float.parseFloat(tokens[1]),Float.parseFloat(tokens[2])));
+
+                }
+
+
+                line = reader.readLine();
+            }
+            return level;
+        } finally {
+            if (reader != null) {
+                reader.close();
+            }
+            if (fr != null) {
+                fr.close();
+            }
+        }
+    }
 
 
 }

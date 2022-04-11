@@ -58,10 +58,12 @@ public class Level1 extends GameLevel{
 
         Cerberus cerberus = new Cerberus(this);
         cerberus.setPosition(new Vec2(9,-10));
+          SpikeBall spikeball1 = new SpikeBall(this, new Vec2 (1,-11));
+
 
         //SET POSITIONS
-        getSpikeBall().setPosition(new Vec2(1,-11));
-        getSoldier().setPosition(new Vec2(-9, 9));
+
+       // getSoldier().setPosition(new Vec2(-9, 9));
      //   adding right wall
        // Wall wall2 = new Wall(this, new Vec2(11, -1));
         HalfWall wall2 = new HalfWall(this, new Vec2(11, -5));
