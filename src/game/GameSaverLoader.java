@@ -10,6 +10,14 @@ import java.io.FileWriter;
 import java.io.IOException;
 
 public class GameSaverLoader {
+
+    private Soldier soldier;
+    private SpikeBall spikeBall;
+
+
+
+
+
     public static void save(String fileName, GameLevel level)
             throws IOException
     {
@@ -125,6 +133,92 @@ public class GameSaverLoader {
                     terrorist.setPosition(new Vec2(Float.parseFloat(tokens[1]),Float.parseFloat(tokens[2])));
 
                 }
+
+                /*
+                //ask charles why its all red
+
+                Shape shape = new BoxShape(11, 0.5f);
+                StaticBody ground = new StaticBody(this, shape);
+
+                BodyImage groundImage = new BodyImage("data/groundThin.png", 0.8f);
+                ground.setPosition(new Vec2(0f, -11.5f));
+                ground.addImage(groundImage);
+
+                //soldier creation stays in GameLevel
+                // make the character
+                soldier = new Soldier(this);
+                soldier.setPosition(new Vec2(-9,10));
+                soldier.setAlwaysOutline(true);
+                soldier.setLinearVelocity(new Vec2(0, 9));
+                soldier.increaseCredits(15);
+                this.soldier= soldier;
+
+
+
+
+
+                // make a Terrorist
+                osama = new Terrorist(this);
+                osama = osama;
+                osama.startWalking(osama.getTerroristWalkingSpeed() - 1);
+
+
+                // trying to make 2nd terrorrist
+                Terrorist a = new Terrorist(this);
+                a.setPosition(new Vec2(2, -11));
+                osama.setPosition(new Vec2(7,-7));
+                a.startWalking(1);
+
+                //try to make chicken bucket
+                Chicken chicken1 = new Chicken(this, new Vec2(5,5));
+                for (int i=0; i<5; i++){
+
+
+                    Chicken KFC1 =new Chicken(this, new Vec2(i*3f,7));
+                }
+
+                Wall wall1 = new Wall(this, new Vec2(-11, -1));
+
+
+
+                //
+                //make the ball
+                //experiment adding image for ball
+                //make spikeBall
+                spikeBall = new SpikeBall(this, new Vec2(8, -11));
+                spikeBall.setPosition(new Vec2(8,-4));
+
+                spikeBall.startWalking(spikeBall.getSpikeBallWalkingSpeed() + 1);
+
+
+
+
+                //add enemy collision listener for the soldier
+                SoldierCollisionListener EnemyCollision = new SoldierCollisionListener(soldier);
+                soldier.addCollisionListener(EnemyCollision);
+
+                LevelCompleteListener LevelComplete = new LevelCompleteListener(this,game);
+                soldier.addCollisionListener(LevelComplete);
+
+
+
+                // add wall collision listener for Enemy
+                TerroristCollisionListener osamaWallCollision = new TerroristCollisionListener(osama);
+                osama.addCollisionListener(osamaWallCollision);
+                //and spikeball collsion listener
+                SpikeBallCollisionListener spikeBallCollision = new SpikeBallCollisionListener(spikeBall);
+                spikeBall.addCollisionListener(spikeBallCollision);
+                // abu collision listener
+                TerroristCollisionListener abuWallCollision = new TerroristCollisionListener(a);
+                //  a.addCollisionListener(abuWallCollision);
+                soldier.getBackpack().addItem(new Pistol(soldier));
+                soldier.getBackpack().addItem(new Jetpack(soldier));
+
+
+                 */
+
+
+
 
 
                 line = reader.readLine();
