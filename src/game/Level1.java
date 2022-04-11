@@ -68,6 +68,12 @@ public class Level1 extends GameLevel{
     }
 
     @Override
+    public void populate(){
+        super.populate();
+
+    }
+
+    @Override
     public boolean isComplete() {
         if (Soldier.getCredits()>=1500)
         {return  true;}
@@ -78,6 +84,11 @@ public class Level1 extends GameLevel{
     @Override
     public Image getBackground() {
         return background;
+    }
+
+    @Override
+    public String getName() {
+        return "Level1";
     }
 
 }

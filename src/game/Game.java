@@ -37,6 +37,8 @@ public class Game {
     private JFrame frame;
     private InventoryManager  inventoryManager;
     public JPanel mainPanel;
+    private GameLevel l1;
+    private GameLevel l2;
 
 
 
@@ -56,7 +58,8 @@ public class Game {
         //1. make an empty game world
 
         currentLevel = new Level1(this);
-
+         l1 = currentLevel;
+         currentLevel.populate();
 
 
         TestTimerActionListener actionListener = new TestTimerActionListener(currentLevel);
@@ -161,6 +164,41 @@ public class Game {
        new Game();
 
     }
+
+    public void setLevel(GameLevel level){
+
+
+        currentLevel.stop();
+
+        if (l1 == currentLevel){
+        ((Level1) currentLevel).getGameMusic().stop();}
+        else if (l2 == currentLevel){
+            ((Level2) currentLevel).getGameMusic().stop();}
+
+
+        currentLevel = level;
+
+        view.setWorld(currentLevel);
+        wideView.setWorld(currentLevel);
+        wideView.setZoom(3);
+
+        currentLevel.start();
+        controller.updateSoldier(currentLevel.getSoldier());
+        //tryna fix bullets in multiple levels 26/3
+
+        directionalShoot.updateSoldier(currentLevel.getSoldier());
+        view.addMouseListener(new DirectionalShooting(currentLevel.getSoldier(),view));
+        Tracker trackerLevel1 = new Tracker(view,currentLevel.getSoldier());
+        currentLevel.addStepListener(trackerLevel1);
+
+
+    }
+
+
+
+
+
+
 public void goToNextLevel(){
 
 
@@ -174,7 +212,7 @@ public void goToNextLevel(){
             ((Level1) currentLevel).getGameMusic().stop();
 
             currentLevel = new Level2(this);
-
+            currentLevel.populate();
             view.setWorld(currentLevel);
             wideView.setWorld(currentLevel);
             wideView.setZoom(3);
