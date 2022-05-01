@@ -12,6 +12,7 @@ implements Destroyable{
 private static SoundClip Boom;
 private static SoundClip yo;
 
+    // may need to try implement.
 
     // boom static
     static {
