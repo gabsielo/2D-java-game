@@ -20,7 +20,7 @@ public class Cerberus extends Walker implements StepListener, Destroyable {
     }
 
     public static final float RANGE = 10;
-    private GameLevel world;
+    private final GameLevel world;
     private State state;
 
     public Cerberus(GameLevel world) {

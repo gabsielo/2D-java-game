@@ -30,8 +30,8 @@ class ScoreRecord{
 public class HighScoreReader {
 
     private String file;
-    private String fileName;
-    private ArrayList<ScoreRecord> scores;
+    private final String fileName;
+    private final ArrayList<ScoreRecord> scores;
 
 
 
@@ -40,8 +40,7 @@ public class HighScoreReader {
        this.fileName = f;
        scores= new ArrayList<>();
 
-   };
-
+   }
 
 
     public void readScores() throws IOException {

@@ -20,7 +20,7 @@ public abstract class GameLevel extends World {
     private SpikeBall spikeBall;
     GameLevel currentLevel;
     private boolean gameOver;
-    private Game game;
+    private final Game game;
 
     public GameLevel(Game game) {
         super();
@@ -186,7 +186,7 @@ public abstract class GameLevel extends World {
         soldier.setPosition(new Vec2(-9,10));
         soldier.setAlwaysOutline(true);
         soldier.setLinearVelocity(new Vec2(0, 9));
-        soldier.increaseCredits(15);
+        Soldier.increaseCredits(15);
         this.soldier= soldier;
 
 
@@ -275,10 +275,7 @@ public abstract class GameLevel extends World {
 
 
 
-    };
-
-
-
+    }
 
 
 }

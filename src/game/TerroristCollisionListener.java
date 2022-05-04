@@ -8,7 +8,7 @@ import javax.swing.JFrame;
 
 public class TerroristCollisionListener implements CollisionListener {
 
-    private Terrorist osama;
+    private final Terrorist osama;
     public TerroristCollisionListener(Terrorist osama) {
         this.osama = osama;
     }

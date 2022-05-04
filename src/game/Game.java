@@ -32,12 +32,12 @@ public class Game {
     GameView wideView;
     private boolean gameOver;
     private boolean menuVisible;
-    private ControlPanel controlPanel;
-    private SettingsPanel settingsPanel;
-    private JFrame frame;
-    private InventoryManager  inventoryManager;
+    private final ControlPanel controlPanel;
+    private final SettingsPanel settingsPanel;
+    private final JFrame frame;
+    private final InventoryManager  inventoryManager;
     public JPanel mainPanel;
-    private GameLevel l1;
+    private final GameLevel l1;
     private GameLevel l2;
     // added these loadedlevel on 3/5/22 to hope for the best with the game saver loader
     GameLevel loadedLevel;
@@ -288,7 +288,7 @@ public void goToNextLevel(){
             currentLevel.start();
 
         }
-    };
+    }
 
 
     public void transitionToSettings(){

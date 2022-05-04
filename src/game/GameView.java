@@ -10,10 +10,10 @@ import java.awt.Color;
 
 public class GameView extends UserView {
 
-private Soldier soldier;
+private final Soldier soldier;
 GameLevel currentLevel;
-private GameLevel gameLevel;
-private Game game;
+private final GameLevel gameLevel;
+private final Game game;
 
 
     public GameView(Game game, GameLevel w, int width, int height) {
@@ -50,7 +50,7 @@ private Game game;
 
                 g.setFont(font1);
         g.setColor(Color.orange);
-              g.drawString("health: "+soldier.getHealthLevel()+" credits: " + soldier.getCredits(),10,90
+              g.drawString("health: "+ Soldier.getHealthLevel()+" credits: " + Soldier.getCredits(),10,90
               );
         g.setFont(font1);
         g.setColor(Color.red);
@@ -68,7 +68,7 @@ private Game game;
             g.drawString("GameOver",this.getWidth()/4,this.getHeight()/2);
 
         }
-              ;}
+    }
     public void setGameOver(boolean over){
       //  gameOver=over;
     }

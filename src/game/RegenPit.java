@@ -10,11 +10,11 @@ import java.awt.*;
 public class RegenPit extends StaticBody implements SensorListener, StepListener {
 
     private static final Shape pitShape = new BoxShape(3, 1f);
-    private Sensor pitSensor;
+    private final Sensor pitSensor;
     private GhostlyFixture pitView;
-    private BodyImage regenPitImage = new BodyImage("data/RegenPit.png", 2.5f);
-    private Soldier soldier;
-    private GameLevel world;
+    private final BodyImage regenPitImage = new BodyImage("data/RegenPit.png", 2.5f);
+    private final Soldier soldier;
+    private final GameLevel world;
     private boolean inRegen;
 
     /* add position to lava pit constructor parameter
@@ -32,7 +32,7 @@ public class RegenPit extends StaticBody implements SensorListener, StepListener
         this.addImage(regenPitImage);
         // pitView = new GhostlyFixture(this,pitShape);
         //this.setFillColor(Color.RED);
-        world = (GameLevel) w;
+        world = w;
         this.soldier = world.getSoldier();
         this.inRegen = false;
         w.addStepListener(this);

@@ -50,7 +50,8 @@ private static SoundClip yo;
 
     // flip terrorist images
     public static void flipTerroristImageLeft(){ TerroristImage =
-            new BodyImage( "data/TerroristRight.png",4f);};
+            new BodyImage( "data/TerroristRight.png",4f);}
+
     public static void flipTerroristImageRight(){ TerroristImage =
             new BodyImage( "data/TerroristLeft.png",4f);}
 
@@ -78,7 +79,7 @@ private static SoundClip yo;
     //decreaseHealthLevel
     public void decreaseHealthLevel(int healthAmount){
         healthLevel = healthLevel-healthAmount;
-    };
+    }
 
     // increase healthLevel
     public void increaseHealthLevel(int healthAmount){

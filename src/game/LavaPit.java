@@ -9,11 +9,11 @@ import java.awt.*;
 public class LavaPit extends StaticBody implements SensorListener, StepListener{
 
     private static final Shape pitShape = new BoxShape(3, 1f);
-    private Sensor pitSensor;
+    private final Sensor pitSensor;
     private GhostlyFixture pitView;
-    private BodyImage lavaPitImage = new BodyImage("data/LavaPit.png",2.5f);
-    private Soldier soldier;
-    private GameLevel world;
+    private final BodyImage lavaPitImage = new BodyImage("data/LavaPit.png",2.5f);
+    private final Soldier soldier;
+    private final GameLevel world;
     private boolean inLava;
 
     /* add position to lava pit constructor parameter
@@ -31,7 +31,7 @@ public class LavaPit extends StaticBody implements SensorListener, StepListener{
         this.addImage(lavaPitImage);
        // pitView = new GhostlyFixture(this,pitShape);
         //this.setFillColor(Color.RED);
-        world = (GameLevel) w;
+        world = w;
         this.soldier = world.getSoldier();
         this.inLava= false;
         w.addStepListener(this);

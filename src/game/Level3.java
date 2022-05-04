@@ -14,7 +14,7 @@ public class Level3 extends GameLevel{
     private SoundClip gameMusic;
     Image background;
     int targetCredits =3000;
- private Game game;
+ private final Game game;
     public SoundClip getGameMusic(){return gameMusic;}
     private Soldier soldier;
 
@@ -67,10 +67,7 @@ public class Level3 extends GameLevel{
 
     @Override
     public boolean isComplete() {
-        if (Soldier.getCredits()>=15000)
-        {return  true;}
-        else
-        { return false;}
+        return Soldier.getCredits() >= 15000;
     }
 
     @Override

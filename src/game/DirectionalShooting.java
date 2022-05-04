@@ -7,14 +7,14 @@ import java.awt.event.MouseListener;
 
 public class DirectionalShooting implements MouseListener {
     private Soldier soldier;
-    private GameView view;
+    private final GameView view;
 
 
     public DirectionalShooting(Soldier s, GameView v){
 
         soldier = s;
         view = v;
-    };
+    }
 
     public void updateSoldier(Soldier newSoldier){
 

@@ -13,8 +13,8 @@ import java.util.List;
 public class Soldier extends Walker {
     public static int credits;
     private String direction;
-    private Backpack backpack;
-    private AttachedImage aImage;
+    private final Backpack backpack;
+    private final AttachedImage aImage;
     private static SoundClip skra;
     private static SoundClip boom;
 
@@ -40,9 +40,9 @@ public class Soldier extends Walker {
 
     private static final Shape soldierShape = new PolygonShape(1.5f, -1.86f, -0.53f, -1.87f, -0.79f, 0.69f, -0.03f, 1.71f, 1.16f, 1.3f, 1.56f, -1.84f);
     // soldier image
-    private static BodyImage leftSoldierImage =
+    private static final BodyImage leftSoldierImage =
             new BodyImage("data/soldierLeft.png", 4f);
-    private static BodyImage rightSoldierImage =
+    private static final BodyImage rightSoldierImage =
             new BodyImage("data/soldierRight.png", 4f);
 
     @Override
@@ -117,12 +117,12 @@ public class Soldier extends Walker {
         }
 
         public  void setCredits( int credits){
-        this.credits = credits;}
+        Soldier.credits = credits;}
 
      //    making new health as static
 
     public void setHealthLevel ( int healthLevel){
-        this.healthLevel = healthLevel;
+        Soldier.healthLevel = healthLevel;
         System.out.println(healthLevel + "health left");
     }
     private static int healthLevel;

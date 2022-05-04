@@ -12,7 +12,7 @@ public class Zoot extends StaticBody
 implements Destroyable {
 
     private static SoundClip smokeTreesSound;
-    private static BoxShape zootShape  = new BoxShape(1f,0.125f);
+    private static final BoxShape zootShape  = new BoxShape(1f,0.125f);
 
 
     static {

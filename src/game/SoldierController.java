@@ -20,7 +20,7 @@ public class SoldierController implements KeyListener {
 
     private static final float WALKING_SPEED = 7;
     private Soldier soldier;
-    private Game game;
+    private final Game game;
 
     // broken 11/3/22 private Terrorist osama = world.getOsama();
     public SoldierController(Soldier soldier, Game game) {

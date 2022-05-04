@@ -43,7 +43,7 @@ public class Bomb implements ActionListener {
  }
 
 
- private DynamicBody bomb;
+ private final DynamicBody bomb;
  private DynamicBody explosion;
  private int counter;
 

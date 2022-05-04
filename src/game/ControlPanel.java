@@ -12,8 +12,8 @@ public class ControlPanel {
     private JButton shrinkButton;
     private JButton settingsButton;
     private JButton inventoryButton;
-    private Game game;
-    private  GameView view;
+    private final Game game;
+    private final GameView view;
 
 
     public ControlPanel(GameView v, Game game){

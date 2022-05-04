@@ -25,9 +25,9 @@ public class BigBoss extends Walker implements StepListener , Destroyable, Actio
     }
 
     public static final float RANGE = 10;
-    private GameLevel world;
+    private final GameLevel world;
     private game.BigBoss.State state;
-    private Game gamePara;
+    private final Game gamePara;
 
     public BigBoss(GameLevel world, Game gamePara) {
 

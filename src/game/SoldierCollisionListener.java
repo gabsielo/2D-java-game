@@ -10,7 +10,7 @@ import javax.swing.JFrame;
 public class SoldierCollisionListener implements CollisionListener {
 
 
-    private Soldier soldier;
+    private final Soldier soldier;
 
 
     public SoldierCollisionListener(Soldier soldier) {
@@ -20,27 +20,27 @@ public class SoldierCollisionListener implements CollisionListener {
     @Override
     public void collide(CollisionEvent e) {
         if (e.getOtherBody() instanceof Terrorist) {
-            soldier.decreaseHealthLevel(1);
+            Soldier.decreaseHealthLevel(1);
             e.getOtherBody().destroy();
         } else if (e.getOtherBody() instanceof SpikeBall) {
-            soldier.decreaseHealthLevel(2);
+            Soldier.decreaseHealthLevel(2);
             e.getOtherBody().destroy();
         } else if (e.getOtherBody() instanceof Food) {
-            soldier.increaseHealthLevel(2);
+            Soldier.increaseHealthLevel(2);
             e.getOtherBody().destroy();
 
         } else if (e.getOtherBody() instanceof Zoot) {
-            soldier.increaseHealthLevel(2);
+            Soldier.increaseHealthLevel(2);
             e.getOtherBody().destroy();
         } else if (e.getOtherBody() instanceof Cerberus) {
-            soldier.decreaseHealthLevel(2);
+            Soldier.decreaseHealthLevel(2);
             e.getOtherBody().destroy();
         } else if (e.getOtherBody() instanceof BigBoss) {
-            soldier.decreaseHealthLevel(2);
+            Soldier.decreaseHealthLevel(2);
             e.getOtherBody().destroy();
         }
         else if (e.getOtherBody() instanceof Gangster) {
-            soldier.decreaseHealthLevel(2);
+            Soldier.decreaseHealthLevel(2);
             e.getOtherBody().destroy();
         }
 

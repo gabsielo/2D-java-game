@@ -4,7 +4,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 
 public class HighScoreWriter {
-    private String fileName;
+    private final String fileName;
 
     public HighScoreWriter(String fileName) {
         this.fileName = fileName;

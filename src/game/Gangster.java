@@ -51,7 +51,8 @@ public class Gangster extends Walker
 
     // flip terrorist images
     public static void flipTerroristImageLeft(){ TerroristImage =
-            new BodyImage( "data/gangsterLeft.png",4f);};
+            new BodyImage( "data/gangsterLeft.png",4f);}
+
     public static void flipTerroristImageRight(){ TerroristImage =
             new BodyImage( "data/gangsterRight.png",4f);}
 
@@ -79,7 +80,7 @@ public class Gangster extends Walker
     //decreaseHealthLevel
     public void decreaseHealthLevel(int healthAmount){
         healthLevel = healthLevel-healthAmount;
-    };
+    }
 
     // increase healthLevel
     public void increaseHealthLevel(int healthAmount){

@@ -10,7 +10,8 @@ public abstract class BackpackItem {
     protected AttachedImage aImage;
     public BackpackItem(Soldier soldier){
         this.soldier= soldier;
-    };
+    }
+
     public void wear(){
         soldier.removeAttachedImage(aImage);
         soldier.addImage(image);

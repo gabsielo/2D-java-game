@@ -8,7 +8,7 @@ import javax.swing.JFrame;
 
 public class SpikeBallCollisionListener implements CollisionListener {
 
-    private SpikeBall spikeBall;
+    private final SpikeBall spikeBall;
 
     public SpikeBallCollisionListener(SpikeBall spikeBall) {
         this.spikeBall = spikeBall;

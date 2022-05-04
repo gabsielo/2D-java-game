@@ -13,7 +13,7 @@ public class InventoryManager {
 
     private JButton sellButton;
     private JButton buyButton;
-    private Game game;
+    private final Game game;
     GameView view;
    public JPanel inventoryMainPanel;
     private JPanel itemsPanel;

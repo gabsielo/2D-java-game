@@ -57,27 +57,28 @@ import java.util.*;
  * lets you edit the polygon drawn in a previous session around the image yellow-bird.gif).
  */
 public class PolygonEditor extends JPanel
-{   private static double WIDTH = 500;
-    private static double HEIGHT = 500;
-    private static int SCALE = 8;
+{   private static final double WIDTH = 500;
+    private static final double HEIGHT = 500;
+    private static final int SCALE = 8;
 
-    private List<Point2D.Float> points;
+    private final List<Point2D.Float> points;
     private int currentVertex;
 
     private ImageIcon icon;
     /** height of the the icon in the world (in metres) */
-    private float boxHeight;
+    private final float boxHeight;
     private int powerOf10;
 
-    private double canvasWidth;
-    private double canvasHeight;
-    private double bitmapWidth;
-    private double bitmapHeight;
-    private double centreX, centreY;
+    private final double canvasWidth;
+    private final double canvasHeight;
+    private final double bitmapWidth;
+    private final double bitmapHeight;
+    private final double centreX;
+    private final double centreY;
     /** screen pixels per bitmap pixel */
-    private double pixelScale;
+    private final double pixelScale;
     /** screen pixels per world metre */
-    private double scale;
+    private final double scale;
 
     /**
      * Initialise a new editor with no background image.
@@ -143,7 +144,7 @@ public class PolygonEditor extends JPanel
             }
 
             public void mouseReleased(MouseEvent e) {
-                String mods = e.getMouseModifiersText(e.getModifiers());
+                String mods = MouseEvent.getMouseModifiersText(e.getModifiers());
                 if (!mods.equals("Button1")) {
                     points.remove(currentVertex);
                 }
@@ -251,7 +252,7 @@ public class PolygonEditor extends JPanel
             } catch (NumberFormatException e) {
                 fileName = args[0];
                 firstCoordIndex = 1;
-                if (args.length > 2 && args[1].toLowerCase().equals("-height")) {
+                if (args.length > 2 && args[1].equalsIgnoreCase("-height")) {
                     boxHeight = Float.parseFloat(args[2]);
                     firstCoordIndex = 3;
                 }

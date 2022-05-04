@@ -13,8 +13,8 @@ import java.io.IOException;
 public class InventoryGUIItem extends JPanel implements MouseListener {
 
 
-    private Image icon;
-    private String type;
+    private final Image icon;
+    private final String type;
     private boolean selected;
 
 

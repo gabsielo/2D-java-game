@@ -77,10 +77,7 @@ public class Level1 extends GameLevel{
 
     @Override
     public boolean isComplete() {
-        if (Soldier.getCredits()>=1500)
-        {return  true;}
-        else
-        { return false;}
+        return Soldier.getCredits() >= 1500;
     }
 
     @Override

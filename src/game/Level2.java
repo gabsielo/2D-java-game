@@ -69,7 +69,6 @@ public class Level2 extends GameLevel {
             }
             j++;
         }
-        ;
 
         RegenPit regenPit = new RegenPit(this, (new Vec2(14, -11)));
         regenPit.setPosition(new Vec2(14, -11));
@@ -89,11 +88,7 @@ public class Level2 extends GameLevel {
 
     @Override
     public boolean isComplete() {
-        if (Soldier.getCredits() >= 1500) {
-            return true;
-        } else {
-            return false;
-        }
+        return Soldier.getCredits() >= 1500;
     }
 
     @Override
@@ -143,7 +138,6 @@ public class Level2 extends GameLevel {
             }
             j++;
         }
-        ;
 
         RegenPit regenPit = new RegenPit(this, (new Vec2(14, -11)));
         regenPit.setPosition(new Vec2(14, -11));

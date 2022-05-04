@@ -8,8 +8,8 @@ import org.jbox2d.common.Vec2;
 public class Tracker
     implements StepListener {
 
-    private GameView view;
-    private Soldier soldier;
+    private final GameView view;
+    private final Soldier soldier;
 
     public Tracker(GameView view, Soldier soldier){
         this.view = view;

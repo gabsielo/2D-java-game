@@ -16,9 +16,9 @@ public class TestTimerActionListener implements ActionListener {
 
     public TestTimerActionListener(World w){
         world = w;
-    };
+    }
 
-private static int secondsPast;
+    private static int secondsPast;
     @Override
     public void actionPerformed(ActionEvent e) {
         secondsPast++;

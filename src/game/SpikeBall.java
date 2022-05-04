@@ -36,7 +36,7 @@ public class SpikeBall extends Walker {
 
 
     // make ball shape
-    private static CircleShape ballShape = new CircleShape(1.5f);
+    private static final CircleShape ballShape = new CircleShape(1.5f);
 
     // soldier image
     private static BodyImage spikeBallImage =
@@ -48,7 +48,8 @@ public class SpikeBall extends Walker {
 
     // flip  images
     public static void flipTerroristImageLeft(){ spikeBallImage =
-            new BodyImage( "data/spikeBall.png",3f);};
+            new BodyImage( "data/spikeBall.png",3f);}
+
     public static void flipTerroristImageRight(){ spikeBallImage =
             new BodyImage( "data/spikeBall.png",3f);}
 
@@ -79,7 +80,7 @@ public class SpikeBall extends Walker {
     //decreaseHealthLevel
     public void decreaseHealthLevel(int healthAmount){
         healthLevel= healthLevel-healthAmount;
-    };
+    }
 
     // increase healthLevel
     public void increaseHealthLevel(int healthAmount){

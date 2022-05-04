@@ -9,7 +9,7 @@ public class SettingsPanel {
     private JButton volumeUpButton;
     private JButton volumeDownButton;
     private JButton backButton;
-    private Game game;
+    private final Game game;
 
     public SettingsPanel(GameView v,Game game) {
 
