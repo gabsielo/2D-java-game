@@ -3,11 +3,29 @@ package game;
 import city.cs.engine.*;
 import org.jbox2d.common.Vec2;
 
+import javax.sound.sampled.LineUnavailableException;
+import javax.sound.sampled.UnsupportedAudioFileException;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
 
 public class BigBoss extends Walker implements StepListener , Destroyable, ActionListener {
+    private static SoundClip bossDeathSound;
+    static {
+        try {
+            bossDeathSound = new SoundClip("data/treasureSound.mpeg");   // Open an audio input stream
+            bossDeathSound.setVolume(1.9d);
+
+
+        } catch (UnsupportedAudioFileException | IOException | LineUnavailableException e) {
+            //code in here will deal with any errors
+            //that might occur while loading/playing sound
+            System.out.println(e);
+        }
+    }
+
+
     private static final float radius = 1.0f;
     private static final Shape bigBossShape = new PolygonShape(2.5f, -1.95f, -1.95f, -1.92f, 0.11f, 1.93f, 1.48f, 1.97f);
 
@@ -131,8 +149,9 @@ public class BigBoss extends Walker implements StepListener , Destroyable, Actio
         }
 
         else if (bossHealth == 1){
-
+            bossDeathSound.play();
             super.destroy();
+
             Soldier.increaseCredits(10000000);
 
             gamePara.setGameOver(true);

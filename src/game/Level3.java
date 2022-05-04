@@ -25,11 +25,9 @@ public class Level3 extends GameLevel{
         this.game=game;
 
 
-
-
         try {
-            gameMusic = new SoundClip("data/nextUp.mp3");   // Open an audio input stream
-            gameMusic.setVolume(0.9);
+            gameMusic = new SoundClip("data/uraniumfever.mp3");   // Open an audio input stream
+            gameMusic.setVolume(0.3);
             gameMusic.loop();                            // Set it to continuous playback (looping)
 
         } catch (UnsupportedAudioFileException | IOException | LineUnavailableException e) {
@@ -37,6 +35,7 @@ public class Level3 extends GameLevel{
             //that might occur while loading/playing sound
             System.out.println(e);
         }
+
 
         //    9/3/22 12:00 making the platforms from the newly encapsulated platform class instead
         Platform platform1 = new Platform(this, new Vec2(-3, 15), 0);
