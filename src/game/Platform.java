@@ -1,4 +1,5 @@
 package game;
+
 import city.cs.engine.*;
 import org.jbox2d.common.Vec2;
 
@@ -13,7 +14,7 @@ public class Platform {
 
 
     // constructor
-    public Platform(World world, Vec2 position,float degrees) {
+    public Platform(World world, Vec2 position, float degrees) {
         // "world here is an object of the GameWorld class"
         StaticBody platform = new StaticBody(world, platformShape);
         platform.setPosition(position);

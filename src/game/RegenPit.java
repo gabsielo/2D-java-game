@@ -1,4 +1,5 @@
 package game;
+
 import city.cs.engine.*;
 import city.cs.engine.Shape;
 import org.jbox2d.common.Vec2;
@@ -6,12 +7,12 @@ import org.jbox2d.common.Vec2;
 import java.awt.*;
 
 
-public class RegenPit extends StaticBody implements SensorListener, StepListener{
+public class RegenPit extends StaticBody implements SensorListener, StepListener {
 
     private static final Shape pitShape = new BoxShape(3, 1f);
     private Sensor pitSensor;
     private GhostlyFixture pitView;
-    private BodyImage regenPitImage = new BodyImage("data/RegenPit.png",2.5f);
+    private BodyImage regenPitImage = new BodyImage("data/RegenPit.png", 2.5f);
     private Soldier soldier;
     private GameLevel world;
     private boolean inRegen;
@@ -33,7 +34,7 @@ public class RegenPit extends StaticBody implements SensorListener, StepListener
         //this.setFillColor(Color.RED);
         world = (GameLevel) w;
         this.soldier = world.getSoldier();
-        this.inRegen= false;
+        this.inRegen = false;
         w.addStepListener(this);
 
 
@@ -43,14 +44,14 @@ public class RegenPit extends StaticBody implements SensorListener, StepListener
     @Override
     public void beginContact(SensorEvent sensorEvent) {
 
-        inRegen= true;
+        inRegen = true;
 
     }
 
     @Override
     public void endContact(SensorEvent sensorEvent) {
 
-        inRegen= false;
+        inRegen = false;
 
     }
 
@@ -59,8 +60,7 @@ public class RegenPit extends StaticBody implements SensorListener, StepListener
         // This method runs regardless of what is in the lava pit this means enemies in lava will also decrease
         //soldier health
 
-        if (inRegen){
-
+        if (inRegen) {
 
 
             Soldier.increaseHealthLevel(1);
