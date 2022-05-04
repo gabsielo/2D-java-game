@@ -39,6 +39,8 @@ public class Game {
     public JPanel mainPanel;
     private GameLevel l1;
     private GameLevel l2;
+    // added these loadedlevel on 3/5/22 to hope for the best with the game saver loader
+    GameLevel loadedLevel;
 
 
 
@@ -303,6 +305,14 @@ public void goToNextLevel(){
         frame.remove(controlPanel.mainPanel);
         frame.add(inventoryManager.inventoryMainPanel,BorderLayout.WEST);
         frame.pack();
+    }
+// added these loaded level methods on 3/5/22 to hope for the best with the game saver loader
+
+    public GameLevel getLoadedLevel() {
+        return loadedLevel;
+    }
+    public void setLoadedLevel(GameLevel gameLevel){
+        loadedLevel = gameLevel;
     }
 
 }

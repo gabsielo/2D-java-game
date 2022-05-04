@@ -3,30 +3,31 @@ package game;
 import city.cs.engine.*;
 import org.jbox2d.common.Vec2;
 
-public class Cerberus extends Walker implements StepListener, Destroyable{
+public class Cerberus extends Walker implements StepListener, Destroyable {
     private static final float radius = 2.0f;
 
-  //  private static final Shape ballShape = new CircleShape(radius);
-   private static final Shape cerberusShape = new BoxShape(2.25f,1.5f);
+    //  private static final Shape ballShape = new CircleShape(radius);
+    private static final Shape cerberusShape = new BoxShape(2.25f, 1.5f);
     private static final BodyImage cerberusLeftImage =
-            new BodyImage("data/cerberusLeft.png", 2*radius);
-          //  new BodyImage("data/cerberusLeft.png", 2*radius);
+            new BodyImage("data/cerberusLeft.png", 2 * radius);
+    //  new BodyImage("data/cerberusLeft.png", 2*radius);
     private static final BodyImage cerberusRightImage =
-            new BodyImage("data/cerberusRight.png", 2*radius);
+            new BodyImage("data/cerberusRight.png", 2 * radius);
 
 
     private enum State {
         ROLL_LEFT, ROLL_RIGHT, STAND_STILL
     }
+
     public static final float RANGE = 10;
     private GameLevel world;
     private State state;
 
     public Cerberus(GameLevel world) {
-        super(world, cerberusShape );
+        super(world, cerberusShape);
         this.addImage(cerberusLeftImage);
-        this.world= world;
-       // addImage(ballImage);
+        this.world = world;
+        // addImage(ballImage);
         state = State.STAND_STILL;
         getWorld().addStepListener(this);
     }
@@ -59,7 +60,7 @@ public class Cerberus extends Walker implements StepListener, Destroyable{
             if (state != State.ROLL_LEFT) {
                 state = State.ROLL_LEFT;
                 this.startWalking(5);
-              //  setAngularVelocity(2);
+                //  setAngularVelocity(2);
                 this.removeAllImages();
                 this.addImage(cerberusLeftImage);
             }
@@ -79,7 +80,7 @@ public class Cerberus extends Walker implements StepListener, Destroyable{
     private void refreshRoll() {
         switch (state) {
             case ROLL_LEFT:
-              //  setAngularVelocity(2);
+                //  setAngularVelocity(2);
                 this.startWalking(-5);
                 break;
             case ROLL_RIGHT:
