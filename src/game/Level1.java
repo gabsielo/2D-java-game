@@ -152,7 +152,7 @@ public class Level1 extends GameLevel{
      * <p>
      * checks whether the soldier has collected enough credits to go to the next level.
      *
-     * @return whether the level is complete
+     * @return credits
      */
     @Override
     public boolean isComplete() {
@@ -177,7 +177,7 @@ public class Level1 extends GameLevel{
      *
      * <p>
      *the methods returns the string "Level1 so it can be parsed into gameLevel object
-     * @return getname
+     * @return level1
      */
     @Override
     public String getName() {
