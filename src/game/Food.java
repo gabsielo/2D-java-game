@@ -7,13 +7,26 @@ import javax.sound.sampled.UnsupportedAudioFileException;
 import java.io.IOException;
 
 
+/**
+ * @author      Gabriel Maharaj gabriel.maharaj@city.ac.uk
+ * @version     version 1.0.46
+ * @since       1.0.9
+ *
+ */
 
 public abstract class Food extends StaticBody
 implements Destroyable{
-
+    /**
+     *sound to signify the consrumption of a food item.
+     */
     private static SoundClip eatSound;
-    // DOESNT WORK public abstract Shape foodShape;
 
+
+    // DOESN'T WORK public abstract Shape foodShape;
+
+    /**
+     *foodShape-hit box of the items in the food class
+     */
      private static final Shape foodShape = new BoxShape(0.5f, 0.5f);
 
     /* temp redundant 24/3/22
@@ -36,15 +49,32 @@ implements Destroyable{
    // private static final Shape foodShape = new BoxShape(0.5f, 0.5f);
 
 
+
+
+    /**
+     * food constructor
+     * <p>
+     * an object of the food class is created.
+     *
+     * @param world
+     * @param position
+     *
+     * @return the method doesn't return anything as it's a constructor
+     */
+
     // constructor
     public Food(World world, Vec2 position) {
+
         // "world here is an object of the GameWorld class"
         super(world, foodShape);
         setPosition(position);
         //addImage(wallImage);
-
     }
 
+
+    /**
+     * destroy method destroys the food
+     */
     @Override
     public void destroy() {
 

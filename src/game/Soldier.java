@@ -10,6 +10,17 @@ import javax.sound.sampled.UnsupportedAudioFileException;
 import javax.swing.JFrame;
 import java.util.List;
 
+
+
+/**
+ * @author      Gabriel Maharaj gabriel.maharaj@city.ac.uk
+ * @version     version 1.0.46
+ * @since       1.0.3
+ */
+
+
+
+
 public class Soldier extends Walker {
     public static int credits;
     private String direction;
@@ -20,6 +31,10 @@ public class Soldier extends Walker {
 
 
 
+    /**
+     *srka is the sound that will play when the soldier shoots
+     *
+     */
     //skra static experiment 23/3/21 edit: its working
     static {
         try {
@@ -34,17 +49,44 @@ public class Soldier extends Walker {
 
 
 
-
+    /**
+     *projectile image is what the picture that the projectile from the soldier will look like
+     *
+     */
     BodyImage projectileImage = new BodyImage("data/unexplodedBomb.png",0.9f);
 
 
+    /**
+     * soldier shape iss the shape for the hit box that objects of the soldier class will use
+     */
     private static final Shape soldierShape = new PolygonShape(1.5f, -1.86f, -0.53f, -1.87f, -0.79f, 0.69f, -0.03f, 1.71f, 1.16f, 1.3f, 1.56f, -1.84f);
+
+
+
     // soldier image
+    /**
+     * leftSoldierImage is the image that the soldier will take when walking or facing left
+     *
+     */
     private static final BodyImage leftSoldierImage =
             new BodyImage("data/soldierLeft.png", 4f);
+
+    /**
+     * rightSoldierImage is the image that the soldier will take when walking or facing right
+     */
+
     private static final BodyImage rightSoldierImage =
             new BodyImage("data/soldierRight.png", 4f);
 
+
+    /**
+     * soldier startwalking
+     * <p>
+     * the soldier moves in the direction specified by the user of the program through the soldier controller
+     *
+     * @param speed
+     * @return void
+     */
     @Override
     public void startWalking(float speed) {
         super.startWalking(speed);
@@ -60,6 +102,9 @@ public class Soldier extends Walker {
             direction = "right";
         }}
 
+
+
+
       /*  if (speed <0){
             this.removeAllImages();
             this.addImage(leftSoldierImage);
@@ -70,7 +115,14 @@ public class Soldier extends Walker {
                 direction= "right";
             }
 */
-
+    /**
+     * walkLeft
+     * <p>
+     * the soldier moves in the direction specified by the user of the program through the soldier controller
+     *
+     * @param {float speed is the  velocity that the soldier will travel at}
+     * @return the method doesn't return anything
+     */
 
         public void walkLeft ( float Speed){
             this.startWalking(Speed);
@@ -93,6 +145,18 @@ public class Soldier extends Walker {
             new BodyImage( "data/soldierRight.png",4f);}
 */
         // constructor CONSTRUCTOR CONSTRUCTOR CONSTRUCTOR CONSTRUCTOR CONSTRUCTOR CONSTRUCTOR CONSTRUCTOR CONTSTRUCTOR
+
+
+    /**
+     * Soldier constructor
+     * <p>
+     * an object of the soldier class is created.
+     *
+     * @param world
+     *
+     */
+
+
     public Soldier(World world) {
             super(world, soldierShape);
             aImage = addImage(leftSoldierImage);
@@ -102,36 +166,124 @@ public class Soldier extends Walker {
             direction = "left";
             backpack = new Backpack();
 
+
         }
         // CONSTRUCTOR CONSTRUCTOR CONSTRUCTOR CONSTRUCTOR CONSTRUCTOR CONSTRUCTOR CONSTRUCTOR CONSTRUCTOR CONSTRUCTOR
 
         // accessor and mutator for credits (PROBABLY REDUNDANT)
-        public static int getCredits () {
+
+    /**
+     * get credits
+     * <p>
+     * the number of  credits the player has is returned
+     *
+     *
+     * @return credits
+     */
+
+    public static int getCredits () {
             return credits;
         }
+
+    /**
+     * increaseCredits
+     * <p>
+     * increases the number of soldiers credits by a specified amount
+     *
+     * @param {an integer credits is the parameter}
+     * @return nothing
+     */
         public static void increaseCredits(int amount){
             credits = credits + amount;
         }
+    /**
+     * decreasesCredits
+     * <p>
+     * decreases the number of soldiers credits by a specified amount
+     *
+     * @param {an integer credits is the parameter}
+     * @return nothing
+     */
         public static void decreaseCredits ( int amount){
             credits = credits - amount;
         }
+
+
+    /**
+     * setCredits
+     * <p>
+     * sets number of soldiers credits to a specified amount
+     *
+     * @param {and integer credits is the parameter}
+     * @return nothing
+     */
+
 
         public  void setCredits( int credits){
         Soldier.credits = credits;}
 
      //    making new health as static
 
+
+
+
+    /**
+     *sets HealthLevel
+     * <p>
+     * sets soldier's health  to a specified amount
+     * and prints the soldiers current health level to the console
+     *
+     * @param healthLevel
+
+     */
+
     public void setHealthLevel ( int healthLevel){
         Soldier.healthLevel = healthLevel;
         System.out.println(healthLevel + "health left");
     }
+
+    /**
+     * healthLevel is a numerical representation of the soldiers health
+     *
+     */
     private static int healthLevel;
+
+
+    /**
+     *returns HealthLevel
+     * <p>
+     * returns the value of the soldiers health
+
+     *
+     *
+     * @return  healthLevel
+     *
+     */
+
     public static int getHealthLevel () {
         return healthLevel;
     }
+
+    /**
+     * increaseHealthLevel
+     * <p>
+     * increases the number of soldiers health by a specified amount
+     *
+     * @param amount
+     * @return
+     */
     public static void increaseHealthLevel(int amount){
         healthLevel = healthLevel + amount;
     }
+
+    /**
+     * decreasesHealthLevel
+     * <p>
+     * decreases the number of soldiers credits by a specified amount
+     *
+     * @param {an integer credits is the parameter}
+     * @return nothing
+     */
     public static void decreaseHealthLevel ( int amount){
         healthLevel = healthLevel - amount;
     }
@@ -170,6 +322,15 @@ public class Soldier extends Walker {
 
 
         // making shoot method
+
+
+    /**
+     * soldier shoots
+     * <p>
+     * a small dynamic body is shot away from the soldier
+     *
+     *
+     */
         public void shoot () {
 
             skra.play();
@@ -193,6 +354,14 @@ public class Soldier extends Walker {
 
         }
 
+    /**
+     * soldier shoots
+     * <p>
+     * a small dymanic body is shot away from the soldier
+     * in the direction that the mouse is clicked
+     * @param  t
+     *
+     */
         public void shoot (Vec2 t){
           //  skra.setVolume(1.6);
             skra.play();
@@ -207,17 +376,36 @@ public class Soldier extends Walker {
            // projectile.addCollisionListener(new ExplosionCollision());
             projectile.addCollisionListener(new BulletCollision());
         }
-
+    /**
+     * soldier drops grenade
+     * <p>
+     * a small dymanic body is shot away from the soldier
+     *
+     * g
+     */
         public void dropBomb(){
 
             new Bomb(this.getWorld(),this.getPosition(),3000);
         }
 
+
+    /**
+     * returns backpack object
+     * <p>
+     * accesssor method for the back pack object
+     *
+     *
+     */
         //backpack accessor
         public Backpack getBackpack () {
             return backpack;
         }
-        public String getDirection () {
+
+    /**
+     *the direction the charachter moves in is returned
+     * @return direction
+     */
+    public String getDirection () {
 
             return direction;
         }

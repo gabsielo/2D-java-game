@@ -7,6 +7,8 @@ import org.jbox2d.common.Vec2;
 import java.awt.*;
 
 
+
+
 public class RegenPit extends StaticBody implements SensorListener, StepListener {
 
     private static final Shape pitShape = new BoxShape(3, 1f);
