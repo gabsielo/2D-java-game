@@ -2,20 +2,34 @@ package game;
 //line 63 and 64 temporarily redundant
 import city.cs.engine.*;
 
+import javax.sound.sampled.LineUnavailableException;
+import javax.sound.sampled.UnsupportedAudioFileException;
 import javax.swing.*;
 import java.awt.*;
+import java.io.IOException;
 
 /**
  * Your main game entry point
  */
 public class Game {
-
+private static SoundClip bossDeathSound;
 /* Gabriel Maharaj gabriel.maharaj@city.ac.uk
     adck757 */
 
 
 
+    static {
+        try {
+            bossDeathSound = new SoundClip("data/treasureSound.mpeg");   // Open an audio input stream
+            bossDeathSound.setVolume(1.9d);
 
+
+        } catch (UnsupportedAudioFileException | IOException | LineUnavailableException e) {
+            //code in here will deal with any errors
+            //that might occur while loading/playing sound
+            System.out.println(e);
+        }
+    }
 
 
     /** Initialise a new Game. */
@@ -227,6 +241,7 @@ public void goToNextLevel(){
             view.addMouseListener(new DirectionalShooting(currentLevel.getSoldier(),view));
             Tracker trackerLevel1 = new Tracker(view,currentLevel.getSoldier());
             currentLevel.addStepListener(trackerLevel1);
+            bossDeathSound.play();
         }
 
     else if (currentLevel instanceof Level2) {
@@ -250,7 +265,7 @@ public void goToNextLevel(){
         //    JFrame debugView = new DebugViewer(currentLevel, 500, 500);
             Tracker trackerLevel2 = new Tracker(view,currentLevel.getSoldier());
             currentLevel.addStepListener(trackerLevel2);
-
+            bossDeathSound.play();
 
     }
 

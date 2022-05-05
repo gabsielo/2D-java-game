@@ -33,8 +33,10 @@ public class Level1 extends GameLevel{
      * gameMusic is the background track that is to be played when the level is started
      */
     private SoundClip gameMusic;
-
-
+    /**
+     * osama the first terrorist in the game
+     */
+    private Terrorist osama;
 
 
     //temporarily just making sure the music stops when level 2 starts i cant workout how to  fix the rest 26/3
@@ -48,6 +50,18 @@ public class Level1 extends GameLevel{
      */
     public SoundClip getGameMusic(){return gameMusic;}
 
+    /**
+     * returns osama
+     * <p>
+     *
+     *
+     * @return osama
+     */
+
+
+    public Terrorist getOsama () {
+        return osama;
+    }
     /**
      * soldier startwalking
      * <p>
@@ -97,9 +111,21 @@ public class Level1 extends GameLevel{
 
         Cerberus cerberus = new Cerberus(this);
         cerberus.setPosition(new Vec2(9,-10));
-          SpikeBall spikeball1 = new SpikeBall(this, new Vec2 (1,-11));
+        SpikeBall spikeball1 = new SpikeBall(this, new Vec2 (1,-11));
+
+/*
+        // make a Terrorist
+        osama = new Terrorist(this);
+        osama = osama;
+        osama.startWalking(osama.getTerroristWalkingSpeed() - 1);
 
 
+        // trying to make 2nd terrorrist
+        Terrorist a = new Terrorist(this);
+        a.setPosition(new Vec2(2, -11));
+        osama.setPosition(new Vec2(7,-7));
+        a.startWalking(1);
+*/
         //SET POSITIONS
 
        // getSoldier().setPosition(new Vec2(-9, 9));
